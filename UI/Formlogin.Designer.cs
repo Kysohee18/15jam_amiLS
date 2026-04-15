@@ -1,6 +1,6 @@
 ﻿namespace Ucp_pabd_lab
 {
-    partial class Form1
+    partial class Formlogin
     {
         /// <summary>
         /// Required designer variable.

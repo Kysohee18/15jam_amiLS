@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Ucp_pabd_lab
 {
-    public partial class Form1 : Form
+    public partial class Formlogin : Form
     {
-        public Form1()
+        public Formlogin()
         {
             InitializeComponent();
         }
