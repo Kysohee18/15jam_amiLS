@@ -31,6 +31,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tab_penjagaLab = new System.Windows.Forms.TabControl();
             this.tab_peminjaman = new System.Windows.Forms.TabPage();
+            this.dgv_Peminjaman = new System.Windows.Forms.DataGridView();
             this.btn_peminjam_tampil = new System.Windows.Forms.Button();
             this.btn_pinjamkan = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -39,6 +40,8 @@
             this.txt_pinjaman_barang = new System.Windows.Forms.TextBox();
             this.txt_pinjaman_nama = new System.Windows.Forms.TextBox();
             this.tab_pengembalian = new System.Windows.Forms.TabPage();
+            this.txt_pengembalian_peran = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.btn_pengembalian_tampil = new System.Windows.Forms.Button();
             this.dgv_pengembalian = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
@@ -49,16 +52,13 @@
             this.tab_log_penjaga = new System.Windows.Forms.TabPage();
             this.linklable_log_refresh = new System.Windows.Forms.LinkLabel();
             this.dgv_log_trs = new System.Windows.Forms.DataGridView();
-            this.dgv_Peminjaman = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txt_pengembalian_peran = new System.Windows.Forms.TextBox();
             this.tab_penjagaLab.SuspendLayout();
             this.tab_peminjaman.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Peminjaman)).BeginInit();
             this.tab_pengembalian.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_pengembalian)).BeginInit();
             this.tab_log_penjaga.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_log_trs)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Peminjaman)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -97,6 +97,17 @@
             this.tab_peminjaman.TabIndex = 0;
             this.tab_peminjaman.Text = "Peminjaman";
             this.tab_peminjaman.UseVisualStyleBackColor = true;
+            this.tab_peminjaman.Click += new System.EventHandler(this.tab_peminjaman_Click);
+            // 
+            // dgv_Peminjaman
+            // 
+            this.dgv_Peminjaman.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Peminjaman.Location = new System.Drawing.Point(5, 206);
+            this.dgv_Peminjaman.Name = "dgv_Peminjaman";
+            this.dgv_Peminjaman.RowHeadersWidth = 51;
+            this.dgv_Peminjaman.RowTemplate.Height = 24;
+            this.dgv_Peminjaman.Size = new System.Drawing.Size(721, 153);
+            this.dgv_Peminjaman.TabIndex = 17;
             // 
             // btn_peminjam_tampil
             // 
@@ -175,6 +186,23 @@
             this.tab_pengembalian.TabIndex = 1;
             this.tab_pengembalian.Text = "Pengembalian";
             this.tab_pengembalian.UseVisualStyleBackColor = true;
+            // 
+            // txt_pengembalian_peran
+            // 
+            this.txt_pengembalian_peran.Location = new System.Drawing.Point(152, 60);
+            this.txt_pengembalian_peran.Name = "txt_pengembalian_peran";
+            this.txt_pengembalian_peran.Size = new System.Drawing.Size(264, 22);
+            this.txt_pengembalian_peran.TabIndex = 31;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(7, 101);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(138, 16);
+            this.label3.TabIndex = 30;
+            this.label3.Text = "Status Pengembalian:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // btn_pengembalian_tampil
             // 
@@ -270,33 +298,6 @@
             this.dgv_log_trs.Size = new System.Drawing.Size(715, 301);
             this.dgv_log_trs.TabIndex = 0;
             // 
-            // dgv_Peminjaman
-            // 
-            this.dgv_Peminjaman.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Peminjaman.Location = new System.Drawing.Point(5, 206);
-            this.dgv_Peminjaman.Name = "dgv_Peminjaman";
-            this.dgv_Peminjaman.RowHeadersWidth = 51;
-            this.dgv_Peminjaman.RowTemplate.Height = 24;
-            this.dgv_Peminjaman.Size = new System.Drawing.Size(721, 153);
-            this.dgv_Peminjaman.TabIndex = 17;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 101);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(138, 16);
-            this.label3.TabIndex = 30;
-            this.label3.Text = "Status Pengembalian:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            // 
-            // txt_pengembalian_peran
-            // 
-            this.txt_pengembalian_peran.Location = new System.Drawing.Point(152, 60);
-            this.txt_pengembalian_peran.Name = "txt_pengembalian_peran";
-            this.txt_pengembalian_peran.Size = new System.Drawing.Size(264, 22);
-            this.txt_pengembalian_peran.TabIndex = 31;
-            // 
             // Formpenjaga
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -306,16 +307,17 @@
             this.Controls.Add(this.label1);
             this.Name = "Formpenjaga";
             this.Text = "Formpenjaga";
+            this.Load += new System.EventHandler(this.Formpenjaga_Load);
             this.tab_penjagaLab.ResumeLayout(false);
             this.tab_peminjaman.ResumeLayout(false);
             this.tab_peminjaman.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Peminjaman)).EndInit();
             this.tab_pengembalian.ResumeLayout(false);
             this.tab_pengembalian.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_pengembalian)).EndInit();
             this.tab_log_penjaga.ResumeLayout(false);
             this.tab_log_penjaga.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_log_trs)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Peminjaman)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

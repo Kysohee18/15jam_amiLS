@@ -72,13 +72,13 @@ namespace Ucp_pabd_lab
 
                         if (role == "Admin")
                         {
-                            FormAdmin adminForm = new FormAdmin();
+                            Formadmin adminForm = new Formadmin();
                             adminForm.Show();
                             this.Hide();
                         }
                         else if (role == "PenjagaLab")
                         {
-                            FormPenjaga penjagaForm = new FormPenjaga();
+                            Formpenjaga penjagaForm = new Formpenjaga();
                             penjagaForm.Show();
                             this.Hide();
                         }

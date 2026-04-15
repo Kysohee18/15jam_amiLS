@@ -21,5 +21,15 @@ namespace Ucp_pabd_lab.UI
         {
 
         }
+
+        private void Formpenjaga_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tab_peminjaman_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

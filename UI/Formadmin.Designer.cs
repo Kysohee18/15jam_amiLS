@@ -30,6 +30,11 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tab_kelolabarang = new System.Windows.Forms.TabPage();
+            this.btn_klbr_refresh = new System.Windows.Forms.Button();
+            this.btn_klbr_hapus = new System.Windows.Forms.Button();
+            this.btn_klbr_ubah = new System.Windows.Forms.Button();
+            this.dgv_kelolabarang = new System.Windows.Forms.DataGridView();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -38,12 +43,7 @@
             this.txt_klbr_nama = new System.Windows.Forms.TextBox();
             this.btn_klbr_simpan = new System.Windows.Forms.Button();
             this.tab_kelolauser = new System.Windows.Forms.TabPage();
-            this.tab_log_admin = new System.Windows.Forms.TabPage();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dgv_kelolabarang = new System.Windows.Forms.DataGridView();
-            this.btn_klbr_ubah = new System.Windows.Forms.Button();
-            this.btn_klbr_hapus = new System.Windows.Forms.Button();
-            this.btn_klbr_refresh = new System.Windows.Forms.Button();
+            this.cmb_klusr_peran = new System.Windows.Forms.ComboBox();
             this.btn_klusr_refresh = new System.Windows.Forms.Button();
             this.btn_klusr_hapus = new System.Windows.Forms.Button();
             this.btn_klusr_ubah = new System.Windows.Forms.Button();
@@ -53,15 +53,15 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txt_klusr_nama = new System.Windows.Forms.TextBox();
             this.btn_klusr_simpan = new System.Windows.Forms.Button();
-            this.cmb_klusr_peran = new System.Windows.Forms.ComboBox();
-            this.dgv_log_admin = new System.Windows.Forms.DataGridView();
+            this.tab_log_admin = new System.Windows.Forms.TabPage();
             this.refresh_log_admin = new System.Windows.Forms.LinkLabel();
+            this.dgv_log_admin = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tab_kelolabarang.SuspendLayout();
-            this.tab_kelolauser.SuspendLayout();
-            this.tab_log_admin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_kelolabarang)).BeginInit();
+            this.tab_kelolauser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_kelolauser)).BeginInit();
+            this.tab_log_admin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_log_admin)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,6 +97,52 @@
             this.tab_kelolabarang.TabIndex = 0;
             this.tab_kelolabarang.Text = "Kelola Barang";
             this.tab_kelolabarang.UseVisualStyleBackColor = true;
+            // 
+            // btn_klbr_refresh
+            // 
+            this.btn_klbr_refresh.Location = new System.Drawing.Point(534, 126);
+            this.btn_klbr_refresh.Name = "btn_klbr_refresh";
+            this.btn_klbr_refresh.Size = new System.Drawing.Size(166, 22);
+            this.btn_klbr_refresh.TabIndex = 16;
+            this.btn_klbr_refresh.Text = "Refresh";
+            this.btn_klbr_refresh.UseVisualStyleBackColor = true;
+            // 
+            // btn_klbr_hapus
+            // 
+            this.btn_klbr_hapus.Location = new System.Drawing.Point(534, 98);
+            this.btn_klbr_hapus.Name = "btn_klbr_hapus";
+            this.btn_klbr_hapus.Size = new System.Drawing.Size(166, 22);
+            this.btn_klbr_hapus.TabIndex = 15;
+            this.btn_klbr_hapus.Text = "Hapus";
+            this.btn_klbr_hapus.UseVisualStyleBackColor = true;
+            // 
+            // btn_klbr_ubah
+            // 
+            this.btn_klbr_ubah.Location = new System.Drawing.Point(534, 70);
+            this.btn_klbr_ubah.Name = "btn_klbr_ubah";
+            this.btn_klbr_ubah.Size = new System.Drawing.Size(166, 22);
+            this.btn_klbr_ubah.TabIndex = 14;
+            this.btn_klbr_ubah.Text = "Ubah";
+            this.btn_klbr_ubah.UseVisualStyleBackColor = true;
+            // 
+            // dgv_kelolabarang
+            // 
+            this.dgv_kelolabarang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_kelolabarang.Location = new System.Drawing.Point(9, 203);
+            this.dgv_kelolabarang.Name = "dgv_kelolabarang";
+            this.dgv_kelolabarang.RowHeadersWidth = 51;
+            this.dgv_kelolabarang.RowTemplate.Height = 24;
+            this.dgv_kelolabarang.Size = new System.Drawing.Size(717, 156);
+            this.dgv_kelolabarang.TabIndex = 13;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(6, 73);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(57, 16);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Kategori";
             // 
             // label3
             // 
@@ -175,63 +221,16 @@
             this.tab_kelolauser.Text = "Kelola User";
             this.tab_kelolauser.UseVisualStyleBackColor = true;
             // 
-            // tab_log_admin
+            // cmb_klusr_peran
             // 
-            this.tab_log_admin.Controls.Add(this.refresh_log_admin);
-            this.tab_log_admin.Controls.Add(this.dgv_log_admin);
-            this.tab_log_admin.Location = new System.Drawing.Point(4, 25);
-            this.tab_log_admin.Name = "tab_log_admin";
-            this.tab_log_admin.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_log_admin.Size = new System.Drawing.Size(732, 365);
-            this.tab_log_admin.TabIndex = 2;
-            this.tab_log_admin.Text = "Log Transaksi";
-            this.tab_log_admin.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 73);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 16);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Kategori";
-            // 
-            // dgv_kelolabarang
-            // 
-            this.dgv_kelolabarang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_kelolabarang.Location = new System.Drawing.Point(9, 203);
-            this.dgv_kelolabarang.Name = "dgv_kelolabarang";
-            this.dgv_kelolabarang.RowHeadersWidth = 51;
-            this.dgv_kelolabarang.RowTemplate.Height = 24;
-            this.dgv_kelolabarang.Size = new System.Drawing.Size(717, 156);
-            this.dgv_kelolabarang.TabIndex = 13;
-            // 
-            // btn_klbr_ubah
-            // 
-            this.btn_klbr_ubah.Location = new System.Drawing.Point(534, 70);
-            this.btn_klbr_ubah.Name = "btn_klbr_ubah";
-            this.btn_klbr_ubah.Size = new System.Drawing.Size(166, 22);
-            this.btn_klbr_ubah.TabIndex = 14;
-            this.btn_klbr_ubah.Text = "Ubah";
-            this.btn_klbr_ubah.UseVisualStyleBackColor = true;
-            // 
-            // btn_klbr_hapus
-            // 
-            this.btn_klbr_hapus.Location = new System.Drawing.Point(534, 98);
-            this.btn_klbr_hapus.Name = "btn_klbr_hapus";
-            this.btn_klbr_hapus.Size = new System.Drawing.Size(166, 22);
-            this.btn_klbr_hapus.TabIndex = 15;
-            this.btn_klbr_hapus.Text = "Hapus";
-            this.btn_klbr_hapus.UseVisualStyleBackColor = true;
-            // 
-            // btn_klbr_refresh
-            // 
-            this.btn_klbr_refresh.Location = new System.Drawing.Point(534, 126);
-            this.btn_klbr_refresh.Name = "btn_klbr_refresh";
-            this.btn_klbr_refresh.Size = new System.Drawing.Size(166, 22);
-            this.btn_klbr_refresh.TabIndex = 16;
-            this.btn_klbr_refresh.Text = "Refresh";
-            this.btn_klbr_refresh.UseVisualStyleBackColor = true;
+            this.cmb_klusr_peran.FormattingEnabled = true;
+            this.cmb_klusr_peran.Items.AddRange(new object[] {
+            "Siswa",
+            "Guru"});
+            this.cmb_klusr_peran.Location = new System.Drawing.Point(152, 58);
+            this.cmb_klusr_peran.Name = "cmb_klusr_peran";
+            this.cmb_klusr_peran.Size = new System.Drawing.Size(264, 24);
+            this.cmb_klusr_peran.TabIndex = 29;
             // 
             // btn_klusr_refresh
             // 
@@ -313,26 +312,17 @@
             this.btn_klusr_simpan.Text = "Simpan";
             this.btn_klusr_simpan.UseVisualStyleBackColor = true;
             // 
-            // cmb_klusr_peran
+            // tab_log_admin
             // 
-            this.cmb_klusr_peran.FormattingEnabled = true;
-            this.cmb_klusr_peran.Items.AddRange(new object[] {
-            "Siswa",
-            "Guru"});
-            this.cmb_klusr_peran.Location = new System.Drawing.Point(152, 58);
-            this.cmb_klusr_peran.Name = "cmb_klusr_peran";
-            this.cmb_klusr_peran.Size = new System.Drawing.Size(264, 24);
-            this.cmb_klusr_peran.TabIndex = 29;
-            // 
-            // dgv_log_admin
-            // 
-            this.dgv_log_admin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_log_admin.Location = new System.Drawing.Point(6, 51);
-            this.dgv_log_admin.Name = "dgv_log_admin";
-            this.dgv_log_admin.RowHeadersWidth = 51;
-            this.dgv_log_admin.RowTemplate.Height = 24;
-            this.dgv_log_admin.Size = new System.Drawing.Size(715, 301);
-            this.dgv_log_admin.TabIndex = 0;
+            this.tab_log_admin.Controls.Add(this.refresh_log_admin);
+            this.tab_log_admin.Controls.Add(this.dgv_log_admin);
+            this.tab_log_admin.Location = new System.Drawing.Point(4, 25);
+            this.tab_log_admin.Name = "tab_log_admin";
+            this.tab_log_admin.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_log_admin.Size = new System.Drawing.Size(732, 365);
+            this.tab_log_admin.TabIndex = 2;
+            this.tab_log_admin.Text = "Log Transaksi";
+            this.tab_log_admin.UseVisualStyleBackColor = true;
             // 
             // refresh_log_admin
             // 
@@ -344,6 +334,16 @@
             this.refresh_log_admin.TabStop = true;
             this.refresh_log_admin.Text = "Refresh";
             // 
+            // dgv_log_admin
+            // 
+            this.dgv_log_admin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_log_admin.Location = new System.Drawing.Point(6, 51);
+            this.dgv_log_admin.Name = "dgv_log_admin";
+            this.dgv_log_admin.RowHeadersWidth = 51;
+            this.dgv_log_admin.RowTemplate.Height = 24;
+            this.dgv_log_admin.Size = new System.Drawing.Size(715, 301);
+            this.dgv_log_admin.TabIndex = 0;
+            // 
             // Formadmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -353,15 +353,16 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "Formadmin";
             this.Text = "Formadmin";
+            this.Load += new System.EventHandler(this.Formadmin_Load);
             this.tabControl1.ResumeLayout(false);
             this.tab_kelolabarang.ResumeLayout(false);
             this.tab_kelolabarang.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_kelolabarang)).EndInit();
             this.tab_kelolauser.ResumeLayout(false);
             this.tab_kelolauser.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_kelolauser)).EndInit();
             this.tab_log_admin.ResumeLayout(false);
             this.tab_log_admin.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_kelolabarang)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_kelolauser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_log_admin)).EndInit();
             this.ResumeLayout(false);
 
