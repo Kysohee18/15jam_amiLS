@@ -29,74 +29,74 @@
         private void InitializeComponent()
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tab_kelolabarang = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.txt_klbr_stok = new System.Windows.Forms.TextBox();
+            this.txt_klbr_kategori = new System.Windows.Forms.TextBox();
+            this.txt_klbr_nama = new System.Windows.Forms.TextBox();
+            this.btn_klbr_simpan = new System.Windows.Forms.Button();
+            this.tab_kelolauser = new System.Windows.Forms.TabPage();
+            this.tab_log_admin = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgv_kelolabarang = new System.Windows.Forms.DataGridView();
+            this.btn_klbr_ubah = new System.Windows.Forms.Button();
+            this.btn_klbr_hapus = new System.Windows.Forms.Button();
+            this.btn_klbr_refresh = new System.Windows.Forms.Button();
+            this.btn_klusr_refresh = new System.Windows.Forms.Button();
+            this.btn_klusr_hapus = new System.Windows.Forms.Button();
+            this.btn_klusr_ubah = new System.Windows.Forms.Button();
+            this.dgv_kelolauser = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.button8 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.txt_klusr_nama = new System.Windows.Forms.TextBox();
+            this.btn_klusr_simpan = new System.Windows.Forms.Button();
+            this.cmb_klusr_peran = new System.Windows.Forms.ComboBox();
+            this.dgv_log_admin = new System.Windows.Forms.DataGridView();
+            this.refresh_log_admin = new System.Windows.Forms.LinkLabel();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            this.tab_kelolabarang.SuspendLayout();
+            this.tab_kelolauser.SuspendLayout();
+            this.tab_log_admin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_kelolabarang)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_kelolauser)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_log_admin)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tab_kelolabarang);
+            this.tabControl1.Controls.Add(this.tab_kelolauser);
+            this.tabControl1.Controls.Add(this.tab_log_admin);
             this.tabControl1.Location = new System.Drawing.Point(26, 29);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(740, 394);
             this.tabControl1.TabIndex = 0;
             // 
-            // tabPage1
+            // tab_kelolabarang
             // 
-            this.tabPage1.Controls.Add(this.button4);
-            this.tabPage1.Controls.Add(this.button3);
-            this.tabPage1.Controls.Add(this.button2);
-            this.tabPage1.Controls.Add(this.dataGridView1);
-            this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.textBox5);
-            this.tabPage1.Controls.Add(this.textBox4);
-            this.tabPage1.Controls.Add(this.textBox3);
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(732, 365);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Kelola Barang";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tab_kelolabarang.Controls.Add(this.btn_klbr_refresh);
+            this.tab_kelolabarang.Controls.Add(this.btn_klbr_hapus);
+            this.tab_kelolabarang.Controls.Add(this.btn_klbr_ubah);
+            this.tab_kelolabarang.Controls.Add(this.dgv_kelolabarang);
+            this.tab_kelolabarang.Controls.Add(this.label4);
+            this.tab_kelolabarang.Controls.Add(this.label3);
+            this.tab_kelolabarang.Controls.Add(this.label2);
+            this.tab_kelolabarang.Controls.Add(this.label1);
+            this.tab_kelolabarang.Controls.Add(this.txt_klbr_stok);
+            this.tab_kelolabarang.Controls.Add(this.txt_klbr_kategori);
+            this.tab_kelolabarang.Controls.Add(this.txt_klbr_nama);
+            this.tab_kelolabarang.Controls.Add(this.btn_klbr_simpan);
+            this.tab_kelolabarang.Location = new System.Drawing.Point(4, 25);
+            this.tab_kelolabarang.Name = "tab_kelolabarang";
+            this.tab_kelolabarang.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_kelolabarang.Size = new System.Drawing.Size(732, 365);
+            this.tab_kelolabarang.TabIndex = 0;
+            this.tab_kelolabarang.Text = "Kelola Barang";
+            this.tab_kelolabarang.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -125,67 +125,67 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Nama Barang:";
             // 
-            // textBox5
+            // txt_klbr_stok
             // 
-            this.textBox5.Location = new System.Drawing.Point(152, 98);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(264, 22);
-            this.textBox5.TabIndex = 8;
+            this.txt_klbr_stok.Location = new System.Drawing.Point(152, 98);
+            this.txt_klbr_stok.Name = "txt_klbr_stok";
+            this.txt_klbr_stok.Size = new System.Drawing.Size(264, 22);
+            this.txt_klbr_stok.TabIndex = 8;
             // 
-            // textBox4
+            // txt_klbr_kategori
             // 
-            this.textBox4.Location = new System.Drawing.Point(152, 70);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(264, 22);
-            this.textBox4.TabIndex = 7;
+            this.txt_klbr_kategori.Location = new System.Drawing.Point(152, 70);
+            this.txt_klbr_kategori.Name = "txt_klbr_kategori";
+            this.txt_klbr_kategori.Size = new System.Drawing.Size(264, 22);
+            this.txt_klbr_kategori.TabIndex = 7;
             // 
-            // textBox3
+            // txt_klbr_nama
             // 
-            this.textBox3.Location = new System.Drawing.Point(152, 42);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(264, 22);
-            this.textBox3.TabIndex = 6;
+            this.txt_klbr_nama.Location = new System.Drawing.Point(152, 42);
+            this.txt_klbr_nama.Name = "txt_klbr_nama";
+            this.txt_klbr_nama.Size = new System.Drawing.Size(264, 22);
+            this.txt_klbr_nama.TabIndex = 6;
             // 
-            // button1
+            // btn_klbr_simpan
             // 
-            this.button1.Location = new System.Drawing.Point(534, 42);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(166, 22);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Simpan";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_klbr_simpan.Location = new System.Drawing.Point(534, 42);
+            this.btn_klbr_simpan.Name = "btn_klbr_simpan";
+            this.btn_klbr_simpan.Size = new System.Drawing.Size(166, 22);
+            this.btn_klbr_simpan.TabIndex = 0;
+            this.btn_klbr_simpan.Text = "Simpan";
+            this.btn_klbr_simpan.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // tab_kelolauser
             // 
-            this.tabPage2.Controls.Add(this.comboBox1);
-            this.tabPage2.Controls.Add(this.button5);
-            this.tabPage2.Controls.Add(this.button6);
-            this.tabPage2.Controls.Add(this.button7);
-            this.tabPage2.Controls.Add(this.dataGridView2);
-            this.tabPage2.Controls.Add(this.label5);
-            this.tabPage2.Controls.Add(this.label7);
-            this.tabPage2.Controls.Add(this.label8);
-            this.tabPage2.Controls.Add(this.textBox6);
-            this.tabPage2.Controls.Add(this.button8);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(732, 365);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Kelola User";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tab_kelolauser.Controls.Add(this.cmb_klusr_peran);
+            this.tab_kelolauser.Controls.Add(this.btn_klusr_refresh);
+            this.tab_kelolauser.Controls.Add(this.btn_klusr_hapus);
+            this.tab_kelolauser.Controls.Add(this.btn_klusr_ubah);
+            this.tab_kelolauser.Controls.Add(this.dgv_kelolauser);
+            this.tab_kelolauser.Controls.Add(this.label5);
+            this.tab_kelolauser.Controls.Add(this.label7);
+            this.tab_kelolauser.Controls.Add(this.label8);
+            this.tab_kelolauser.Controls.Add(this.txt_klusr_nama);
+            this.tab_kelolauser.Controls.Add(this.btn_klusr_simpan);
+            this.tab_kelolauser.Location = new System.Drawing.Point(4, 25);
+            this.tab_kelolauser.Name = "tab_kelolauser";
+            this.tab_kelolauser.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_kelolauser.Size = new System.Drawing.Size(732, 365);
+            this.tab_kelolauser.TabIndex = 1;
+            this.tab_kelolauser.Text = "Kelola User";
+            this.tab_kelolauser.UseVisualStyleBackColor = true;
             // 
-            // tabPage3
+            // tab_log_admin
             // 
-            this.tabPage3.Controls.Add(this.linkLabel1);
-            this.tabPage3.Controls.Add(this.dataGridView3);
-            this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(732, 365);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Log Transaksi";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tab_log_admin.Controls.Add(this.refresh_log_admin);
+            this.tab_log_admin.Controls.Add(this.dgv_log_admin);
+            this.tab_log_admin.Location = new System.Drawing.Point(4, 25);
+            this.tab_log_admin.Name = "tab_log_admin";
+            this.tab_log_admin.Padding = new System.Windows.Forms.Padding(3);
+            this.tab_log_admin.Size = new System.Drawing.Size(732, 365);
+            this.tab_log_admin.TabIndex = 2;
+            this.tab_log_admin.Text = "Log Transaksi";
+            this.tab_log_admin.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -196,79 +196,79 @@
             this.label4.TabIndex = 12;
             this.label4.Text = "Kategori";
             // 
-            // dataGridView1
+            // dgv_kelolabarang
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(9, 203);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(717, 156);
-            this.dataGridView1.TabIndex = 13;
+            this.dgv_kelolabarang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_kelolabarang.Location = new System.Drawing.Point(9, 203);
+            this.dgv_kelolabarang.Name = "dgv_kelolabarang";
+            this.dgv_kelolabarang.RowHeadersWidth = 51;
+            this.dgv_kelolabarang.RowTemplate.Height = 24;
+            this.dgv_kelolabarang.Size = new System.Drawing.Size(717, 156);
+            this.dgv_kelolabarang.TabIndex = 13;
             // 
-            // button2
+            // btn_klbr_ubah
             // 
-            this.button2.Location = new System.Drawing.Point(534, 70);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(166, 22);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "Ubah";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_klbr_ubah.Location = new System.Drawing.Point(534, 70);
+            this.btn_klbr_ubah.Name = "btn_klbr_ubah";
+            this.btn_klbr_ubah.Size = new System.Drawing.Size(166, 22);
+            this.btn_klbr_ubah.TabIndex = 14;
+            this.btn_klbr_ubah.Text = "Ubah";
+            this.btn_klbr_ubah.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btn_klbr_hapus
             // 
-            this.button3.Location = new System.Drawing.Point(534, 98);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(166, 22);
-            this.button3.TabIndex = 15;
-            this.button3.Text = "Hapus";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btn_klbr_hapus.Location = new System.Drawing.Point(534, 98);
+            this.btn_klbr_hapus.Name = "btn_klbr_hapus";
+            this.btn_klbr_hapus.Size = new System.Drawing.Size(166, 22);
+            this.btn_klbr_hapus.TabIndex = 15;
+            this.btn_klbr_hapus.Text = "Hapus";
+            this.btn_klbr_hapus.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btn_klbr_refresh
             // 
-            this.button4.Location = new System.Drawing.Point(534, 126);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(166, 22);
-            this.button4.TabIndex = 16;
-            this.button4.Text = "Refresh";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btn_klbr_refresh.Location = new System.Drawing.Point(534, 126);
+            this.btn_klbr_refresh.Name = "btn_klbr_refresh";
+            this.btn_klbr_refresh.Size = new System.Drawing.Size(166, 22);
+            this.btn_klbr_refresh.TabIndex = 16;
+            this.btn_klbr_refresh.Text = "Refresh";
+            this.btn_klbr_refresh.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // btn_klusr_refresh
             // 
-            this.button5.Location = new System.Drawing.Point(534, 108);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(166, 22);
-            this.button5.TabIndex = 28;
-            this.button5.Text = "Refresh";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btn_klusr_refresh.Location = new System.Drawing.Point(534, 108);
+            this.btn_klusr_refresh.Name = "btn_klusr_refresh";
+            this.btn_klusr_refresh.Size = new System.Drawing.Size(166, 22);
+            this.btn_klusr_refresh.TabIndex = 28;
+            this.btn_klusr_refresh.Text = "Refresh";
+            this.btn_klusr_refresh.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // btn_klusr_hapus
             // 
-            this.button6.Location = new System.Drawing.Point(534, 80);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(166, 22);
-            this.button6.TabIndex = 27;
-            this.button6.Text = "Hapus";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btn_klusr_hapus.Location = new System.Drawing.Point(534, 80);
+            this.btn_klusr_hapus.Name = "btn_klusr_hapus";
+            this.btn_klusr_hapus.Size = new System.Drawing.Size(166, 22);
+            this.btn_klusr_hapus.TabIndex = 27;
+            this.btn_klusr_hapus.Text = "Hapus";
+            this.btn_klusr_hapus.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // btn_klusr_ubah
             // 
-            this.button7.Location = new System.Drawing.Point(534, 52);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(166, 22);
-            this.button7.TabIndex = 26;
-            this.button7.Text = "Ubah";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btn_klusr_ubah.Location = new System.Drawing.Point(534, 52);
+            this.btn_klusr_ubah.Name = "btn_klusr_ubah";
+            this.btn_klusr_ubah.Size = new System.Drawing.Size(166, 22);
+            this.btn_klusr_ubah.TabIndex = 26;
+            this.btn_klusr_ubah.Text = "Ubah";
+            this.btn_klusr_ubah.UseVisualStyleBackColor = true;
             // 
-            // dataGridView2
+            // dgv_kelolauser
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(9, 185);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(717, 156);
-            this.dataGridView2.TabIndex = 25;
+            this.dgv_kelolauser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_kelolauser.Location = new System.Drawing.Point(9, 185);
+            this.dgv_kelolauser.Name = "dgv_kelolauser";
+            this.dgv_kelolauser.RowHeadersWidth = 51;
+            this.dgv_kelolauser.RowTemplate.Height = 24;
+            this.dgv_kelolauser.Size = new System.Drawing.Size(717, 156);
+            this.dgv_kelolauser.TabIndex = 25;
             // 
             // label5
             // 
@@ -297,52 +297,52 @@
             this.label8.TabIndex = 21;
             this.label8.Text = "Nama :";
             // 
-            // textBox6
+            // txt_klusr_nama
             // 
-            this.textBox6.Location = new System.Drawing.Point(152, 24);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(264, 22);
-            this.textBox6.TabIndex = 18;
+            this.txt_klusr_nama.Location = new System.Drawing.Point(152, 24);
+            this.txt_klusr_nama.Name = "txt_klusr_nama";
+            this.txt_klusr_nama.Size = new System.Drawing.Size(264, 22);
+            this.txt_klusr_nama.TabIndex = 18;
             // 
-            // button8
+            // btn_klusr_simpan
             // 
-            this.button8.Location = new System.Drawing.Point(534, 24);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(166, 22);
-            this.button8.TabIndex = 17;
-            this.button8.Text = "Simpan";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btn_klusr_simpan.Location = new System.Drawing.Point(534, 24);
+            this.btn_klusr_simpan.Name = "btn_klusr_simpan";
+            this.btn_klusr_simpan.Size = new System.Drawing.Size(166, 22);
+            this.btn_klusr_simpan.TabIndex = 17;
+            this.btn_klusr_simpan.Text = "Simpan";
+            this.btn_klusr_simpan.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // cmb_klusr_peran
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cmb_klusr_peran.FormattingEnabled = true;
+            this.cmb_klusr_peran.Items.AddRange(new object[] {
             "Siswa",
             "Guru"});
-            this.comboBox1.Location = new System.Drawing.Point(152, 58);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(264, 24);
-            this.comboBox1.TabIndex = 29;
+            this.cmb_klusr_peran.Location = new System.Drawing.Point(152, 58);
+            this.cmb_klusr_peran.Name = "cmb_klusr_peran";
+            this.cmb_klusr_peran.Size = new System.Drawing.Size(264, 24);
+            this.cmb_klusr_peran.TabIndex = 29;
             // 
-            // dataGridView3
+            // dgv_log_admin
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(6, 51);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowHeadersWidth = 51;
-            this.dataGridView3.RowTemplate.Height = 24;
-            this.dataGridView3.Size = new System.Drawing.Size(715, 301);
-            this.dataGridView3.TabIndex = 0;
+            this.dgv_log_admin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_log_admin.Location = new System.Drawing.Point(6, 51);
+            this.dgv_log_admin.Name = "dgv_log_admin";
+            this.dgv_log_admin.RowHeadersWidth = 51;
+            this.dgv_log_admin.RowTemplate.Height = 24;
+            this.dgv_log_admin.Size = new System.Drawing.Size(715, 301);
+            this.dgv_log_admin.TabIndex = 0;
             // 
-            // linkLabel1
+            // refresh_log_admin
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(653, 32);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(54, 16);
-            this.linkLabel1.TabIndex = 1;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Refresh";
+            this.refresh_log_admin.AutoSize = true;
+            this.refresh_log_admin.Location = new System.Drawing.Point(653, 32);
+            this.refresh_log_admin.Name = "refresh_log_admin";
+            this.refresh_log_admin.Size = new System.Drawing.Size(54, 16);
+            this.refresh_log_admin.TabIndex = 1;
+            this.refresh_log_admin.TabStop = true;
+            this.refresh_log_admin.Text = "Refresh";
             // 
             // Formadmin
             // 
@@ -354,15 +354,15 @@
             this.Name = "Formadmin";
             this.Text = "Formadmin";
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            this.tab_kelolabarang.ResumeLayout(false);
+            this.tab_kelolabarang.PerformLayout();
+            this.tab_kelolauser.ResumeLayout(false);
+            this.tab_kelolauser.PerformLayout();
+            this.tab_log_admin.ResumeLayout(false);
+            this.tab_log_admin.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_kelolabarang)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_kelolauser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_log_admin)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -370,32 +370,32 @@
         #endregion
 
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tab_kelolabarang;
+        private System.Windows.Forms.TabPage tab_kelolauser;
+        private System.Windows.Forms.TabPage tab_log_admin;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox txt_klbr_stok;
+        private System.Windows.Forms.TextBox txt_klbr_kategori;
+        private System.Windows.Forms.TextBox txt_klbr_nama;
+        private System.Windows.Forms.Button btn_klbr_simpan;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Button btn_klbr_refresh;
+        private System.Windows.Forms.Button btn_klbr_hapus;
+        private System.Windows.Forms.Button btn_klbr_ubah;
+        private System.Windows.Forms.DataGridView dgv_kelolabarang;
+        private System.Windows.Forms.Button btn_klusr_refresh;
+        private System.Windows.Forms.Button btn_klusr_hapus;
+        private System.Windows.Forms.Button btn_klusr_ubah;
+        private System.Windows.Forms.DataGridView dgv_kelolauser;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.TextBox txt_klusr_nama;
+        private System.Windows.Forms.Button btn_klusr_simpan;
+        private System.Windows.Forms.ComboBox cmb_klusr_peran;
+        private System.Windows.Forms.LinkLabel refresh_log_admin;
+        private System.Windows.Forms.DataGridView dgv_log_admin;
     }
 }
