@@ -39,25 +39,25 @@
             this.txt_pinjaman_barang = new System.Windows.Forms.TextBox();
             this.txt_pinjaman_nama = new System.Windows.Forms.TextBox();
             this.tabPengembalian = new System.Windows.Forms.TabPage();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.btn_pengembalian_tampil = new System.Windows.Forms.Button();
+            this.dgv_pengembalian = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.button8 = new System.Windows.Forms.Button();
+            this.txt_pengembalian_nama = new System.Windows.Forms.TextBox();
+            this.btn_kembalikan = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.linklable_log_refresh = new System.Windows.Forms.LinkLabel();
+            this.dgv_log_trs = new System.Windows.Forms.DataGridView();
             this.dgv_Peminjaman = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
+            this.txt_pengembalian_peran = new System.Windows.Forms.TextBox();
             this.tabPeminjaman.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPengembalian.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_pengembalian)).BeginInit();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_log_trs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Peminjaman)).BeginInit();
             this.SuspendLayout();
             // 
@@ -159,15 +159,15 @@
             // 
             // tabPengembalian
             // 
+            this.tabPengembalian.Controls.Add(this.txt_pengembalian_peran);
             this.tabPengembalian.Controls.Add(this.label3);
-            this.tabPengembalian.Controls.Add(this.comboBox1);
-            this.tabPengembalian.Controls.Add(this.button5);
-            this.tabPengembalian.Controls.Add(this.dataGridView2);
+            this.tabPengembalian.Controls.Add(this.btn_pengembalian_tampil);
+            this.tabPengembalian.Controls.Add(this.dgv_pengembalian);
             this.tabPengembalian.Controls.Add(this.label6);
             this.tabPengembalian.Controls.Add(this.label7);
             this.tabPengembalian.Controls.Add(this.label8);
-            this.tabPengembalian.Controls.Add(this.textBox6);
-            this.tabPengembalian.Controls.Add(this.button8);
+            this.tabPengembalian.Controls.Add(this.txt_pengembalian_nama);
+            this.tabPengembalian.Controls.Add(this.btn_kembalikan);
             this.tabPengembalian.Location = new System.Drawing.Point(4, 25);
             this.tabPengembalian.Name = "tabPengembalian";
             this.tabPengembalian.Padding = new System.Windows.Forms.Padding(3);
@@ -176,35 +176,24 @@
             this.tabPengembalian.Text = "Pengembalian";
             this.tabPengembalian.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // btn_pengembalian_tampil
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Siswa",
-            "Guru"});
-            this.comboBox1.Location = new System.Drawing.Point(152, 58);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(264, 24);
-            this.comboBox1.TabIndex = 29;
+            this.btn_pengembalian_tampil.Location = new System.Drawing.Point(9, 157);
+            this.btn_pengembalian_tampil.Name = "btn_pengembalian_tampil";
+            this.btn_pengembalian_tampil.Size = new System.Drawing.Size(166, 22);
+            this.btn_pengembalian_tampil.TabIndex = 28;
+            this.btn_pengembalian_tampil.Text = "Tampilkan Barang";
+            this.btn_pengembalian_tampil.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // dgv_pengembalian
             // 
-            this.button5.Location = new System.Drawing.Point(9, 157);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(166, 22);
-            this.button5.TabIndex = 28;
-            this.button5.Text = "Tampilkan Barang";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(9, 185);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(717, 156);
-            this.dataGridView2.TabIndex = 25;
+            this.dgv_pengembalian.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_pengembalian.Location = new System.Drawing.Point(9, 185);
+            this.dgv_pengembalian.Name = "dgv_pengembalian";
+            this.dgv_pengembalian.RowHeadersWidth = 51;
+            this.dgv_pengembalian.RowTemplate.Height = 24;
+            this.dgv_pengembalian.Size = new System.Drawing.Size(717, 156);
+            this.dgv_pengembalian.TabIndex = 25;
             // 
             // label6
             // 
@@ -233,26 +222,26 @@
             this.label8.TabIndex = 21;
             this.label8.Text = "Nama :";
             // 
-            // textBox6
+            // txt_pengembalian_nama
             // 
-            this.textBox6.Location = new System.Drawing.Point(152, 24);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(264, 22);
-            this.textBox6.TabIndex = 18;
+            this.txt_pengembalian_nama.Location = new System.Drawing.Point(152, 24);
+            this.txt_pengembalian_nama.Name = "txt_pengembalian_nama";
+            this.txt_pengembalian_nama.Size = new System.Drawing.Size(264, 22);
+            this.txt_pengembalian_nama.TabIndex = 18;
             // 
-            // button8
+            // btn_kembalikan
             // 
-            this.button8.Location = new System.Drawing.Point(534, 24);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(166, 58);
-            this.button8.TabIndex = 17;
-            this.button8.Text = "Kembalikan";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btn_kembalikan.Location = new System.Drawing.Point(534, 24);
+            this.btn_kembalikan.Name = "btn_kembalikan";
+            this.btn_kembalikan.Size = new System.Drawing.Size(166, 58);
+            this.btn_kembalikan.TabIndex = 17;
+            this.btn_kembalikan.Text = "Kembalikan";
+            this.btn_kembalikan.UseVisualStyleBackColor = true;
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.linkLabel1);
-            this.tabPage3.Controls.Add(this.dataGridView3);
+            this.tabPage3.Controls.Add(this.linklable_log_refresh);
+            this.tabPage3.Controls.Add(this.dgv_log_trs);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -261,25 +250,25 @@
             this.tabPage3.Text = "Log Transaksi";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // linkLabel1
+            // linklable_log_refresh
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(653, 32);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(54, 16);
-            this.linkLabel1.TabIndex = 1;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Refresh";
+            this.linklable_log_refresh.AutoSize = true;
+            this.linklable_log_refresh.Location = new System.Drawing.Point(653, 32);
+            this.linklable_log_refresh.Name = "linklable_log_refresh";
+            this.linklable_log_refresh.Size = new System.Drawing.Size(54, 16);
+            this.linklable_log_refresh.TabIndex = 1;
+            this.linklable_log_refresh.TabStop = true;
+            this.linklable_log_refresh.Text = "Refresh";
             // 
-            // dataGridView3
+            // dgv_log_trs
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(6, 51);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.RowHeadersWidth = 51;
-            this.dataGridView3.RowTemplate.Height = 24;
-            this.dataGridView3.Size = new System.Drawing.Size(715, 301);
-            this.dataGridView3.TabIndex = 0;
+            this.dgv_log_trs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_log_trs.Location = new System.Drawing.Point(6, 51);
+            this.dgv_log_trs.Name = "dgv_log_trs";
+            this.dgv_log_trs.RowHeadersWidth = 51;
+            this.dgv_log_trs.RowTemplate.Height = 24;
+            this.dgv_log_trs.Size = new System.Drawing.Size(715, 301);
+            this.dgv_log_trs.TabIndex = 0;
             // 
             // dgv_Peminjaman
             // 
@@ -301,6 +290,13 @@
             this.label3.Text = "Status Pengembalian:";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
+            // txt_pengembalian_peran
+            // 
+            this.txt_pengembalian_peran.Location = new System.Drawing.Point(152, 60);
+            this.txt_pengembalian_peran.Name = "txt_pengembalian_peran";
+            this.txt_pengembalian_peran.Size = new System.Drawing.Size(264, 22);
+            this.txt_pengembalian_peran.TabIndex = 31;
+            // 
             // Formpenjaga
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -315,10 +311,10 @@
             this.tabPage1.PerformLayout();
             this.tabPengembalian.ResumeLayout(false);
             this.tabPengembalian.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_pengembalian)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_log_trs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Peminjaman)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -338,18 +334,18 @@
         private System.Windows.Forms.TextBox txt_pinjaman_barang;
         private System.Windows.Forms.TextBox txt_pinjaman_nama;
         private System.Windows.Forms.TabPage tabPengembalian;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Button btn_pengembalian_tampil;
+        private System.Windows.Forms.DataGridView dgv_pengembalian;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.TextBox txt_pengembalian_nama;
+        private System.Windows.Forms.Button btn_kembalikan;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.LinkLabel linklable_log_refresh;
+        private System.Windows.Forms.DataGridView dgv_log_trs;
         private System.Windows.Forms.DataGridView dgv_Peminjaman;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txt_pengembalian_peran;
     }
 }
