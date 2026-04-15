@@ -52,6 +52,7 @@
             this.tab_log_penjaga = new System.Windows.Forms.TabPage();
             this.linklable_log_refresh = new System.Windows.Forms.LinkLabel();
             this.dgv_log_trs = new System.Windows.Forms.DataGridView();
+            this.linkLabel_penjaga_Logout = new System.Windows.Forms.LinkLabel();
             this.tab_penjagaLab.SuspendLayout();
             this.tab_peminjaman.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Peminjaman)).BeginInit();
@@ -298,11 +299,23 @@
             this.dgv_log_trs.Size = new System.Drawing.Size(715, 301);
             this.dgv_log_trs.TabIndex = 0;
             // 
+            // linkLabel_penjaga_Logout
+            // 
+            this.linkLabel_penjaga_Logout.AutoSize = true;
+            this.linkLabel_penjaga_Logout.Location = new System.Drawing.Point(31, 425);
+            this.linkLabel_penjaga_Logout.Name = "linkLabel_penjaga_Logout";
+            this.linkLabel_penjaga_Logout.Size = new System.Drawing.Size(53, 16);
+            this.linkLabel_penjaga_Logout.TabIndex = 2;
+            this.linkLabel_penjaga_Logout.TabStop = true;
+            this.linkLabel_penjaga_Logout.Text = "Log Out";
+            this.linkLabel_penjaga_Logout.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_penjaga_Logout_LinkClicked);
+            // 
             // Formpenjaga
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.linkLabel_penjaga_Logout);
             this.Controls.Add(this.tab_penjagaLab);
             this.Controls.Add(this.label1);
             this.Name = "Formpenjaga";
@@ -349,5 +362,6 @@
         private System.Windows.Forms.DataGridView dgv_Peminjaman;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txt_pengembalian_peran;
+        private System.Windows.Forms.LinkLabel linkLabel_penjaga_Logout;
     }
 }

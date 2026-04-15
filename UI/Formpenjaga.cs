@@ -31,5 +31,10 @@ namespace Ucp_pabd_lab.UI
         {
 
         }
+
+        private void linkLabel_penjaga_Logout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
     }
 }

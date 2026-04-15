@@ -39,7 +39,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txt_klbr_stok = new System.Windows.Forms.TextBox();
-            this.txt_klbr_kategori = new System.Windows.Forms.TextBox();
             this.txt_klbr_nama = new System.Windows.Forms.TextBox();
             this.btn_klbr_simpan = new System.Windows.Forms.Button();
             this.tab_kelolauser = new System.Windows.Forms.TabPage();
@@ -56,6 +55,10 @@
             this.tab_log_admin = new System.Windows.Forms.TabPage();
             this.refresh_log_admin = new System.Windows.Forms.LinkLabel();
             this.dgv_log_admin = new System.Windows.Forms.DataGridView();
+            this.linkLabel_Admin_Logout = new System.Windows.Forms.LinkLabel();
+            this.cmb_klbr_kategori = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cmb_admin_kondisi = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tab_kelolabarang.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_kelolabarang)).BeginInit();
@@ -78,6 +81,9 @@
             // 
             // tab_kelolabarang
             // 
+            this.tab_kelolabarang.Controls.Add(this.cmb_admin_kondisi);
+            this.tab_kelolabarang.Controls.Add(this.label6);
+            this.tab_kelolabarang.Controls.Add(this.cmb_klbr_kategori);
             this.tab_kelolabarang.Controls.Add(this.btn_klbr_refresh);
             this.tab_kelolabarang.Controls.Add(this.btn_klbr_hapus);
             this.tab_kelolabarang.Controls.Add(this.btn_klbr_ubah);
@@ -87,7 +93,6 @@
             this.tab_kelolabarang.Controls.Add(this.label2);
             this.tab_kelolabarang.Controls.Add(this.label1);
             this.tab_kelolabarang.Controls.Add(this.txt_klbr_stok);
-            this.tab_kelolabarang.Controls.Add(this.txt_klbr_kategori);
             this.tab_kelolabarang.Controls.Add(this.txt_klbr_nama);
             this.tab_kelolabarang.Controls.Add(this.btn_klbr_simpan);
             this.tab_kelolabarang.Location = new System.Drawing.Point(4, 25);
@@ -177,13 +182,6 @@
             this.txt_klbr_stok.Name = "txt_klbr_stok";
             this.txt_klbr_stok.Size = new System.Drawing.Size(264, 22);
             this.txt_klbr_stok.TabIndex = 8;
-            // 
-            // txt_klbr_kategori
-            // 
-            this.txt_klbr_kategori.Location = new System.Drawing.Point(152, 70);
-            this.txt_klbr_kategori.Name = "txt_klbr_kategori";
-            this.txt_klbr_kategori.Size = new System.Drawing.Size(264, 22);
-            this.txt_klbr_kategori.TabIndex = 7;
             // 
             // txt_klbr_nama
             // 
@@ -344,12 +342,60 @@
             this.dgv_log_admin.Size = new System.Drawing.Size(715, 301);
             this.dgv_log_admin.TabIndex = 0;
             // 
+            // linkLabel_Admin_Logout
+            // 
+            this.linkLabel_Admin_Logout.AutoSize = true;
+            this.linkLabel_Admin_Logout.Location = new System.Drawing.Point(27, 426);
+            this.linkLabel_Admin_Logout.Name = "linkLabel_Admin_Logout";
+            this.linkLabel_Admin_Logout.Size = new System.Drawing.Size(53, 16);
+            this.linkLabel_Admin_Logout.TabIndex = 1;
+            this.linkLabel_Admin_Logout.TabStop = true;
+            this.linkLabel_Admin_Logout.Text = "Log Out";
+            // 
+            // cmb_klbr_kategori
+            // 
+            this.cmb_klbr_kategori.FormattingEnabled = true;
+            this.cmb_klbr_kategori.Items.AddRange(new object[] {
+            "Alat Ukur",
+            "Alat Gelas",
+            "Bahan Kimia",
+            "Alat Praktikum Fisika",
+            "Alat Praktikum Biologi",
+            "Media Pembelajaran",
+            "Alat Keselamatan"});
+            this.cmb_klbr_kategori.Location = new System.Drawing.Point(152, 68);
+            this.cmb_klbr_kategori.Name = "cmb_klbr_kategori";
+            this.cmb_klbr_kategori.Size = new System.Drawing.Size(264, 24);
+            this.cmb_klbr_kategori.TabIndex = 17;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 132);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(51, 16);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Kondisi";
+            // 
+            // cmb_admin_kondisi
+            // 
+            this.cmb_admin_kondisi.FormattingEnabled = true;
+            this.cmb_admin_kondisi.Items.AddRange(new object[] {
+            "Baik",
+            "Rusak",
+            "Perbaikan"});
+            this.cmb_admin_kondisi.Location = new System.Drawing.Point(152, 124);
+            this.cmb_admin_kondisi.Name = "cmb_admin_kondisi";
+            this.cmb_admin_kondisi.Size = new System.Drawing.Size(264, 24);
+            this.cmb_admin_kondisi.TabIndex = 19;
+            // 
             // Formadmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Tan;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.linkLabel_Admin_Logout);
             this.Controls.Add(this.tabControl1);
             this.Name = "Formadmin";
             this.Text = "Formadmin";
@@ -365,6 +411,7 @@
             this.tab_log_admin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_log_admin)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -378,7 +425,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txt_klbr_stok;
-        private System.Windows.Forms.TextBox txt_klbr_kategori;
         private System.Windows.Forms.TextBox txt_klbr_nama;
         private System.Windows.Forms.Button btn_klbr_simpan;
         private System.Windows.Forms.Label label4;
@@ -398,5 +444,9 @@
         private System.Windows.Forms.ComboBox cmb_klusr_peran;
         private System.Windows.Forms.LinkLabel refresh_log_admin;
         private System.Windows.Forms.DataGridView dgv_log_admin;
+        private System.Windows.Forms.LinkLabel linkLabel_Admin_Logout;
+        private System.Windows.Forms.ComboBox cmb_klbr_kategori;
+        private System.Windows.Forms.ComboBox cmb_admin_kondisi;
+        private System.Windows.Forms.Label label6;
     }
 }
