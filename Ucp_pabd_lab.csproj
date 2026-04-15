@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\Koneksi.cs" />
+    <Compile Include="UI\Formadmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Formadmin.Designer.cs">
+      <DependentUpon>Formadmin.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Formlogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,6 +70,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\Formadmin.resx">
+      <DependentUpon>Formadmin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Formlogin.resx">
       <DependentUpon>Formlogin.cs</DependentUpon>
     </EmbeddedResource>
