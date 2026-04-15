@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C8167754-1874-4230-840E-DA763C589478}</ProjectGuid>
+    <ProjectGuid>{283D19B6-C900-59E6-FFF0-D80D24B4A7A1}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Ucp_pabd_lab</RootNamespace>
     <AssemblyName>Ucp_pabd_lab</AssemblyName>

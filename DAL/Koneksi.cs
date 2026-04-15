@@ -9,7 +9,7 @@ namespace Ucp_pabd_lab.DAL
 {
     internal class Koneksi
     {
-        private string stringKoneksi = "Data Source=DESKTOP-2Q8C9J6;Initial Catalog=DBLabSekolah;Integrated Security=True";
+        private string stringKoneksi = "Data Source=DESKTOP-2Q8C9J6;Initial Catalog=DBLabSekolahv1;Integrated Security=True";
         
         public SqlConnection GetConn()
         {
