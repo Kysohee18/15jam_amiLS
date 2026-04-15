@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 using Ucp_pabd_lab.DAL;
+using Ucp_pabd_lab.UI;
 
 namespace Ucp_pabd_lab
 {
@@ -46,10 +47,10 @@ namespace Ucp_pabd_lab
             }
         }
         private void btnLogin_Click(object sender, EventArgs e)
-        {
+        { // Perbaikan: Tadi kurung buka ini hilang
             if (string.IsNullOrWhiteSpace(txtUsername.Text) || string.IsNullOrWhiteSpace(txtPass.Text))
             {
-                MessageBox.Show("Username dan Password tidak boleh kosong!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Username dan Password tidak boleh kosong!");
                 return;
             }
 
@@ -58,26 +59,42 @@ namespace Ucp_pabd_lab
                 try
                 {
                     conn.Open();
-                    string query = "SELECT RoleUser FROM UserLab WHERE IDUser = @username AND Password = @password";
-
+                    string query = "SELECT RoleUser FROM UserLab WHERE NamaUser = @user AND Password = @pass";
                     SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@username", txtUsername.Text);
-                    cmd.Parameters.AddWithValue("@password", txtPass.Text);
+                    cmd.Parameters.AddWithValue("@user", txtUsername.Text);
+                    cmd.Parameters.AddWithValue("@pass", txtPass.Text);
 
-                    object role = cmd.ExecuteScalar();
+                    object result = cmd.ExecuteScalar();
 
-                    if (role != null)
+                    if (result != null)
                     {
-                        MessageBox.Show("Login Berhasil! Anda masuk sebagai: " + role.ToString(), "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        string role = result.ToString();
+
+                        if (role == "Admin")
+                        {
+                            FormAdmin adminForm = new FormAdmin();
+                            adminForm.Show();
+                            this.Hide();
+                        }
+                        else if (role == "PenjagaLab")
+                        {
+                            FormPenjaga penjagaForm = new FormPenjaga();
+                            penjagaForm.Show();
+                            this.Hide();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Role Anda tidak memiliki akses ke sistem ini.");
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Username atau Password salah!", "Akses Ditolak", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Username atau Password salah!");
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Terjadi kesalahan pada database: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Database Error: " + ex.Message);
                 }
             }
         }
