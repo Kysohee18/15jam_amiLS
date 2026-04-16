@@ -102,6 +102,10 @@ namespace Ucp_pabd_lab
         private void txtUsername_TextChanged(object sender, EventArgs e) { }
 
         private void txtPass_TextChanged(object sender, EventArgs e) { }
-    
+
+        private void lblStatus_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

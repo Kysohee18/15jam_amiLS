@@ -41,7 +41,6 @@
             this.txt_pinjaman_nama = new System.Windows.Forms.TextBox();
             this.tab_pengembalian = new System.Windows.Forms.TabPage();
             this.txt_pengembalian_peran = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.btn_pengembalian_tampil = new System.Windows.Forms.Button();
             this.dgv_pengembalian = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
@@ -172,7 +171,6 @@
             // tab_pengembalian
             // 
             this.tab_pengembalian.Controls.Add(this.txt_pengembalian_peran);
-            this.tab_pengembalian.Controls.Add(this.label3);
             this.tab_pengembalian.Controls.Add(this.btn_pengembalian_tampil);
             this.tab_pengembalian.Controls.Add(this.dgv_pengembalian);
             this.tab_pengembalian.Controls.Add(this.label6);
@@ -194,16 +192,6 @@
             this.txt_pengembalian_peran.Name = "txt_pengembalian_peran";
             this.txt_pengembalian_peran.Size = new System.Drawing.Size(264, 22);
             this.txt_pengembalian_peran.TabIndex = 31;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 101);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(138, 16);
-            this.label3.TabIndex = 30;
-            this.label3.Text = "Status Pengembalian:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // btn_pengembalian_tampil
             // 
@@ -360,7 +348,6 @@
         private System.Windows.Forms.LinkLabel linklable_log_refresh;
         private System.Windows.Forms.DataGridView dgv_log_trs;
         private System.Windows.Forms.DataGridView dgv_Peminjaman;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txt_pengembalian_peran;
         private System.Windows.Forms.LinkLabel linkLabel_penjaga_Logout;
     }

@@ -98,11 +98,12 @@
             // 
             this.lblStatus.AutoSize = true;
             this.lblStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStatus.Location = new System.Drawing.Point(406, 342);
+            this.lblStatus.Location = new System.Drawing.Point(282, 338);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(75, 18);
+            this.lblStatus.Size = new System.Drawing.Size(54, 18);
             this.lblStatus.TabIndex = 6;
-            this.lblStatus.Text = "Password";
+            this.lblStatus.Text = "Status:";
+            this.lblStatus.Click += new System.EventHandler(this.lblStatus_Click);
             // 
             // Formlogin
             // 
