@@ -85,6 +85,7 @@
     <EmbeddedResource Include="UI\Formpenjaga.resx">
       <DependentUpon>Formpenjaga.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Database.md" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
