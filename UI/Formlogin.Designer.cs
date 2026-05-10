@@ -35,6 +35,7 @@
             this.txtPass = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.lblStatus = new System.Windows.Forms.Label();
+            this.cb_showpw = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label
@@ -79,6 +80,7 @@
             // 
             this.txtPass.Location = new System.Drawing.Point(307, 190);
             this.txtPass.Name = "txtPass";
+            this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(212, 22);
             this.txtPass.TabIndex = 4;
             this.txtPass.TextChanged += new System.EventHandler(this.txtPass_TextChanged);
@@ -105,11 +107,23 @@
             this.lblStatus.Text = "Status:";
             this.lblStatus.Click += new System.EventHandler(this.lblStatus_Click);
             // 
+            // cb_showpw
+            // 
+            this.cb_showpw.AutoSize = true;
+            this.cb_showpw.Location = new System.Drawing.Point(525, 192);
+            this.cb_showpw.Name = "cb_showpw";
+            this.cb_showpw.Size = new System.Drawing.Size(120, 20);
+            this.cb_showpw.TabIndex = 7;
+            this.cb_showpw.Text = "Lihat Password";
+            this.cb_showpw.UseVisualStyleBackColor = true;
+            this.cb_showpw.CheckedChanged += new System.EventHandler(this.cb_showpw_CheckedChanged);
+            // 
             // Formlogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cb_showpw);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPass);
@@ -134,6 +148,7 @@
         private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.CheckBox cb_showpw;
     }
 }
 

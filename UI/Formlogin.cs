@@ -107,5 +107,19 @@ namespace Ucp_pabd_lab
         {
 
         }
+
+        private void cb_showpw_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cb_showpw.Checked)
+            {
+                // Menampilkan password asli
+                txtPass.PasswordChar = '\0';
+            }
+            else
+            {
+                // Menyembunyikan password dengan karakter bintang
+                txtPass.PasswordChar = '*';
+            }
+        }
     }
 }
