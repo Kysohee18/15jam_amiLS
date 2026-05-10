@@ -30,6 +30,9 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tab_kelolabarang = new System.Windows.Forms.TabPage();
+            this.cmb_admin_kondisi = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cmb_klbr_kategori = new System.Windows.Forms.ComboBox();
             this.btn_klbr_refresh = new System.Windows.Forms.Button();
             this.btn_klbr_hapus = new System.Windows.Forms.Button();
             this.btn_klbr_ubah = new System.Windows.Forms.Button();
@@ -56,9 +59,6 @@
             this.refresh_log_admin = new System.Windows.Forms.LinkLabel();
             this.dgv_log_admin = new System.Windows.Forms.DataGridView();
             this.linkLabel_Admin_Logout = new System.Windows.Forms.LinkLabel();
-            this.cmb_klbr_kategori = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cmb_admin_kondisi = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tab_kelolabarang.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_kelolabarang)).BeginInit();
@@ -103,29 +103,66 @@
             this.tab_kelolabarang.Text = "Kelola Barang";
             this.tab_kelolabarang.UseVisualStyleBackColor = true;
             // 
+            // cmb_admin_kondisi
+            // 
+            this.cmb_admin_kondisi.FormattingEnabled = true;
+            this.cmb_admin_kondisi.Items.AddRange(new object[] {
+            "Baik",
+            "Rusak",
+            "Perbaikan"});
+            this.cmb_admin_kondisi.Location = new System.Drawing.Point(152, 124);
+            this.cmb_admin_kondisi.Name = "cmb_admin_kondisi";
+            this.cmb_admin_kondisi.Size = new System.Drawing.Size(264, 24);
+            this.cmb_admin_kondisi.TabIndex = 19;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 132);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(51, 16);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Kondisi";
+            // 
+            // cmb_klbr_kategori
+            // 
+            this.cmb_klbr_kategori.FormattingEnabled = true;
+            this.cmb_klbr_kategori.Items.AddRange(new object[] {
+            "Alat Ukur",
+            "Alat Gelas",
+            "Bahan Kimia",
+            "Alat Praktikum Fisika",
+            "Alat Praktikum Biologi",
+            "Media Pembelajaran",
+            "Alat Keselamatan"});
+            this.cmb_klbr_kategori.Location = new System.Drawing.Point(152, 68);
+            this.cmb_klbr_kategori.Name = "cmb_klbr_kategori";
+            this.cmb_klbr_kategori.Size = new System.Drawing.Size(264, 24);
+            this.cmb_klbr_kategori.TabIndex = 17;
+            // 
             // btn_klbr_refresh
             // 
-            this.btn_klbr_refresh.Location = new System.Drawing.Point(534, 126);
+            this.btn_klbr_refresh.Location = new System.Drawing.Point(534, 139);
             this.btn_klbr_refresh.Name = "btn_klbr_refresh";
-            this.btn_klbr_refresh.Size = new System.Drawing.Size(166, 22);
+            this.btn_klbr_refresh.Size = new System.Drawing.Size(166, 29);
             this.btn_klbr_refresh.TabIndex = 16;
             this.btn_klbr_refresh.Text = "Refresh";
             this.btn_klbr_refresh.UseVisualStyleBackColor = true;
             // 
             // btn_klbr_hapus
             // 
-            this.btn_klbr_hapus.Location = new System.Drawing.Point(534, 98);
+            this.btn_klbr_hapus.Location = new System.Drawing.Point(534, 104);
             this.btn_klbr_hapus.Name = "btn_klbr_hapus";
-            this.btn_klbr_hapus.Size = new System.Drawing.Size(166, 22);
+            this.btn_klbr_hapus.Size = new System.Drawing.Size(166, 29);
             this.btn_klbr_hapus.TabIndex = 15;
             this.btn_klbr_hapus.Text = "Hapus";
             this.btn_klbr_hapus.UseVisualStyleBackColor = true;
             // 
             // btn_klbr_ubah
             // 
-            this.btn_klbr_ubah.Location = new System.Drawing.Point(534, 70);
+            this.btn_klbr_ubah.Location = new System.Drawing.Point(534, 68);
             this.btn_klbr_ubah.Name = "btn_klbr_ubah";
-            this.btn_klbr_ubah.Size = new System.Drawing.Size(166, 22);
+            this.btn_klbr_ubah.Size = new System.Drawing.Size(166, 30);
             this.btn_klbr_ubah.TabIndex = 14;
             this.btn_klbr_ubah.Text = "Ubah";
             this.btn_klbr_ubah.UseVisualStyleBackColor = true;
@@ -192,9 +229,9 @@
             // 
             // btn_klbr_simpan
             // 
-            this.btn_klbr_simpan.Location = new System.Drawing.Point(534, 42);
+            this.btn_klbr_simpan.Location = new System.Drawing.Point(534, 32);
             this.btn_klbr_simpan.Name = "btn_klbr_simpan";
-            this.btn_klbr_simpan.Size = new System.Drawing.Size(166, 22);
+            this.btn_klbr_simpan.Size = new System.Drawing.Size(166, 32);
             this.btn_klbr_simpan.TabIndex = 0;
             this.btn_klbr_simpan.Text = "Simpan";
             this.btn_klbr_simpan.UseVisualStyleBackColor = true;
@@ -351,43 +388,6 @@
             this.linkLabel_Admin_Logout.TabIndex = 1;
             this.linkLabel_Admin_Logout.TabStop = true;
             this.linkLabel_Admin_Logout.Text = "Log Out";
-            // 
-            // cmb_klbr_kategori
-            // 
-            this.cmb_klbr_kategori.FormattingEnabled = true;
-            this.cmb_klbr_kategori.Items.AddRange(new object[] {
-            "Alat Ukur",
-            "Alat Gelas",
-            "Bahan Kimia",
-            "Alat Praktikum Fisika",
-            "Alat Praktikum Biologi",
-            "Media Pembelajaran",
-            "Alat Keselamatan"});
-            this.cmb_klbr_kategori.Location = new System.Drawing.Point(152, 68);
-            this.cmb_klbr_kategori.Name = "cmb_klbr_kategori";
-            this.cmb_klbr_kategori.Size = new System.Drawing.Size(264, 24);
-            this.cmb_klbr_kategori.TabIndex = 17;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 132);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(51, 16);
-            this.label6.TabIndex = 18;
-            this.label6.Text = "Kondisi";
-            // 
-            // cmb_admin_kondisi
-            // 
-            this.cmb_admin_kondisi.FormattingEnabled = true;
-            this.cmb_admin_kondisi.Items.AddRange(new object[] {
-            "Baik",
-            "Rusak",
-            "Perbaikan"});
-            this.cmb_admin_kondisi.Location = new System.Drawing.Point(152, 124);
-            this.cmb_admin_kondisi.Name = "cmb_admin_kondisi";
-            this.cmb_admin_kondisi.Size = new System.Drawing.Size(264, 24);
-            this.cmb_admin_kondisi.TabIndex = 19;
             // 
             // Formadmin
             // 

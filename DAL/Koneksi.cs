@@ -10,7 +10,7 @@ namespace Ucp_pabd_lab.DAL
     internal class Koneksi
     {
         private string stringKoneksi = @"Data Source=DESKTOP-SCRRHRM;Initial Catalog=DBLabSekolah;Integrated Security=True";
-
+        // @"Data Source=DESKTOP-6V58GOQ\PUTRASQL;Initial Catalog=DBLabSekolahv1;Integrated Security=True"; *shahky
         public SqlConnection GetConn()
         {
             SqlConnection conn = new SqlConnection();
