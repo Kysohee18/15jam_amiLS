@@ -196,22 +196,52 @@ namespace Ucp_pabd_lab.UI
             }
         }
 
-        private void btn_klbr_hapus_Click(object sender, EventArgs e)
+        private void btn_klbr_hapus_Click(object sender, EventArgs e) // BELUM sempurna ini  *shahky
         {
-            if (string.IsNullOrEmpty(idBarangTerpilih)) return;
-            if (MessageBox.Show("Yakin hapus barang?", "Warning", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            
+            if (string.IsNullOrEmpty(idBarangTerpilih))
+            {
+                MessageBox.Show("Silakan pilih barang yang akan dihapus dari tabel!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+          
+            if (MessageBox.Show("Apakah Anda yakin ingin menghapus barang ini?", "Konfirmasi Hapus", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 using (SqlConnection conn = db.GetConn())
                 {
                     try
                     {
                         conn.Open();
-                        SqlCommand cmd = new SqlCommand("DELETE FROM Barang WHERE IDBarang=@id", conn);
+
+                        string checkQuery = "SELECT COUNT(*) FROM Transaksi WHERE IDBarang = @id AND StatusTrans = 'Dipinjam'";
+                        SqlCommand checkCmd = new SqlCommand(checkQuery, conn);
+                        checkCmd.Parameters.AddWithValue("@id", idBarangTerpilih);
+
+                        int jumlahPeminjam = (int)checkCmd.ExecuteScalar();
+
+                        if (jumlahPeminjam > 0)
+                        {
+                            
+                            MessageBox.Show("Barang tidak dapat dihapus karena masih dipinjam oleh " + jumlahPeminjam + " orang. Harap selesaikan pengembalian terlebih dahulu!",
+                                            "Gagal Hapus", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                            return; 
+                        }
+
+                       
+                        string deleteQuery = "DELETE FROM Barang WHERE IDBarang = @id";
+                        SqlCommand cmd = new SqlCommand(deleteQuery, conn);
                         cmd.Parameters.AddWithValue("@id", idBarangTerpilih);
                         cmd.ExecuteNonQuery();
+
+                        MessageBox.Show("Barang berhasil dihapus dari sistem.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         RefreshSemua();
                     }
-                    catch { }
+                    catch (Exception ex)
+                    {
+
+                        MessageBox.Show("Terjadi kesalahan sistem: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
