@@ -91,7 +91,7 @@ namespace Ucp_pabd_lab.UI
                 txt_pinjaman_barang.Text = row.Cells["NamaBarang"].Value.ToString();
             }
         }
-
+        
         private void btn_pinjamkan_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txt_pinjaman_nama.Text) || string.IsNullOrWhiteSpace(txt_pinjaman_barang.Text))
@@ -99,6 +99,7 @@ namespace Ucp_pabd_lab.UI
                 MessageBox.Show("Nama Peminjam dan Nama Barang harus diisi!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
 
             using (SqlConnection conn = db.GetConn())
             {

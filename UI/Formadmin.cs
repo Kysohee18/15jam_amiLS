@@ -136,11 +136,21 @@ namespace Ucp_pabd_lab.UI
                 catch { }
             }
         }
+        private bool ValidasiNama(string teks) // validasi nama hanya boleh huruf dan spasi
+        { 
+            return System.Text.RegularExpressions.Regex.IsMatch(teks, @"^[a-zA-Z ]+$");
+        }
 
         private void btn_klbr_simpan_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txt_klbr_nama.Text) || string.IsNullOrWhiteSpace(txt_klbr_stok.Text)) return;
-
+            
+            if (!ValidasiNama(txt_klbr_nama.Text))
+            {
+                MessageBox.Show("Nama hanya boleh berisi huruf (A-Z) dan spasi. Angka dan simbol tidak diperbolehkan!",
+                                "Input Tidak Valid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             using (SqlConnection conn = db.GetConn())
             {
                 try
