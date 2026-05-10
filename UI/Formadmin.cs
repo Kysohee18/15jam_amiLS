@@ -170,6 +170,7 @@ namespace Ucp_pabd_lab.UI
             }
         }
 
+
         private void btn_klbr_ubah_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(idBarangTerpilih)) return;
