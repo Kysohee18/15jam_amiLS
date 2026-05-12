@@ -224,33 +224,35 @@ namespace Ucp_pabd_lab.UI
             {
                 try
                 {
+
+
                     conn.Open();
-                    string query = @"
-                        DECLARE @IDB INT = (SELECT IDBarang FROM Transaksi WHERE IDTransaksi = @idTrans);
-                        DECLARE @IDU INT = (SELECT IDUser FROM Transaksi WHERE IDTransaksi = @idTrans);
-                        
-                        -- 1. Update Status Transaksi
-                        UPDATE Transaksi 
-                        SET TanggalKembali = GETDATE(), StatusTrans = 'Dikembalikan' 
-                        WHERE IDTransaksi = @idTrans;
-                        
-                        -- 2. Catat ke Log
-                        INSERT INTO LogTransaksi (IDTransaksi, Aksi, IDBarang, IDUser, WaktuKejadian, Keterangan)
-                        VALUES (@idTrans, 'KEMBALI', @IDB, @IDU, GETDATE(), 'Dikembalikan dalam kondisi baik');
-                        
-                        -- 3. Tambah Stok Kembali
-                        UPDATE Barang SET Stok = Stok + 1 WHERE IDBarang = @IDB;
-                        
-                        -- 4. Kurangi Tanggungan User
-                        UPDATE UserLab SET TanggunganPinjam = TanggunganPinjam - 1 WHERE IDUser = @IDU;
-                    ";
 
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@idTrans", idTransaksiTerpilih);
+                    // 1. Jalankan SP Update Pengembalian
+                    using (SqlCommand cmd = new SqlCommand("sp_UpdatePengembalian", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@IDTransaksi", idTransaksiTerpilih);
+                        cmd.Parameters.AddWithValue("@IDBarang", idBarangTerpilih);
+                        cmd.Parameters.AddWithValue("@IDUser", idUserTerpilih);
+                        cmd.ExecuteNonQuery();
+                    }
 
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Barang berhasil dikembalikan!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    RefreshSemua();
+                    // 2. Jalankan SP Log Transaksi
+                    using (SqlCommand cmdLog = new SqlCommand("sp_InsertLogTransaksi", conn))
+                    {
+                        cmdLog.CommandType = CommandType.StoredProcedure;
+                        cmdLog.Parameters.AddWithValue("@IDTransaksi", idTransaksiTerpilih);
+                        cmdLog.Parameters.AddWithValue("@Aksi", "KEMBALI");
+                        cmdLog.Parameters.AddWithValue("@IDBarang", idBarangTerpilih);
+                        cmdLog.Parameters.AddWithValue("@IDUser", idUserTerpilih);
+                        cmdLog.Parameters.AddWithValue("@Keterangan", "Barang dikembalikan");
+                        cmdLog.ExecuteNonQuery();
+                    }
+
+                    MessageBox.Show("Barang berhasil dikembalikan!", "Sukses");
+                    RefreshSemua(); RefreshSemua();
+                    
                 }
                 catch (Exception ex) { MessageBox.Show("Gagal Mengembalikan: " + ex.Message); }
             }
