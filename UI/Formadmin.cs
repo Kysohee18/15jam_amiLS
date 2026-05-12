@@ -272,12 +272,11 @@ namespace Ucp_pabd_lab.UI
             {
                 try
                 {
-                    conn.Open();
-                    string query = "SELECT IDUser, NamaUser, RoleUser, TanggunganPinjam FROM UserLab";
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    SqlDataReader reader = cmd.ExecuteReader();
+                    SqlCommand cmd = new SqlCommand("sp_GetDataGridViewUser", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
-                    dt.Load(reader);
+                    da.Fill(dt);
                     dgv_kelolauser.DataSource = dt;
                     dgv_kelolauser.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 }
