@@ -267,17 +267,13 @@ namespace Ucp_pabd_lab.UI
             {
                 try
                 {
-                    conn.Open();
-                    string query = @"SELECT l.IDLog, l.Aksi, b.NamaBarang, u.NamaUser AS 'Aktor', l.WaktuKejadian, l.Keterangan 
-                                     FROM LogTransaksi l
-                                     JOIN Barang b ON l.IDBarang = b.IDBarang
-                                     JOIN UserLab u ON l.IDUser = u.IDUser
-                                     ORDER BY l.WaktuKejadian DESC";
+                    SqlCommand cmd = new SqlCommand("sp_GetLogTransaksi", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    SqlDataReader reader = cmd.ExecuteReader();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
-                    dt.Load(reader);
+                    da.Fill(dt);
+
                     dgv_log_trs.DataSource = dt;
                     dgv_log_trs.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 }
