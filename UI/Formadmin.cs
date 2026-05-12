@@ -129,13 +129,11 @@ namespace Ucp_pabd_lab.UI
             {
                 try
                 {
-                    conn.Open();
-                    string query = @"SELECT b.IDBarang, b.NamaBarang, k.NamaKategori, b.Stok, b.Kondisi 
-                                     FROM Barang b JOIN Kategori k ON b.IDKategori = k.IDKategori";
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    SqlDataReader reader = cmd.ExecuteReader();
+                    SqlCommand cmd = new SqlCommand("sp_GetDataGridViewBarang", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
-                    dt.Load(reader);
+                    da.Fill(dt);
                     dgv_kelolabarang.DataSource = dt;
                     dgv_kelolabarang.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 }
