@@ -77,9 +77,9 @@ namespace Ucp_pabd_lab.UI
             {
                 try
                 {
-                    conn.Open();
-                    string query = "SELECT IDKategori, NamaKategori FROM Kategori";
-                    SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                    SqlCommand cmd = new SqlCommand("sp_GetKategori", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
 
