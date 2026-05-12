@@ -10,8 +10,10 @@ namespace Ucp_pabd_lab.UI
     {
         Koneksi db = new Koneksi();
 
-        
+
         private string idTransaksiTerpilih = "";
+        private string idBarangTerpilih = "";
+        private string idUserTerpilih = "";
 
         public Formpenjaga()
         {
@@ -35,6 +37,7 @@ namespace Ucp_pabd_lab.UI
            
             txt_pengembalian_nama.ReadOnly = true;
             txt_pengembalian_peran.ReadOnly = true;
+            txt_pinjaman_barang.ReadOnly = true;
         }
 
         private void Formpenjaga_Load(object sender, EventArgs e)
@@ -57,6 +60,8 @@ namespace Ucp_pabd_lab.UI
             txt_pengembalian_nama.Clear();
             txt_pengembalian_peran.Clear();
             idTransaksiTerpilih = "";
+            idBarangTerpilih = "";
+            idUserTerpilih = "";
         }
 
         
@@ -68,13 +73,13 @@ namespace Ucp_pabd_lab.UI
             {
                 try
                 {
-                    conn.Open();
-                   
-                    string query = "SELECT IDBarang, NamaBarang, Stok, Kondisi FROM Barang WHERE Stok > 0";
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    SqlDataReader reader = cmd.ExecuteReader();
+                    SqlCommand cmd = new SqlCommand("sp_GetBarangTersedia", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
-                    dt.Load(reader);
+                    da.Fill(dt);
+
                     dgv_Peminjaman.DataSource = dt;
                     dgv_Peminjaman.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 }
