@@ -193,7 +193,22 @@ namespace Ucp_pabd_lab.UI
                 DataGridViewRow row = dgv_pengembalian.Rows[e.RowIndex];
                 idTransaksiTerpilih = row.Cells["IDTransaksi"].Value.ToString();
                 txt_pengembalian_nama.Text = row.Cells["NamaUser"].Value.ToString();
-                txt_pengembalian_peran.Text = row.Cells["Peran"].Value.ToString();
+
+                using (SqlConnection conn = db.GetConn())
+                {
+                    conn.Open();
+                    string q = "SELECT IDBarang, IDUser FROM Transaksi WHERE IDTransaksi = @id";
+                    using (SqlCommand cmd = new SqlCommand(q, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@id", idTransaksiTerpilih);
+                        SqlDataReader dr = cmd.ExecuteReader();
+                        if (dr.Read())
+                        {
+                            idBarangTerpilih = dr["IDBarang"].ToString();
+                            idUserTerpilih = dr["IDUser"].ToString();
+                        }
+                    }
+                }
             }
         }
 
