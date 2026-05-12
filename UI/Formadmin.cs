@@ -97,9 +97,15 @@ namespace Ucp_pabd_lab.UI
             {
                 try
                 {
+                    SqlCommand cmd = new SqlCommand("sp_HitungTotalBarang", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    SqlParameter outputParam = new SqlParameter("@Total", SqlDbType.Int);
+                    outputParam.Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add(outputParam);
+
                     conn.Open();
-                    SqlCommand cmd = new SqlCommand("SELECT COUNT(*) FROM Barang", conn);
-                    int total = (int)cmd.ExecuteScalar();
+                    cmd.ExecuteNonQuery();
                 }
                 catch { }
             }
