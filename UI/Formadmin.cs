@@ -329,13 +329,14 @@ namespace Ucp_pabd_lab.UI
                 {
                     try
                     {
-                        conn.Open();
-                        string query = "UPDATE UserLab SET NamaUser=@nama, RoleUser=@peran WHERE IDUser=@id";
-                        SqlCommand cmd = new SqlCommand(query, conn);
-                        cmd.Parameters.AddWithValue("@nama", txt_klusr_nama.Text);
-                        cmd.Parameters.AddWithValue("@peran", cmb_klusr_peran.Text);
-                        cmd.Parameters.AddWithValue("@id", idUserTerpilih);
+                        SqlCommand cmd = new SqlCommand("sp_UpdateUser", conn);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@IDUser", idUserTerpilih);
+                        cmd.Parameters.AddWithValue("@NamaUser", txt_klusr_nama.Text);
+                        cmd.Parameters.AddWithValue("@RoleUser", cmb_klusr_peran.Text);
+                        cmd.Parameters.AddWithValue("@Password", "123456");
 
+                        conn.Open();
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("User berhasil diubah!");
                         RefreshSemua();
