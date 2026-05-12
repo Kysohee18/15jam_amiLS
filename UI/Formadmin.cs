@@ -286,7 +286,8 @@ namespace Ucp_pabd_lab.UI
 
         private void btn_klusr_simpan_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txt_klusr_nama.Text))
+            if (string.IsNullOrWhiteSpace(txt_klusr_nama.Text)) return;
+            if (!ValidasiNama(txt_klusr_nama.Text))
             {
                 MessageBox.Show("Nama User tidak boleh kosong!", "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -303,14 +304,15 @@ namespace Ucp_pabd_lab.UI
             {
                 try
                 {
-                    conn.Open();
-                    string query = "INSERT INTO UserLab (NamaUser, RoleUser, Password, TanggunganPinjam) VALUES (@nama, @peran, '123456', 0)";
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@nama", txt_klusr_nama.Text);
-                    cmd.Parameters.AddWithValue("@peran", cmb_klusr_peran.Text);
+                    SqlCommand cmd = new SqlCommand("sp_InsertUser", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@NamaUser", txt_klusr_nama.Text);
+                    cmd.Parameters.AddWithValue("@RoleUser", cmb_klusr_peran.Text);
+                    cmd.Parameters.AddWithValue("@Password", "123456"); //kasih pw default
 
+                    conn.Open();
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("User berhasil ditambahkan! (Password default: 123456)");
+                    MessageBox.Show("User berhasil ditambahkan!");
                     RefreshSemua();
                 }
                 catch (Exception ex) { MessageBox.Show("Gagal Simpan User: " + ex.Message); }
