@@ -405,5 +405,28 @@ namespace Ucp_pabd_lab.UI
             }
         }
 
+        private void btnTestInjection_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (SqlConnection conn = db.GetConn())
+                {
+                    conn.Open();
+                    
+                    string query = "UPDATE Barang SET Stok = 0, Kondisi = 'Rusak' WHERE NamaBarang = '" + txt_klbr_nama.Text + "'";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        int result = cmd.ExecuteNonQuery();
+                        MessageBox.Show(result + " data barang berhasil dirusak/diinjeksi!", "Peringatan Keamanan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                RefreshSemua(); 
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
     }
 }

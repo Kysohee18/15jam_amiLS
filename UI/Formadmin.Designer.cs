@@ -59,6 +59,7 @@
             this.refresh_log_admin = new System.Windows.Forms.LinkLabel();
             this.dgv_log_admin = new System.Windows.Forms.DataGridView();
             this.linkLabel_Admin_Logout = new System.Windows.Forms.LinkLabel();
+            this.btnTestInjection = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tab_kelolabarang.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_kelolabarang)).BeginInit();
@@ -81,6 +82,7 @@
             // 
             // tab_kelolabarang
             // 
+            this.tab_kelolabarang.Controls.Add(this.btnTestInjection);
             this.tab_kelolabarang.Controls.Add(this.cmb_admin_kondisi);
             this.tab_kelolabarang.Controls.Add(this.label6);
             this.tab_kelolabarang.Controls.Add(this.cmb_klbr_kategori);
@@ -389,6 +391,17 @@
             this.linkLabel_Admin_Logout.TabStop = true;
             this.linkLabel_Admin_Logout.Text = "Log Out";
             // 
+            // btnTestInjection
+            // 
+            this.btnTestInjection.BackColor = System.Drawing.Color.White;
+            this.btnTestInjection.Location = new System.Drawing.Point(438, 132);
+            this.btnTestInjection.Name = "btnTestInjection";
+            this.btnTestInjection.Size = new System.Drawing.Size(75, 23);
+            this.btnTestInjection.TabIndex = 20;
+            this.btnTestInjection.Text = "test inject";
+            this.btnTestInjection.UseVisualStyleBackColor = false;
+            this.btnTestInjection.Click += new System.EventHandler(this.btnTestInjection_Click);
+            // 
             // Formadmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -448,5 +461,6 @@
         private System.Windows.Forms.ComboBox cmb_klbr_kategori;
         private System.Windows.Forms.ComboBox cmb_admin_kondisi;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnTestInjection;
     }
 }
