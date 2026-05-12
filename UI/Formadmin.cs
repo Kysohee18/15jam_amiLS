@@ -356,12 +356,12 @@ namespace Ucp_pabd_lab.UI
                 {
                     try
                     {
+                        SqlCommand cmd = new SqlCommand("sp_DeleteUser", conn);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@IDUser", idUserTerpilih);
+
                         conn.Open();
-                        string query = "DELETE FROM UserLab WHERE IDUser=@id";
-                        SqlCommand cmd = new SqlCommand(query, conn);
-                        cmd.Parameters.AddWithValue("@id", idUserTerpilih);
                         cmd.ExecuteNonQuery();
-                        MessageBox.Show("User dihapus!");
                         RefreshSemua();
                     }
                     catch (Exception ex) { MessageBox.Show("Gagal Hapus User (Mungkin user masih punya transaksi pinjam): " + ex.Message); }
