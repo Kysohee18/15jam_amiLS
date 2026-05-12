@@ -213,14 +213,18 @@ namespace Ucp_pabd_lab.UI
                 {
                     try
                     {
-                        SqlCommand cmd = new SqlCommand("sp_DeleteBarang", conn);
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@IDBarang", idBarangTerpilih);
-
                         conn.Open();
-                        cmd.ExecuteNonQuery();
-                        MessageBox.Show("Barang berhasil dihapus.");
-                        RefreshSemua();
+
+                        SqlCommand checkCmd = new SqlCommand("sp_CheckPeminjamBarang", conn);
+                        checkCmd.CommandType = CommandType.StoredProcedure;
+                        checkCmd.Parameters.AddWithValue("@IDBarang", idBarangTerpilih);
+
+                        SqlParameter outParam = new SqlParameter("@Jumlah", SqlDbType.Int);
+                        outParam.Direction = ParameterDirection.Output;
+                        checkCmd.Parameters.Add(outParam);
+
+                        checkCmd.ExecuteNonQuery();
+                        int jumlahPeminjam = (int)outParam.Value;
 
                         if (jumlahPeminjam > 0)
                         {
@@ -230,11 +234,12 @@ namespace Ucp_pabd_lab.UI
                             return; 
                         }
 
-                       
-                        string deleteQuery = "DELETE FROM Barang WHERE IDBarang = @id";
-                        SqlCommand cmd = new SqlCommand(deleteQuery, conn);
-                        cmd.Parameters.AddWithValue("@id", idBarangTerpilih);
-                        cmd.ExecuteNonQuery();
+
+                        SqlCommand deleteCmd = new SqlCommand("sp_DeleteBarang", conn);
+                        deleteCmd.CommandType = CommandType.StoredProcedure;
+                        deleteCmd.Parameters.AddWithValue("@IDBarang", idBarangTerpilih);
+
+                        deleteCmd.ExecuteNonQuery();
 
                         MessageBox.Show("Barang berhasil dihapus dari sistem.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         RefreshSemua();
