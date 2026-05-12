@@ -154,13 +154,14 @@ namespace Ucp_pabd_lab.UI
             {
                 try
                 {
+                    SqlCommand cmd = new SqlCommand("sp_InsertBarang", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@NamaBarang", txt_klbr_nama.Text);
+                    cmd.Parameters.AddWithValue("@IDKategori", cmb_klbr_kategori.SelectedValue);
+                    cmd.Parameters.AddWithValue("@Stok", txt_klbr_stok.Text);
+                    cmd.Parameters.AddWithValue("@Kondisi", cmb_admin_kondisi.Text);
+
                     conn.Open();
-                    string query = "INSERT INTO Barang (NamaBarang, IDKategori, Stok, Kondisi) VALUES (@nama, @kat, @stok, @kondisi)";
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@nama", txt_klbr_nama.Text);
-                    cmd.Parameters.AddWithValue("@kat", cmb_klbr_kategori.SelectedValue);
-                    cmd.Parameters.AddWithValue("@stok", txt_klbr_stok.Text);
-                    cmd.Parameters.AddWithValue("@kondisi", cmb_admin_kondisi.Text);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Barang berhasil ditambahkan!");
                     RefreshSemua();
