@@ -93,6 +93,7 @@ namespace Ucp_pabd_lab.UI
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dgv_Peminjaman.Rows[e.RowIndex];
+                idBarangTerpilih = row.Cells["IDBarang"].Value.ToString();
                 txt_pinjaman_barang.Text = row.Cells["NamaBarang"].Value.ToString();
             }
         }
@@ -111,39 +112,42 @@ namespace Ucp_pabd_lab.UI
                 try
                 {
                     conn.Open();
-                   
-                    string query = @"
-                        DECLARE @IDU INT = (SELECT TOP 1 IDUser FROM UserLab WHERE NamaUser = @namaUser);
-                        DECLARE @IDB INT = (SELECT TOP 1 IDBarang FROM Barang WHERE NamaBarang = @namaBarang);
-                        
-                        IF @IDU IS NULL RAISERROR('Nama User tidak terdaftar!', 16, 1);
-                        ELSE IF @IDB IS NULL RAISERROR('Nama Barang tidak ditemukan!', 16, 1);
-                        ELSE IF (SELECT Stok FROM Barang WHERE IDBarang = @IDB) < 1 RAISERROR('Stok barang habis!', 16, 1);
-                        ELSE
-                        BEGIN
-                            -- 1.Transaksi
-                            INSERT INTO Transaksi (IDBarang, IDUser, TanggalPinjam, StatusTrans) 
-                            VALUES (@IDB, @IDU, GETDATE(), 'Dipinjam');
-                            
-                            -- 2. Ambil ID Transaksi
-                            DECLARE @NewTransID INT = SCOPE_IDENTITY();
-                            
-                            -- 3. Catat ke Log
-                            INSERT INTO LogTransaksi (IDTransaksi, Aksi, IDBarang, IDUser, WaktuKejadian, Keterangan)
-                            VALUES (@NewTransID, 'PINJAM', @IDB, @IDU, GETDATE(), 'Dipinjam oleh ' + @namaUser);
-                            
-                            -- 4. Kurangi Stok
-                            UPDATE Barang SET Stok = Stok - 1 WHERE IDBarang = @IDB;
-                            
-                            -- 5. Tambah Tanggungan User
-                            UPDATE UserLab SET TanggunganPinjam = TanggunganPinjam + 1 WHERE IDUser = @IDU;
-                        END";
 
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@namaUser", txt_pinjaman_nama.Text);
-                    cmd.Parameters.AddWithValue("@namaBarang", txt_pinjaman_barang.Text);
+                    int idUser = 0;
+                    using (SqlCommand cmdUser = new SqlCommand("sp_GetUserIDByName", conn))
+                    {
+                        cmdUser.CommandType = CommandType.StoredProcedure;
+                        cmdUser.Parameters.AddWithValue("@NamaUser", txt_pinjaman_nama.Text);
+                        object result = cmdUser.ExecuteScalar();
+                        if (result == null) { MessageBox.Show("Nama User tidak terdaftar!"); return; }
+                        idUser = Convert.ToInt32(result);
+                    }
 
-                    cmd.ExecuteNonQuery();
+                    using (SqlCommand cmd = new SqlCommand("sp_InsertPeminjaman", conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@IDBarang", idBarangTerpilih);
+                        cmd.Parameters.AddWithValue("@IDUser", idUser);
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    int lastTransID = 0;
+                    using (SqlCommand cmdId = new SqlCommand("SELECT MAX(IDTransaksi) FROM Transaksi", conn))
+                    {
+                        lastTransID = Convert.ToInt32(cmdId.ExecuteScalar());
+                    }
+
+                    using (SqlCommand cmdLog = new SqlCommand("sp_InsertLogTransaksi", conn))
+                    {
+                        cmdLog.CommandType = CommandType.StoredProcedure;
+                        cmdLog.Parameters.AddWithValue("@IDTransaksi", lastTransID);
+                        cmdLog.Parameters.AddWithValue("@Aksi", "PINJAM");
+                        cmdLog.Parameters.AddWithValue("@IDBarang", idBarangTerpilih);
+                        cmdLog.Parameters.AddWithValue("@IDUser", idUser);
+                        cmdLog.Parameters.AddWithValue("@Keterangan", "Meminjam barang: " + txt_pinjaman_barang.Text);
+                        cmdLog.ExecuteNonQuery();
+                    }
+
                     MessageBox.Show("Barang berhasil dipinjamkan!", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     RefreshSemua();
                 }
