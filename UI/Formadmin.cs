@@ -386,23 +386,11 @@ namespace Ucp_pabd_lab.UI
             {
                 try
                 {
-                    conn.Open();
-                    string query = @"SELECT 
-                                        l.IDLog, 
-                                        l.Aksi, 
-                                        b.NamaBarang, 
-                                        u.NamaUser AS 'Peminjam', 
-                                        l.WaktuKejadian, 
-                                        l.Keterangan 
-                                     FROM LogTransaksi l
-                                     JOIN Barang b ON l.IDBarang = b.IDBarang
-                                     JOIN UserLab u ON l.IDUser = u.IDUser
-                                     ORDER BY l.WaktuKejadian DESC";
-
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    SqlDataReader reader = cmd.ExecuteReader();
+                    SqlCommand cmd = new SqlCommand("sp_GetDataGridViewLog", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
-                    dt.Load(reader);
+                    da.Fill(dt);
 
                     dgv_log_admin.DataSource = dt;
                     dgv_log_admin.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
