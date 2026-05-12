@@ -145,12 +145,7 @@ namespace Ucp_pabd_lab.UI
         {
             if (string.IsNullOrWhiteSpace(txt_klbr_nama.Text) || string.IsNullOrWhiteSpace(txt_klbr_stok.Text)) return;
             
-            if (!ValidasiNama(txt_klbr_nama.Text))
-            {
-                MessageBox.Show("Nama hanya boleh berisi huruf (A-Z) dan spasi. Angka dan simbol tidak diperbolehkan!",
-                                "Input Tidak Valid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+           
             using (SqlConnection conn = db.GetConn())
             {
                 try
