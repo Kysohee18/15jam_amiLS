@@ -213,13 +213,14 @@ namespace Ucp_pabd_lab.UI
                 {
                     try
                     {
+                        SqlCommand cmd = new SqlCommand("sp_DeleteBarang", conn);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@IDBarang", idBarangTerpilih);
+
                         conn.Open();
-
-                        string checkQuery = "SELECT COUNT(*) FROM Transaksi WHERE IDBarang = @id AND StatusTrans = 'Dipinjam'";
-                        SqlCommand checkCmd = new SqlCommand(checkQuery, conn);
-                        checkCmd.Parameters.AddWithValue("@id", idBarangTerpilih);
-
-                        int jumlahPeminjam = (int)checkCmd.ExecuteScalar();
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("Barang berhasil dihapus.");
+                        RefreshSemua();
 
                         if (jumlahPeminjam > 0)
                         {
