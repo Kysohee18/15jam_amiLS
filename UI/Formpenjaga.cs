@@ -168,19 +168,17 @@ namespace Ucp_pabd_lab.UI
             {
                 try
                 {
-                    conn.Open();
-                    string query = @"
-                        SELECT t.IDTransaksi, u.NamaUser, u.RoleUser AS 'Peran', b.NamaBarang, t.TanggalPinjam 
-                        FROM Transaksi t
-                        JOIN UserLab u ON t.IDUser = u.IDUser
-                        JOIN Barang b ON t.IDBarang = b.IDBarang
-                        WHERE t.StatusTrans = 'Dipinjam'";
+                    SqlCommand cmd = new SqlCommand("sp_GetDataGridViewPinjam", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
 
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    SqlDataReader reader = cmd.ExecuteReader();
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
-                    dt.Load(reader);
-                    dgv_pengembalian.DataSource = dt;
+                    da.Fill(dt);
+
+                    DataView dv = new DataView(dt);
+                    dv.RowFilter = "StatusTrans = 'Dipinjam'";
+
+                    dgv_pengembalian.DataSource = dv;
                     dgv_pengembalian.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 }
                 catch (Exception ex) { MessageBox.Show("Error Tampil Pengembalian: " + ex.Message); }
