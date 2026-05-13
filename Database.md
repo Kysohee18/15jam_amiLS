@@ -24,6 +24,7 @@ CREATE TABLE UserLab (
     IDUser CHAR(11) PRIMARY KEY, 
     NamaUser VARCHAR(100) NOT NULL,
     RoleUser VARCHAR(20) CHECK (RoleUser IN ('Siswa','Guru','Admin','PenjagaLab')), 
+    Password VARCHAR(255) NOT NULL,
     TanggunganPinjam INT DEFAULT 0
 );
 
