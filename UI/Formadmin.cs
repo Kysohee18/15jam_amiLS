@@ -11,6 +11,7 @@ namespace Ucp_pabd_lab.UI
         Koneksi db = new Koneksi();
         private string idBarangTerpilih = "";
         private string idUserTerpilih = "";
+        this.txtCariBarang.TextChanged += (s, e) => CariDataBarang(txtCariBarang.Text); // search box baru untuk admin cari barang
 
         public Formadmin()
         {
@@ -423,6 +424,53 @@ namespace Ucp_pabd_lab.UI
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void CariDataBarang(string kataKunci)
+        {
+            using (SqlConnection conn = db.GetConn())
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_CariBarang", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@KataKunci", kataKunci);
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    dgv_kelolabarang.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Gagal mencari data: " + ex.Message);
+                }
+            }
+        }
+
+        private void CariDataBarang(string kataKunci) // ini method search box nya
+        {
+            using (SqlConnection conn = db.GetConn())
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_CariBarang", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@KataKunci", kataKunci);
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                
+                    dgv_kelolabarang.DataSource = dt;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Gagal mencari data: " + ex.Message);
+                }
             }
         }
     }
