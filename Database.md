@@ -12,7 +12,7 @@ CREATE TABLE Kategori (*/
 -- 2. Tabel Barang 
 CREATE TABLE Barang (
     IDBarang CHAR(5) PRIMARY KEY, -- contoh id: BRG01
-    NamaBarang VARCHAR(100) NOT NULL,
+    NamaBarang VARCHAR(100) NOT NULL UNIQUE,
     IDKategori INT,
     Stok INT CHECK (Stok >= 0), 
     Kondisi VARCHAR(20) CHECK (Kondisi IN ('Baik', 'Rusak', 'Perbaikan')),
@@ -24,6 +24,7 @@ CREATE TABLE UserLab (
     IDUser CHAR(11) PRIMARY KEY, 
     NamaUser VARCHAR(100) NOT NULL,
     RoleUser VARCHAR(20) CHECK (RoleUser IN ('Siswa','Guru','Admin','PenjagaLab')), 
+    Password VARCHAR(255) NOT NULL,
     TanggunganPinjam INT DEFAULT 0
 );
 
