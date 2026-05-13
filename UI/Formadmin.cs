@@ -11,7 +11,6 @@ namespace Ucp_pabd_lab.UI
         Koneksi db = new Koneksi();
         private string idBarangTerpilih = "";
         private string idUserTerpilih = "";
-        this.txtCariBarang.TextChanged += (s, e) => CariDataBarang(txtCariBarang.Text); // search box baru untuk admin cari barang
 
         public Formadmin()
         {
@@ -34,6 +33,9 @@ namespace Ucp_pabd_lab.UI
             this.refresh_log_admin.LinkClicked += (s, e) => TampilDataLog();
 
             this.linkLabel_Admin_Logout.LinkClicked += (s, e) => { new Formlogin().Show(); this.Close(); };
+
+            this.txtCariBarang.TextChanged += (s, e) => CariDataBarang(txtCariBarang.Text); // search box baru untuk admin cari barang
+
         }
 
         private void Formadmin_Load(object sender, EventArgs e)
@@ -472,6 +474,11 @@ namespace Ucp_pabd_lab.UI
                     MessageBox.Show("Gagal mencari data: " + ex.Message);
                 }
             }
+        }
+
+        private void txtCariBarang_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

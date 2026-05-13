@@ -30,6 +30,8 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tab_kelolabarang = new System.Windows.Forms.TabPage();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtCariBarang = new System.Windows.Forms.TextBox();
             this.btnTestInjection = new System.Windows.Forms.Button();
             this.cmb_admin_kondisi = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -60,8 +62,6 @@
             this.refresh_log_admin = new System.Windows.Forms.LinkLabel();
             this.dgv_log_admin = new System.Windows.Forms.DataGridView();
             this.linkLabel_Admin_Logout = new System.Windows.Forms.LinkLabel();
-            this.txtCariBarang = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tab_kelolabarang.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_kelolabarang)).BeginInit();
@@ -108,6 +108,23 @@
             this.tab_kelolabarang.TabIndex = 0;
             this.tab_kelolabarang.Text = "Kelola Barang";
             this.tab_kelolabarang.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(19, 175);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(81, 16);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "Cari Barang:";
+            // 
+            // txtCariBarang
+            // 
+            this.txtCariBarang.Location = new System.Drawing.Point(106, 175);
+            this.txtCariBarang.Name = "txtCariBarang";
+            this.txtCariBarang.Size = new System.Drawing.Size(223, 22);
+            this.txtCariBarang.TabIndex = 21;
+            this.txtCariBarang.TextChanged += new System.EventHandler(this.txtCariBarang_TextChanged);
             // 
             // btnTestInjection
             // 
@@ -405,22 +422,6 @@
             this.linkLabel_Admin_Logout.TabIndex = 1;
             this.linkLabel_Admin_Logout.TabStop = true;
             this.linkLabel_Admin_Logout.Text = "Log Out";
-            // 
-            // txtCariBarang
-            // 
-            this.txtCariBarang.Location = new System.Drawing.Point(106, 175);
-            this.txtCariBarang.Name = "txtCariBarang";
-            this.txtCariBarang.Size = new System.Drawing.Size(223, 22);
-            this.txtCariBarang.TabIndex = 21;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(19, 175);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(81, 16);
-            this.label9.TabIndex = 22;
-            this.label9.Text = "Cari Barang:";
             // 
             // Formadmin
             // 
