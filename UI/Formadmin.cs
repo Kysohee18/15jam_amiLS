@@ -452,33 +452,5 @@ namespace Ucp_pabd_lab.UI
             }
         }
 
-        private void CariDataBarang(string kataKunci) // ini method search box nya
-        {
-            using (SqlConnection conn = db.GetConn())
-            {
-                try
-                {
-                    SqlCommand cmd = new SqlCommand("sp_CariBarang", conn);
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@KataKunci", kataKunci);
-
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    da.Fill(dt);
-
-                
-                    dgv_kelolabarang.DataSource = dt;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Gagal mencari data: " + ex.Message);
-                }
-            }
-        }
-
-        private void txtCariBarang_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
