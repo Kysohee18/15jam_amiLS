@@ -124,7 +124,6 @@
             this.txtCariBarang.Name = "txtCariBarang";
             this.txtCariBarang.Size = new System.Drawing.Size(223, 22);
             this.txtCariBarang.TabIndex = 21;
-            this.txtCariBarang.TextChanged += new System.EventHandler(this.txtCariBarang_TextChanged);
             // 
             // btnTestInjection
             // 
