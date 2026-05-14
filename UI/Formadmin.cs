@@ -40,6 +40,12 @@ namespace Ucp_pabd_lab.UI
 
         private void Formadmin_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dBLabSekolahDataSet2.sp_GetKategori' table. You can move, or remove it, as needed.
+            this.sp_GetKategoriTableAdapter.Fill(this.dBLabSekolahDataSet2.sp_GetKategori);
+            // TODO: This line of code loads data into the 'dBLabSekolahDataSet1.UserLab' table. You can move, or remove it, as needed.
+            this.userLabTableAdapter.Fill(this.dBLabSekolahDataSet1.UserLab);
+            // TODO: This line of code loads data into the 'dBLabSekolahDataSet.Barang' table. You can move, or remove it, as needed.
+            this.barangTableAdapter.Fill(this.dBLabSekolahDataSet.Barang);
             SetupComboBoxKondisi();
             SetupComboBoxPeran();
             TampilKategori();

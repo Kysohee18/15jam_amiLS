@@ -47,6 +47,26 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\Koneksi.cs" />
+    <Compile Include="DBLabSekolahDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBLabSekolahDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DBLabSekolahDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBLabSekolahDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DBLabSekolahDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBLabSekolahDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DBLabSekolahData_pengembalian.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBLabSekolahData_pengembalian.xsd</DependentUpon>
+    </Compile>
     <Compile Include="UI\Formadmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +106,50 @@
       <DependentUpon>Formpenjaga.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Database.md" />
+    <None Include="DBLabSekolahDataSet.xsc">
+      <DependentUpon>DBLabSekolahDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DBLabSekolahDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBLabSekolahDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DBLabSekolahDataSet.xss">
+      <DependentUpon>DBLabSekolahDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DBLabSekolahDataSet1.xsc">
+      <DependentUpon>DBLabSekolahDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DBLabSekolahDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBLabSekolahDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DBLabSekolahDataSet1.xss">
+      <DependentUpon>DBLabSekolahDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DBLabSekolahDataSet2.xsc">
+      <DependentUpon>DBLabSekolahDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="DBLabSekolahDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBLabSekolahDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DBLabSekolahDataSet2.xss">
+      <DependentUpon>DBLabSekolahDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="DBLabSekolahData_pengembalian.xsc">
+      <DependentUpon>DBLabSekolahData_pengembalian.xsd</DependentUpon>
+    </None>
+    <None Include="DBLabSekolahData_pengembalian.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBLabSekolahData_pengembalian.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DBLabSekolahData_pengembalian.xss">
+      <DependentUpon>DBLabSekolahData_pengembalian.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
