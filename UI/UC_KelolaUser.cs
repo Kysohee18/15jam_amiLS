@@ -16,5 +16,10 @@ namespace Ucp_pabd_lab.UI
         {
             InitializeComponent();
         }
+
+        private void btnTestInjection_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

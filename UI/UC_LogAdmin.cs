@@ -16,5 +16,10 @@ namespace Ucp_pabd_lab.UI
         {
             InitializeComponent();
         }
+
+        private void UC_LogAdmin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

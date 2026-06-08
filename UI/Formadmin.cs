@@ -365,7 +365,7 @@ namespace Ucp_pabd_lab.UI
                 {
                     try
                     {
-                        SqlCommand cmd = new SqlCommand("sp_DeleteUser", conn);
+                        SqlCommand cmd = new SqlCommand("sp_Delete8User", conn);
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.Parameters.AddWithValue("@IDUser", idUserTerpilih);
 

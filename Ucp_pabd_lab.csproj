@@ -67,6 +67,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBLabSekolahData_pengembalian.xsd</DependentUpon>
     </Compile>
+    <Compile Include="UI\UC_KelolaBarang.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\UC_KelolaBarang.Designer.cs">
+      <DependentUpon>UC_KelolaBarang.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\UC_LogAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,12 +84,6 @@
     </Compile>
     <Compile Include="UI\UC_KelolaUser.Designer.cs">
       <DependentUpon>UC_KelolaUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\UC_KelolaBarang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\UC_KelolaBarang.Designer.cs">
-      <DependentUpon>UC_KelolaBarang.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Formadmin.cs">
       <SubType>Form</SubType>
@@ -122,6 +122,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Formpenjaga.resx">
       <DependentUpon>Formpenjaga.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\UC_KelolaBarang.resx">
+      <DependentUpon>UC_KelolaBarang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\UC_KelolaUser.resx">
+      <DependentUpon>UC_KelolaUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\UC_LogAdmin.resx">
+      <DependentUpon>UC_LogAdmin.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Database.md" />
     <None Include="DBLabSekolahDataSet.xsc">
