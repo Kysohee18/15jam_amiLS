@@ -89,7 +89,7 @@
             this.bindingNavigator2.MovePreviousItem = this.bindingNavigatorMovePreviousItem1;
             this.bindingNavigator2.Name = "bindingNavigator2";
             this.bindingNavigator2.PositionItem = this.bindingNavigatorPositionItem1;
-            this.bindingNavigator2.Size = new System.Drawing.Size(800, 27);
+            this.bindingNavigator2.Size = new System.Drawing.Size(782, 27);
             this.bindingNavigator2.TabIndex = 41;
             this.bindingNavigator2.Text = "bindingNavigator2";
             // 
@@ -276,11 +276,12 @@
             this.btn_klbr_ubah.TabIndex = 32;
             this.btn_klbr_ubah.Text = "Ubah";
             this.btn_klbr_ubah.UseVisualStyleBackColor = true;
+            this.btn_klbr_ubah.Click += new System.EventHandler(this.btn_klbr_ubah_Click);
             // 
             // dgv_kelolabarang
             // 
             this.dgv_kelolabarang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_kelolabarang.Location = new System.Drawing.Point(54, 272);
+            this.dgv_kelolabarang.Location = new System.Drawing.Point(39, 237);
             this.dgv_kelolabarang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgv_kelolabarang.Name = "dgv_kelolabarang";
             this.dgv_kelolabarang.RowHeadersWidth = 51;
@@ -355,6 +356,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(782, 403);
             this.Controls.Add(this.bindingNavigator2);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtCariBarang);
@@ -374,7 +376,6 @@
             this.Controls.Add(this.txt_klbr_nama);
             this.Controls.Add(this.btn_klbr_simpan);
             this.Name = "UC_KelolaBarang";
-            this.Size = new System.Drawing.Size(800, 450);
             this.Load += new System.EventHandler(this.UC_KelolaBarang_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator2)).EndInit();
             this.bindingNavigator2.ResumeLayout(false);
