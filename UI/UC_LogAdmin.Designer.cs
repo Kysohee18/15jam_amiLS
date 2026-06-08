@@ -42,6 +42,7 @@
             this.refresh_log_admin.TabIndex = 3;
             this.refresh_log_admin.TabStop = true;
             this.refresh_log_admin.Text = "Refresh";
+            this.refresh_log_admin.Click += new System.EventHandler(this.UC_LogAdmin_Load);
             // 
             // dgv_log_admin
             // 
