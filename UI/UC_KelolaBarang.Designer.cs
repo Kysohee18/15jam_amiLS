@@ -59,6 +59,7 @@
             this.txt_klbr_stok = new System.Windows.Forms.TextBox();
             this.txt_klbr_nama = new System.Windows.Forms.TextBox();
             this.btn_klbr_simpan = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator2)).BeginInit();
             this.bindingNavigator2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_kelolabarang)).BeginInit();
@@ -352,11 +353,21 @@
             this.btn_klbr_simpan.UseVisualStyleBackColor = true;
             this.btn_klbr_simpan.Click += new System.EventHandler(this.btn_klbr_simpan_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(606, 35);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(164, 32);
+            this.button1.TabIndex = 42;
+            this.button1.Text = "Menu utama";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // UC_KelolaBarang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(782, 403);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.bindingNavigator2);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtCariBarang);
@@ -417,5 +428,6 @@
         private System.Windows.Forms.TextBox txt_klbr_stok;
         private System.Windows.Forms.TextBox txt_klbr_nama;
         private System.Windows.Forms.Button btn_klbr_simpan;
+        private System.Windows.Forms.Button button1;
     }
 }

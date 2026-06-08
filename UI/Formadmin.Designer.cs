@@ -137,6 +137,7 @@
             this.btnMenuLog.TabIndex = 4;
             this.btnMenuLog.Text = "Log Transaksi";
             this.btnMenuLog.UseVisualStyleBackColor = true;
+            this.btnMenuLog.Click += new System.EventHandler(this.btnMenuLog_Click);
             // 
             // Formadmin
             // 
