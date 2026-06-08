@@ -117,6 +117,7 @@
             this.btnMenuBarang.TabIndex = 2;
             this.btnMenuBarang.Text = " Kelola Barang";
             this.btnMenuBarang.UseVisualStyleBackColor = true;
+            this.btnMenuBarang.Click += new System.EventHandler(this.btnMenuBarang_Click);
             // 
             // btnMenuUser
             // 
@@ -124,8 +125,9 @@
             this.btnMenuUser.Name = "btnMenuUser";
             this.btnMenuUser.Size = new System.Drawing.Size(126, 86);
             this.btnMenuUser.TabIndex = 3;
-            this.btnMenuUser.Text = "button2";
+            this.btnMenuUser.Text = "KelolaUser";
             this.btnMenuUser.UseVisualStyleBackColor = true;
+            this.btnMenuUser.Click += new System.EventHandler(this.btnMenuUser_Click);
             // 
             // btnMenuLog
             // 
