@@ -68,7 +68,7 @@
       <DependentUpon>DBLabSekolahData_pengembalian.xsd</DependentUpon>
     </Compile>
     <Compile Include="UI\UC_KelolaBarang.cs">
-      <SubType>UserControl</SubType>
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\UC_KelolaBarang.Designer.cs">
       <DependentUpon>UC_KelolaBarang.cs</DependentUpon>

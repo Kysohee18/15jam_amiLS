@@ -182,7 +182,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(65, 195);
+            this.label9.Location = new System.Drawing.Point(51, 211);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(81, 16);
             this.label9.TabIndex = 40;
@@ -190,7 +190,7 @@
             // 
             // txtCariBarang
             // 
-            this.txtCariBarang.Location = new System.Drawing.Point(153, 195);
+            this.txtCariBarang.Location = new System.Drawing.Point(138, 211);
             this.txtCariBarang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCariBarang.Name = "txtCariBarang";
             this.txtCariBarang.Size = new System.Drawing.Size(223, 22);
@@ -199,7 +199,7 @@
             // btnTestInjection
             // 
             this.btnTestInjection.BackColor = System.Drawing.Color.White;
-            this.btnTestInjection.Location = new System.Drawing.Point(465, 189);
+            this.btnTestInjection.Location = new System.Drawing.Point(500, 183);
             this.btnTestInjection.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTestInjection.Name = "btnTestInjection";
             this.btnTestInjection.Size = new System.Drawing.Size(75, 23);
@@ -214,7 +214,7 @@
             "Baik",
             "Rusak",
             "Perbaikan"});
-            this.cmb_admin_kondisi.Location = new System.Drawing.Point(198, 159);
+            this.cmb_admin_kondisi.Location = new System.Drawing.Point(151, 162);
             this.cmb_admin_kondisi.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmb_admin_kondisi.Name = "cmb_admin_kondisi";
             this.cmb_admin_kondisi.Size = new System.Drawing.Size(264, 24);
@@ -240,7 +240,7 @@
             "Alat Praktikum Biologi",
             "Media Pembelajaran",
             "Alat Keselamatan"});
-            this.cmb_klbr_kategori.Location = new System.Drawing.Point(198, 102);
+            this.cmb_klbr_kategori.Location = new System.Drawing.Point(151, 105);
             this.cmb_klbr_kategori.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmb_klbr_kategori.Name = "cmb_klbr_kategori";
             this.cmb_klbr_kategori.Size = new System.Drawing.Size(264, 24);
@@ -248,7 +248,7 @@
             // 
             // btn_klbr_refresh
             // 
-            this.btn_klbr_refresh.Location = new System.Drawing.Point(561, 197);
+            this.btn_klbr_refresh.Location = new System.Drawing.Point(606, 179);
             this.btn_klbr_refresh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_klbr_refresh.Name = "btn_klbr_refresh";
             this.btn_klbr_refresh.Size = new System.Drawing.Size(165, 30);
@@ -259,7 +259,7 @@
             // 
             // btn_klbr_hapus
             // 
-            this.btn_klbr_hapus.Location = new System.Drawing.Point(561, 161);
+            this.btn_klbr_hapus.Location = new System.Drawing.Point(606, 143);
             this.btn_klbr_hapus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_klbr_hapus.Name = "btn_klbr_hapus";
             this.btn_klbr_hapus.Size = new System.Drawing.Size(165, 30);
@@ -269,7 +269,7 @@
             // 
             // btn_klbr_ubah
             // 
-            this.btn_klbr_ubah.Location = new System.Drawing.Point(561, 125);
+            this.btn_klbr_ubah.Location = new System.Drawing.Point(606, 107);
             this.btn_klbr_ubah.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_klbr_ubah.Name = "btn_klbr_ubah";
             this.btn_klbr_ubah.Size = new System.Drawing.Size(165, 30);
@@ -280,7 +280,7 @@
             // dgv_kelolabarang
             // 
             this.dgv_kelolabarang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_kelolabarang.Location = new System.Drawing.Point(41, 253);
+            this.dgv_kelolabarang.Location = new System.Drawing.Point(54, 272);
             this.dgv_kelolabarang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgv_kelolabarang.Name = "dgv_kelolabarang";
             this.dgv_kelolabarang.RowHeadersWidth = 51;
@@ -326,7 +326,7 @@
             // 
             // txt_klbr_stok
             // 
-            this.txt_klbr_stok.Location = new System.Drawing.Point(198, 133);
+            this.txt_klbr_stok.Location = new System.Drawing.Point(151, 136);
             this.txt_klbr_stok.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_klbr_stok.Name = "txt_klbr_stok";
             this.txt_klbr_stok.Size = new System.Drawing.Size(264, 22);
@@ -334,7 +334,7 @@
             // 
             // txt_klbr_nama
             // 
-            this.txt_klbr_nama.Location = new System.Drawing.Point(198, 77);
+            this.txt_klbr_nama.Location = new System.Drawing.Point(151, 80);
             this.txt_klbr_nama.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_klbr_nama.Name = "txt_klbr_nama";
             this.txt_klbr_nama.Size = new System.Drawing.Size(264, 22);
@@ -342,7 +342,7 @@
             // 
             // btn_klbr_simpan
             // 
-            this.btn_klbr_simpan.Location = new System.Drawing.Point(561, 90);
+            this.btn_klbr_simpan.Location = new System.Drawing.Point(606, 72);
             this.btn_klbr_simpan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_klbr_simpan.Name = "btn_klbr_simpan";
             this.btn_klbr_simpan.Size = new System.Drawing.Size(165, 32);

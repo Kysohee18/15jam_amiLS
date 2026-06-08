@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-using Ucp_pabd_lab.DAL; 
+using System.Windows.Forms; 
 
 namespace Ucp_pabd_lab.UI
 {
-    public partial class UC_KelolaBarang : UserControl
+    public partial class UC_KelolaBarang : Form
     {
         Koneksi db = new Koneksi();
 
