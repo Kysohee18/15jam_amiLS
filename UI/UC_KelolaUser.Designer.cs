@@ -51,6 +51,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txt_klusr_nama = new System.Windows.Forms.TextBox();
             this.btn_klusr_simpan = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_kelolauser)).BeginInit();
@@ -219,7 +220,7 @@
             // dgv_kelolauser
             // 
             this.dgv_kelolauser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_kelolauser.Location = new System.Drawing.Point(50, 185);
+            this.dgv_kelolauser.Location = new System.Drawing.Point(53, 233);
             this.dgv_kelolauser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgv_kelolauser.Name = "dgv_kelolauser";
             this.dgv_kelolauser.RowHeadersWidth = 51;
@@ -255,20 +256,30 @@
             // 
             // btn_klusr_simpan
             // 
-            this.btn_klusr_simpan.Location = new System.Drawing.Point(578, 58);
+            this.btn_klusr_simpan.Location = new System.Drawing.Point(578, 52);
             this.btn_klusr_simpan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_klusr_simpan.Name = "btn_klusr_simpan";
-            this.btn_klusr_simpan.Size = new System.Drawing.Size(165, 22);
+            this.btn_klusr_simpan.Size = new System.Drawing.Size(165, 32);
             this.btn_klusr_simpan.TabIndex = 31;
             this.btn_klusr_simpan.Text = "Simpan";
             this.btn_klusr_simpan.UseVisualStyleBackColor = true;
             this.btn_klusr_simpan.Click += new System.EventHandler(this.btn_klusr_simpan_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(578, 169);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(164, 32);
+            this.button1.TabIndex = 43;
+            this.button1.Text = "Menu utama";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // UC_KelolaUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.bindingNavigator1);
             this.Controls.Add(this.cmb_klusr_peran);
             this.Controls.Add(this.btn_klusr_refresh);
@@ -314,5 +325,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txt_klusr_nama;
         private System.Windows.Forms.Button btn_klusr_simpan;
+        private System.Windows.Forms.Button button1;
     }
 }
