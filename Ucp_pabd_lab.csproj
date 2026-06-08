@@ -67,6 +67,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBLabSekolahData_pengembalian.xsd</DependentUpon>
     </Compile>
+    <Compile Include="UI\UC_LogAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\UC_LogAdmin.Designer.cs">
+      <DependentUpon>UC_LogAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UC_KelolaUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\UC_KelolaUser.Designer.cs">
+      <DependentUpon>UC_KelolaUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UC_KelolaBarang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\UC_KelolaBarang.Designer.cs">
+      <DependentUpon>UC_KelolaBarang.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Formadmin.cs">
       <SubType>Form</SubType>
     </Compile>
