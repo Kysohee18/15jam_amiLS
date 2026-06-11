@@ -72,7 +72,7 @@ namespace Ucp_pabd_lab.UI
             this.Hide();
         }
 
-        /
+        
         private void btnMenuLog_Click(object sender, EventArgs e)
         {
            

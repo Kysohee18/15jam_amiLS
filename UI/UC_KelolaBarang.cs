@@ -200,14 +200,15 @@ namespace Ucp_pabd_lab.UI
         }
         private void btn_kembali_Click(object sender, EventArgs e)
         {
-            
+
             Formadmin admin = (Formadmin)Application.OpenForms["Formadmin"];
 
             if (admin != null)
             {
                 admin.Show();
 
-            this.Close();
+                this.Close();
+            }
         }
 
 
