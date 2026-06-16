@@ -29,179 +29,28 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Formadmin));
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tab_kelolabarang = new System.Windows.Forms.TabPage();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtCariBarang = new System.Windows.Forms.TextBox();
-            this.btnTestInjection = new System.Windows.Forms.Button();
-            this.cmb_admin_kondisi = new System.Windows.Forms.ComboBox();
             this.barangBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dBLabSekolahDataSet = new Ucp_pabd_lab.DBLabSekolahDataSet();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cmb_klbr_kategori = new System.Windows.Forms.ComboBox();
-            this.btn_klbr_refresh = new System.Windows.Forms.Button();
-            this.btn_klbr_hapus = new System.Windows.Forms.Button();
-            this.btn_klbr_ubah = new System.Windows.Forms.Button();
-            this.dgv_kelolabarang = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txt_klbr_stok = new System.Windows.Forms.TextBox();
+            this.spGetKategoriBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dBLabSekolahDataSet2 = new Ucp_pabd_lab.DBLabSekolahDataSet2();
+            this.userLabBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dBLabSekolahDataSet1 = new Ucp_pabd_lab.DBLabSekolahDataSet1();
             this.barangBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.txt_klbr_nama = new System.Windows.Forms.TextBox();
-            this.btn_klbr_simpan = new System.Windows.Forms.Button();
-            this.tab_kelolauser = new System.Windows.Forms.TabPage();
-            this.cmb_klusr_peran = new System.Windows.Forms.ComboBox();
-            this.btn_klusr_refresh = new System.Windows.Forms.Button();
-            this.btn_klusr_hapus = new System.Windows.Forms.Button();
-            this.btn_klusr_ubah = new System.Windows.Forms.Button();
-            this.dgv_kelolauser = new System.Windows.Forms.DataGridView();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txt_klusr_nama = new System.Windows.Forms.TextBox();
-            this.btn_klusr_simpan = new System.Windows.Forms.Button();
-            this.tab_log_admin = new System.Windows.Forms.TabPage();
-            this.refresh_log_admin = new System.Windows.Forms.LinkLabel();
-            this.dgv_log_admin = new System.Windows.Forms.DataGridView();
             this.linkLabel_Admin_Logout = new System.Windows.Forms.LinkLabel();
             this.barangTableAdapter = new Ucp_pabd_lab.DBLabSekolahDataSetTableAdapters.BarangTableAdapter();
-            this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigator2 = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorMoveFirstItem1 = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem1 = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem1 = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem1 = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorMoveNextItem1 = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem1 = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewItem1 = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorDeleteItem1 = new System.Windows.Forms.ToolStripButton();
-            this.dBLabSekolahDataSet1 = new Ucp_pabd_lab.DBLabSekolahDataSet1();
-            this.userLabBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.userLabTableAdapter = new Ucp_pabd_lab.DBLabSekolahDataSet1TableAdapters.UserLabTableAdapter();
-            this.dBLabSekolahDataSet2 = new Ucp_pabd_lab.DBLabSekolahDataSet2();
-            this.spGetKategoriBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sp_GetKategoriTableAdapter = new Ucp_pabd_lab.DBLabSekolahDataSet2TableAdapters.sp_GetKategoriTableAdapter();
-            this.tabControl1.SuspendLayout();
-            this.tab_kelolabarang.SuspendLayout();
+            this.btnMenuBarang = new System.Windows.Forms.Button();
+            this.btnMenuUser = new System.Windows.Forms.Button();
+            this.btnMenuLog = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.barangBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBLabSekolahDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_kelolabarang)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barangBindingSource1)).BeginInit();
-            this.tab_kelolauser.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_kelolauser)).BeginInit();
-            this.tab_log_admin.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_log_admin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
-            this.bindingNavigator1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator2)).BeginInit();
-            this.bindingNavigator2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dBLabSekolahDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userLabBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dBLabSekolahDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spGetKategoriBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dBLabSekolahDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userLabBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dBLabSekolahDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barangBindingSource1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tab_kelolabarang);
-            this.tabControl1.Controls.Add(this.tab_kelolauser);
-            this.tabControl1.Controls.Add(this.tab_log_admin);
-            this.tabControl1.Location = new System.Drawing.Point(20, 24);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(555, 320);
-            this.tabControl1.TabIndex = 0;
-            // 
-            // tab_kelolabarang
-            // 
-            this.tab_kelolabarang.Controls.Add(this.bindingNavigator2);
-            this.tab_kelolabarang.Controls.Add(this.label9);
-            this.tab_kelolabarang.Controls.Add(this.txtCariBarang);
-            this.tab_kelolabarang.Controls.Add(this.btnTestInjection);
-            this.tab_kelolabarang.Controls.Add(this.cmb_admin_kondisi);
-            this.tab_kelolabarang.Controls.Add(this.label6);
-            this.tab_kelolabarang.Controls.Add(this.cmb_klbr_kategori);
-            this.tab_kelolabarang.Controls.Add(this.btn_klbr_refresh);
-            this.tab_kelolabarang.Controls.Add(this.btn_klbr_hapus);
-            this.tab_kelolabarang.Controls.Add(this.btn_klbr_ubah);
-            this.tab_kelolabarang.Controls.Add(this.dgv_kelolabarang);
-            this.tab_kelolabarang.Controls.Add(this.label4);
-            this.tab_kelolabarang.Controls.Add(this.label3);
-            this.tab_kelolabarang.Controls.Add(this.label2);
-            this.tab_kelolabarang.Controls.Add(this.label1);
-            this.tab_kelolabarang.Controls.Add(this.txt_klbr_stok);
-            this.tab_kelolabarang.Controls.Add(this.txt_klbr_nama);
-            this.tab_kelolabarang.Controls.Add(this.btn_klbr_simpan);
-            this.tab_kelolabarang.Location = new System.Drawing.Point(4, 22);
-            this.tab_kelolabarang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tab_kelolabarang.Name = "tab_kelolabarang";
-            this.tab_kelolabarang.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tab_kelolabarang.Size = new System.Drawing.Size(547, 294);
-            this.tab_kelolabarang.TabIndex = 0;
-            this.tab_kelolabarang.Text = "Kelola Barang";
-            this.tab_kelolabarang.UseVisualStyleBackColor = true;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(14, 142);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(65, 13);
-            this.label9.TabIndex = 22;
-            this.label9.Text = "Cari Barang:";
-            // 
-            // txtCariBarang
-            // 
-            this.txtCariBarang.Location = new System.Drawing.Point(80, 142);
-            this.txtCariBarang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtCariBarang.Name = "txtCariBarang";
-            this.txtCariBarang.Size = new System.Drawing.Size(168, 20);
-            this.txtCariBarang.TabIndex = 21;
-            // 
-            // btnTestInjection
-            // 
-            this.btnTestInjection.BackColor = System.Drawing.Color.White;
-            this.btnTestInjection.Location = new System.Drawing.Point(328, 119);
-            this.btnTestInjection.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnTestInjection.Name = "btnTestInjection";
-            this.btnTestInjection.Size = new System.Drawing.Size(56, 19);
-            this.btnTestInjection.TabIndex = 20;
-            this.btnTestInjection.Text = "test inject";
-            this.btnTestInjection.UseVisualStyleBackColor = false;
-            this.btnTestInjection.Click += new System.EventHandler(this.btnTestInjection_Click);
-            // 
-            // cmb_admin_kondisi
-            // 
-            this.cmb_admin_kondisi.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.barangBindingSource, "Kondisi", true));
-            this.cmb_admin_kondisi.FormattingEnabled = true;
-            this.cmb_admin_kondisi.Items.AddRange(new object[] {
-            "Baik",
-            "Rusak",
-            "Perbaikan"});
-            this.cmb_admin_kondisi.Location = new System.Drawing.Point(114, 113);
-            this.cmb_admin_kondisi.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cmb_admin_kondisi.Name = "cmb_admin_kondisi";
-            this.cmb_admin_kondisi.Size = new System.Drawing.Size(199, 21);
-            this.cmb_admin_kondisi.TabIndex = 19;
             // 
             // barangBindingSource
             // 
@@ -213,316 +62,37 @@
             this.dBLabSekolahDataSet.DataSetName = "DBLabSekolahDataSet";
             this.dBLabSekolahDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // label6
+            // spGetKategoriBindingSource
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(4, 119);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(41, 13);
-            this.label6.TabIndex = 18;
-            this.label6.Text = "Kondisi";
+            this.spGetKategoriBindingSource.DataMember = "sp_GetKategori";
+            this.spGetKategoriBindingSource.DataSource = this.dBLabSekolahDataSet2;
             // 
-            // cmb_klbr_kategori
+            // dBLabSekolahDataSet2
             // 
-            this.cmb_klbr_kategori.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.spGetKategoriBindingSource, "NamaKategori", true));
-            this.cmb_klbr_kategori.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.barangBindingSource, "IDKategori", true));
-            this.cmb_klbr_kategori.FormattingEnabled = true;
-            this.cmb_klbr_kategori.Items.AddRange(new object[] {
-            "Alat Ukur",
-            "Alat Gelas",
-            "Bahan Kimia",
-            "Alat Praktikum Fisika",
-            "Alat Praktikum Biologi",
-            "Media Pembelajaran",
-            "Alat Keselamatan"});
-            this.cmb_klbr_kategori.Location = new System.Drawing.Point(114, 67);
-            this.cmb_klbr_kategori.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cmb_klbr_kategori.Name = "cmb_klbr_kategori";
-            this.cmb_klbr_kategori.Size = new System.Drawing.Size(199, 21);
-            this.cmb_klbr_kategori.TabIndex = 17;
+            this.dBLabSekolahDataSet2.DataSetName = "DBLabSekolahDataSet2";
+            this.dBLabSekolahDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // btn_klbr_refresh
+            // userLabBindingSource
             // 
-            this.btn_klbr_refresh.Location = new System.Drawing.Point(400, 125);
-            this.btn_klbr_refresh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btn_klbr_refresh.Name = "btn_klbr_refresh";
-            this.btn_klbr_refresh.Size = new System.Drawing.Size(124, 24);
-            this.btn_klbr_refresh.TabIndex = 16;
-            this.btn_klbr_refresh.Text = "Refresh";
-            this.btn_klbr_refresh.UseVisualStyleBackColor = true;
+            this.userLabBindingSource.DataMember = "UserLab";
+            this.userLabBindingSource.DataSource = this.dBLabSekolahDataSet1;
             // 
-            // btn_klbr_hapus
+            // dBLabSekolahDataSet1
             // 
-            this.btn_klbr_hapus.Location = new System.Drawing.Point(400, 96);
-            this.btn_klbr_hapus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btn_klbr_hapus.Name = "btn_klbr_hapus";
-            this.btn_klbr_hapus.Size = new System.Drawing.Size(124, 24);
-            this.btn_klbr_hapus.TabIndex = 15;
-            this.btn_klbr_hapus.Text = "Hapus";
-            this.btn_klbr_hapus.UseVisualStyleBackColor = true;
-            // 
-            // btn_klbr_ubah
-            // 
-            this.btn_klbr_ubah.Location = new System.Drawing.Point(400, 67);
-            this.btn_klbr_ubah.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btn_klbr_ubah.Name = "btn_klbr_ubah";
-            this.btn_klbr_ubah.Size = new System.Drawing.Size(124, 24);
-            this.btn_klbr_ubah.TabIndex = 14;
-            this.btn_klbr_ubah.Text = "Ubah";
-            this.btn_klbr_ubah.UseVisualStyleBackColor = true;
-            // 
-            // dgv_kelolabarang
-            // 
-            this.dgv_kelolabarang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_kelolabarang.Location = new System.Drawing.Point(7, 165);
-            this.dgv_kelolabarang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dgv_kelolabarang.Name = "dgv_kelolabarang";
-            this.dgv_kelolabarang.RowHeadersWidth = 51;
-            this.dgv_kelolabarang.RowTemplate.Height = 24;
-            this.dgv_kelolabarang.Size = new System.Drawing.Size(538, 127);
-            this.dgv_kelolabarang.TabIndex = 13;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(4, 71);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(46, 13);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Kategori";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(4, 96);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 13);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Stok";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 62);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(10, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = " ";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 49);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 13);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Nama Barang:";
-            // 
-            // txt_klbr_stok
-            // 
-            this.txt_klbr_stok.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.barangBindingSource, "Stok", true));
-            this.txt_klbr_stok.Location = new System.Drawing.Point(114, 92);
-            this.txt_klbr_stok.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txt_klbr_stok.Name = "txt_klbr_stok";
-            this.txt_klbr_stok.Size = new System.Drawing.Size(199, 20);
-            this.txt_klbr_stok.TabIndex = 8;
+            this.dBLabSekolahDataSet1.DataSetName = "DBLabSekolahDataSet1";
+            this.dBLabSekolahDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // barangBindingSource1
             // 
             this.barangBindingSource1.DataMember = "Barang";
             this.barangBindingSource1.DataSource = this.dBLabSekolahDataSet;
             // 
-            // txt_klbr_nama
-            // 
-            this.txt_klbr_nama.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.barangBindingSource, "NamaBarang", true));
-            this.txt_klbr_nama.Location = new System.Drawing.Point(114, 46);
-            this.txt_klbr_nama.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txt_klbr_nama.Name = "txt_klbr_nama";
-            this.txt_klbr_nama.Size = new System.Drawing.Size(199, 20);
-            this.txt_klbr_nama.TabIndex = 6;
-            // 
-            // btn_klbr_simpan
-            // 
-            this.btn_klbr_simpan.Location = new System.Drawing.Point(400, 38);
-            this.btn_klbr_simpan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btn_klbr_simpan.Name = "btn_klbr_simpan";
-            this.btn_klbr_simpan.Size = new System.Drawing.Size(124, 26);
-            this.btn_klbr_simpan.TabIndex = 0;
-            this.btn_klbr_simpan.Text = "Simpan";
-            this.btn_klbr_simpan.UseVisualStyleBackColor = true;
-            // 
-            // tab_kelolauser
-            // 
-            this.tab_kelolauser.Controls.Add(this.bindingNavigator1);
-            this.tab_kelolauser.Controls.Add(this.cmb_klusr_peran);
-            this.tab_kelolauser.Controls.Add(this.btn_klusr_refresh);
-            this.tab_kelolauser.Controls.Add(this.btn_klusr_hapus);
-            this.tab_kelolauser.Controls.Add(this.btn_klusr_ubah);
-            this.tab_kelolauser.Controls.Add(this.dgv_kelolauser);
-            this.tab_kelolauser.Controls.Add(this.label5);
-            this.tab_kelolauser.Controls.Add(this.label7);
-            this.tab_kelolauser.Controls.Add(this.label8);
-            this.tab_kelolauser.Controls.Add(this.txt_klusr_nama);
-            this.tab_kelolauser.Controls.Add(this.btn_klusr_simpan);
-            this.tab_kelolauser.Location = new System.Drawing.Point(4, 22);
-            this.tab_kelolauser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tab_kelolauser.Name = "tab_kelolauser";
-            this.tab_kelolauser.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tab_kelolauser.Size = new System.Drawing.Size(547, 294);
-            this.tab_kelolauser.TabIndex = 1;
-            this.tab_kelolauser.Text = "Kelola User";
-            this.tab_kelolauser.UseVisualStyleBackColor = true;
-            // 
-            // cmb_klusr_peran
-            // 
-            this.cmb_klusr_peran.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userLabBindingSource, "RoleUser", true));
-            this.cmb_klusr_peran.FormattingEnabled = true;
-            this.cmb_klusr_peran.Items.AddRange(new object[] {
-            "Siswa",
-            "Guru"});
-            this.cmb_klusr_peran.Location = new System.Drawing.Point(117, 74);
-            this.cmb_klusr_peran.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cmb_klusr_peran.Name = "cmb_klusr_peran";
-            this.cmb_klusr_peran.Size = new System.Drawing.Size(199, 21);
-            this.cmb_klusr_peran.TabIndex = 29;
-            // 
-            // btn_klusr_refresh
-            // 
-            this.btn_klusr_refresh.Location = new System.Drawing.Point(403, 115);
-            this.btn_klusr_refresh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btn_klusr_refresh.Name = "btn_klusr_refresh";
-            this.btn_klusr_refresh.Size = new System.Drawing.Size(124, 18);
-            this.btn_klusr_refresh.TabIndex = 28;
-            this.btn_klusr_refresh.Text = "Refresh";
-            this.btn_klusr_refresh.UseVisualStyleBackColor = true;
-            // 
-            // btn_klusr_hapus
-            // 
-            this.btn_klusr_hapus.Location = new System.Drawing.Point(403, 92);
-            this.btn_klusr_hapus.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btn_klusr_hapus.Name = "btn_klusr_hapus";
-            this.btn_klusr_hapus.Size = new System.Drawing.Size(124, 18);
-            this.btn_klusr_hapus.TabIndex = 27;
-            this.btn_klusr_hapus.Text = "Hapus";
-            this.btn_klusr_hapus.UseVisualStyleBackColor = true;
-            // 
-            // btn_klusr_ubah
-            // 
-            this.btn_klusr_ubah.Location = new System.Drawing.Point(403, 69);
-            this.btn_klusr_ubah.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btn_klusr_ubah.Name = "btn_klusr_ubah";
-            this.btn_klusr_ubah.Size = new System.Drawing.Size(124, 18);
-            this.btn_klusr_ubah.TabIndex = 26;
-            this.btn_klusr_ubah.Text = "Ubah";
-            this.btn_klusr_ubah.UseVisualStyleBackColor = true;
-            // 
-            // dgv_kelolauser
-            // 
-            this.dgv_kelolauser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_kelolauser.Location = new System.Drawing.Point(7, 150);
-            this.dgv_kelolauser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dgv_kelolauser.Name = "dgv_kelolauser";
-            this.dgv_kelolauser.RowHeadersWidth = 51;
-            this.dgv_kelolauser.RowTemplate.Height = 24;
-            this.dgv_kelolauser.Size = new System.Drawing.Size(538, 127);
-            this.dgv_kelolauser.TabIndex = 25;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 81);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 13);
-            this.label5.TabIndex = 24;
-            this.label5.Text = "Peran :";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(4, 47);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(10, 13);
-            this.label7.TabIndex = 22;
-            this.label7.Text = " ";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(7, 49);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(41, 13);
-            this.label8.TabIndex = 21;
-            this.label8.Text = "Nama :";
-            // 
-            // txt_klusr_nama
-            // 
-            this.txt_klusr_nama.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userLabBindingSource, "NamaUser", true));
-            this.txt_klusr_nama.Location = new System.Drawing.Point(117, 47);
-            this.txt_klusr_nama.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txt_klusr_nama.Name = "txt_klusr_nama";
-            this.txt_klusr_nama.Size = new System.Drawing.Size(199, 20);
-            this.txt_klusr_nama.TabIndex = 18;
-            // 
-            // btn_klusr_simpan
-            // 
-            this.btn_klusr_simpan.Location = new System.Drawing.Point(403, 47);
-            this.btn_klusr_simpan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btn_klusr_simpan.Name = "btn_klusr_simpan";
-            this.btn_klusr_simpan.Size = new System.Drawing.Size(124, 18);
-            this.btn_klusr_simpan.TabIndex = 17;
-            this.btn_klusr_simpan.Text = "Simpan";
-            this.btn_klusr_simpan.UseVisualStyleBackColor = true;
-            // 
-            // tab_log_admin
-            // 
-            this.tab_log_admin.Controls.Add(this.refresh_log_admin);
-            this.tab_log_admin.Controls.Add(this.dgv_log_admin);
-            this.tab_log_admin.Location = new System.Drawing.Point(4, 22);
-            this.tab_log_admin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tab_log_admin.Name = "tab_log_admin";
-            this.tab_log_admin.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tab_log_admin.Size = new System.Drawing.Size(547, 294);
-            this.tab_log_admin.TabIndex = 2;
-            this.tab_log_admin.Text = "Log Transaksi";
-            this.tab_log_admin.UseVisualStyleBackColor = true;
-            // 
-            // refresh_log_admin
-            // 
-            this.refresh_log_admin.AutoSize = true;
-            this.refresh_log_admin.Location = new System.Drawing.Point(490, 26);
-            this.refresh_log_admin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.refresh_log_admin.Name = "refresh_log_admin";
-            this.refresh_log_admin.Size = new System.Drawing.Size(44, 13);
-            this.refresh_log_admin.TabIndex = 1;
-            this.refresh_log_admin.TabStop = true;
-            this.refresh_log_admin.Text = "Refresh";
-            // 
-            // dgv_log_admin
-            // 
-            this.dgv_log_admin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_log_admin.Location = new System.Drawing.Point(4, 41);
-            this.dgv_log_admin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dgv_log_admin.Name = "dgv_log_admin";
-            this.dgv_log_admin.RowHeadersWidth = 51;
-            this.dgv_log_admin.RowTemplate.Height = 24;
-            this.dgv_log_admin.Size = new System.Drawing.Size(536, 245);
-            this.dgv_log_admin.TabIndex = 0;
-            // 
             // linkLabel_Admin_Logout
             // 
             this.linkLabel_Admin_Logout.AutoSize = true;
-            this.linkLabel_Admin_Logout.Location = new System.Drawing.Point(20, 346);
-            this.linkLabel_Admin_Logout.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linkLabel_Admin_Logout.Location = new System.Drawing.Point(27, 426);
             this.linkLabel_Admin_Logout.Name = "linkLabel_Admin_Logout";
-            this.linkLabel_Admin_Logout.Size = new System.Drawing.Size(45, 13);
+            this.linkLabel_Admin_Logout.Size = new System.Drawing.Size(53, 16);
             this.linkLabel_Admin_Logout.TabIndex = 1;
             this.linkLabel_Admin_Logout.TabStop = true;
             this.linkLabel_Admin_Logout.Text = "Log Out";
@@ -531,371 +101,84 @@
             // 
             this.barangTableAdapter.ClearBeforeFill = true;
             // 
-            // bindingNavigator1
-            // 
-            this.bindingNavigator1.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.bindingNavigator1.BindingSource = this.userLabBindingSource;
-            this.bindingNavigator1.CountItem = this.bindingNavigatorCountItem;
-            this.bindingNavigator1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userLabBindingSource, "IDUser", true));
-            this.bindingNavigator1.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.bindingNavigator1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem,
-            this.bindingNavigatorMovePreviousItem,
-            this.bindingNavigatorSeparator,
-            this.bindingNavigatorPositionItem,
-            this.bindingNavigatorCountItem,
-            this.bindingNavigatorSeparator1,
-            this.bindingNavigatorMoveNextItem,
-            this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem});
-            this.bindingNavigator1.Location = new System.Drawing.Point(2, 2);
-            this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.bindingNavigator1.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.bindingNavigator1.Name = "bindingNavigator1";
-            this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator1.Size = new System.Drawing.Size(543, 25);
-            this.bindingNavigator1.TabIndex = 30;
-            this.bindingNavigator1.Text = "bindingNavigator1";
-            // 
-            // bindingNavigatorMoveFirstItem
-            // 
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveFirstItem.Text = "Move first";
-            // 
-            // bindingNavigatorMovePreviousItem
-            // 
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMovePreviousItem.Text = "Move previous";
-            // 
-            // bindingNavigatorSeparator
-            // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorPositionItem
-            // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Position";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Current position";
-            // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-            this.bindingNavigatorCountItem.Text = "of {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
-            // bindingNavigatorSeparator1
-            // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorMoveNextItem
-            // 
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveNextItem.Text = "Move next";
-            // 
-            // bindingNavigatorMoveLastItem
-            // 
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveLastItem.Text = "Move last";
-            // 
-            // bindingNavigatorSeparator2
-            // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
-            // 
-            // bindingNavigator2
-            // 
-            this.bindingNavigator2.AddNewItem = this.bindingNavigatorAddNewItem1;
-            this.bindingNavigator2.CountItem = this.bindingNavigatorCountItem1;
-            this.bindingNavigator2.DeleteItem = this.bindingNavigatorDeleteItem1;
-            this.bindingNavigator2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bindingNavigatorMoveFirstItem1,
-            this.bindingNavigatorMovePreviousItem1,
-            this.bindingNavigatorSeparator3,
-            this.bindingNavigatorPositionItem1,
-            this.bindingNavigatorCountItem1,
-            this.bindingNavigatorSeparator4,
-            this.bindingNavigatorMoveNextItem1,
-            this.bindingNavigatorMoveLastItem1,
-            this.bindingNavigatorSeparator5,
-            this.bindingNavigatorAddNewItem1,
-            this.bindingNavigatorDeleteItem1});
-            this.bindingNavigator2.Location = new System.Drawing.Point(2, 2);
-            this.bindingNavigator2.MoveFirstItem = this.bindingNavigatorMoveFirstItem1;
-            this.bindingNavigator2.MoveLastItem = this.bindingNavigatorMoveLastItem1;
-            this.bindingNavigator2.MoveNextItem = this.bindingNavigatorMoveNextItem1;
-            this.bindingNavigator2.MovePreviousItem = this.bindingNavigatorMovePreviousItem1;
-            this.bindingNavigator2.Name = "bindingNavigator2";
-            this.bindingNavigator2.PositionItem = this.bindingNavigatorPositionItem1;
-            this.bindingNavigator2.Size = new System.Drawing.Size(543, 25);
-            this.bindingNavigator2.TabIndex = 23;
-            this.bindingNavigator2.Text = "bindingNavigator2";
-            // 
-            // bindingNavigatorMoveFirstItem1
-            // 
-            this.bindingNavigatorMoveFirstItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem1.Image")));
-            this.bindingNavigatorMoveFirstItem1.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem1.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem1.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveFirstItem1.Text = "Move first";
-            // 
-            // bindingNavigatorMovePreviousItem1
-            // 
-            this.bindingNavigatorMovePreviousItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem1.Image")));
-            this.bindingNavigatorMovePreviousItem1.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem1.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem1.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMovePreviousItem1.Text = "Move previous";
-            // 
-            // bindingNavigatorSeparator3
-            // 
-            this.bindingNavigatorSeparator3.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator3.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorPositionItem1
-            // 
-            this.bindingNavigatorPositionItem1.AccessibleName = "Position";
-            this.bindingNavigatorPositionItem1.AutoSize = false;
-            this.bindingNavigatorPositionItem1.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem1.Size = new System.Drawing.Size(50, 23);
-            this.bindingNavigatorPositionItem1.Text = "0";
-            this.bindingNavigatorPositionItem1.ToolTipText = "Current position";
-            // 
-            // bindingNavigatorCountItem1
-            // 
-            this.bindingNavigatorCountItem1.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem1.Size = new System.Drawing.Size(35, 22);
-            this.bindingNavigatorCountItem1.Text = "of {0}";
-            this.bindingNavigatorCountItem1.ToolTipText = "Total number of items";
-            // 
-            // bindingNavigatorSeparator4
-            // 
-            this.bindingNavigatorSeparator4.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator4.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorMoveNextItem1
-            // 
-            this.bindingNavigatorMoveNextItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem1.Image")));
-            this.bindingNavigatorMoveNextItem1.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem1.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem1.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveNextItem1.Text = "Move next";
-            // 
-            // bindingNavigatorMoveLastItem1
-            // 
-            this.bindingNavigatorMoveLastItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem1.Image")));
-            this.bindingNavigatorMoveLastItem1.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem1.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem1.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveLastItem1.Text = "Move last";
-            // 
-            // bindingNavigatorSeparator5
-            // 
-            this.bindingNavigatorSeparator5.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator5.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorAddNewItem1
-            // 
-            this.bindingNavigatorAddNewItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem1.Image")));
-            this.bindingNavigatorAddNewItem1.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem1.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem1.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem1.Text = "Add new";
-            // 
-            // bindingNavigatorDeleteItem1
-            // 
-            this.bindingNavigatorDeleteItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem1.Image")));
-            this.bindingNavigatorDeleteItem1.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem1.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem1.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem1.Text = "Delete";
-            // 
-            // dBLabSekolahDataSet1
-            // 
-            this.dBLabSekolahDataSet1.DataSetName = "DBLabSekolahDataSet1";
-            this.dBLabSekolahDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // userLabBindingSource
-            // 
-            this.userLabBindingSource.DataMember = "UserLab";
-            this.userLabBindingSource.DataSource = this.dBLabSekolahDataSet1;
-            // 
             // userLabTableAdapter
             // 
             this.userLabTableAdapter.ClearBeforeFill = true;
-            // 
-            // dBLabSekolahDataSet2
-            // 
-            this.dBLabSekolahDataSet2.DataSetName = "DBLabSekolahDataSet2";
-            this.dBLabSekolahDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // spGetKategoriBindingSource
-            // 
-            this.spGetKategoriBindingSource.DataMember = "sp_GetKategori";
-            this.spGetKategoriBindingSource.DataSource = this.dBLabSekolahDataSet2;
             // 
             // sp_GetKategoriTableAdapter
             // 
             this.sp_GetKategoriTableAdapter.ClearBeforeFill = true;
             // 
+            // btnMenuBarang
+            // 
+            this.btnMenuBarang.Location = new System.Drawing.Point(125, 155);
+            this.btnMenuBarang.Name = "btnMenuBarang";
+            this.btnMenuBarang.Size = new System.Drawing.Size(126, 86);
+            this.btnMenuBarang.TabIndex = 2;
+            this.btnMenuBarang.Text = " Kelola Barang";
+            this.btnMenuBarang.UseVisualStyleBackColor = true;
+            this.btnMenuBarang.Click += new System.EventHandler(this.btnMenuBarang_Click);
+            // 
+            // btnMenuUser
+            // 
+            this.btnMenuUser.Location = new System.Drawing.Point(323, 155);
+            this.btnMenuUser.Name = "btnMenuUser";
+            this.btnMenuUser.Size = new System.Drawing.Size(126, 86);
+            this.btnMenuUser.TabIndex = 3;
+            this.btnMenuUser.Text = "KelolaUser";
+            this.btnMenuUser.UseVisualStyleBackColor = true;
+            this.btnMenuUser.Click += new System.EventHandler(this.btnMenuUser_Click);
+            // 
+            // btnMenuLog
+            // 
+            this.btnMenuLog.Location = new System.Drawing.Point(507, 155);
+            this.btnMenuLog.Name = "btnMenuLog";
+            this.btnMenuLog.Size = new System.Drawing.Size(126, 86);
+            this.btnMenuLog.TabIndex = 4;
+            this.btnMenuLog.Text = "Log Transaksi";
+            this.btnMenuLog.UseVisualStyleBackColor = true;
+            this.btnMenuLog.Click += new System.EventHandler(this.btnMenuLog_Click);
+            // 
             // Formadmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Tan;
-            this.ClientSize = new System.Drawing.Size(600, 366);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnMenuLog);
+            this.Controls.Add(this.btnMenuUser);
+            this.Controls.Add(this.btnMenuBarang);
             this.Controls.Add(this.linkLabel_Admin_Logout);
-            this.Controls.Add(this.tabControl1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Formadmin";
             this.Text = "Formadmin";
             this.Load += new System.EventHandler(this.Formadmin_Load);
-            this.tabControl1.ResumeLayout(false);
-            this.tab_kelolabarang.ResumeLayout(false);
-            this.tab_kelolabarang.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.barangBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBLabSekolahDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_kelolabarang)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.barangBindingSource1)).EndInit();
-            this.tab_kelolauser.ResumeLayout(false);
-            this.tab_kelolauser.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_kelolauser)).EndInit();
-            this.tab_log_admin.ResumeLayout(false);
-            this.tab_log_admin.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_log_admin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
-            this.bindingNavigator1.ResumeLayout(false);
-            this.bindingNavigator1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator2)).EndInit();
-            this.bindingNavigator2.ResumeLayout(false);
-            this.bindingNavigator2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dBLabSekolahDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userLabBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dBLabSekolahDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spGetKategoriBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dBLabSekolahDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userLabBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dBLabSekolahDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barangBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tab_kelolabarang;
-        private System.Windows.Forms.TabPage tab_kelolauser;
-        private System.Windows.Forms.TabPage tab_log_admin;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txt_klbr_stok;
-        private System.Windows.Forms.TextBox txt_klbr_nama;
-        private System.Windows.Forms.Button btn_klbr_simpan;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btn_klbr_refresh;
-        private System.Windows.Forms.Button btn_klbr_hapus;
-        private System.Windows.Forms.Button btn_klbr_ubah;
-        private System.Windows.Forms.DataGridView dgv_kelolabarang;
-        private System.Windows.Forms.Button btn_klusr_refresh;
-        private System.Windows.Forms.Button btn_klusr_hapus;
-        private System.Windows.Forms.Button btn_klusr_ubah;
-        private System.Windows.Forms.DataGridView dgv_kelolauser;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txt_klusr_nama;
-        private System.Windows.Forms.Button btn_klusr_simpan;
-        private System.Windows.Forms.ComboBox cmb_klusr_peran;
-        private System.Windows.Forms.LinkLabel refresh_log_admin;
-        private System.Windows.Forms.DataGridView dgv_log_admin;
         private System.Windows.Forms.LinkLabel linkLabel_Admin_Logout;
-        private System.Windows.Forms.ComboBox cmb_klbr_kategori;
-        private System.Windows.Forms.ComboBox cmb_admin_kondisi;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btnTestInjection;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtCariBarang;
         private DBLabSekolahDataSet dBLabSekolahDataSet;
         private System.Windows.Forms.BindingSource barangBindingSource;
         private DBLabSekolahDataSetTableAdapters.BarangTableAdapter barangTableAdapter;
         private System.Windows.Forms.BindingSource barangBindingSource1;
-        private System.Windows.Forms.BindingNavigator bindingNavigator2;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem1;
-        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem1;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator3;
-        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem1;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator4;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem1;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator5;
-        private System.Windows.Forms.BindingNavigator bindingNavigator1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
-        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
-        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private DBLabSekolahDataSet1 dBLabSekolahDataSet1;
         private System.Windows.Forms.BindingSource userLabBindingSource;
         private DBLabSekolahDataSet1TableAdapters.UserLabTableAdapter userLabTableAdapter;
         private DBLabSekolahDataSet2 dBLabSekolahDataSet2;
         private System.Windows.Forms.BindingSource spGetKategoriBindingSource;
         private DBLabSekolahDataSet2TableAdapters.sp_GetKategoriTableAdapter sp_GetKategoriTableAdapter;
+        private System.Windows.Forms.Button btnMenuBarang;
+        private System.Windows.Forms.Button btnMenuUser;
+        private System.Windows.Forms.Button btnMenuLog;
     }
 }
