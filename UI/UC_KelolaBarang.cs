@@ -14,7 +14,6 @@ namespace Ucp_pabd_lab.UI
     public partial class UC_KelolaBarang : Form
     {
         Koneksi db = new Koneksi();
-
         private string idBarangTerpilih = "";
         public UC_KelolaBarang()
         {
@@ -160,7 +159,7 @@ namespace Ucp_pabd_lab.UI
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     // Mengirimkan parameter lengkap ke sp_UpdateBarang
-                    cmd.Parameters.AddWithValue("@IDBarang", id: iBarangTerpilih);
+                    cmd.Parameters.AddWithValue("@IDBarang", idBarangTerpilih);
                     cmd.Parameters.AddWithValue("@NamaBarang", txt_klbr_nama.Text.Trim());
                     cmd.Parameters.AddWithValue("@IDKategori", cmb_klbr_kategori.SelectedValue);
                     cmd.Parameters.AddWithValue("@Stok", int.Parse(txt_klbr_stok.Text.Trim()));
