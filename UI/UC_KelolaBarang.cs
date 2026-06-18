@@ -15,6 +15,7 @@ namespace Ucp_pabd_lab.UI
     {
         Koneksi db = new Koneksi();
 
+        private string idBarangTerpilih = "";
         public UC_KelolaBarang()
         {
             InitializeComponent();
@@ -117,6 +118,20 @@ namespace Ucp_pabd_lab.UI
                 {
                     MessageBox.Show("Terjadi masalah pada transaksi database: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+        private void dgv_kelolabarang_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgv_kelolabarang.Rows[e.RowIndex];
+
+                idBarangTerpilih = row.Cells[0].Value.ToString();
+
+                txt_klbr_nama.Text = row.Cells[1].Value.ToString();
+                cmb_klbr_kategori.Text = row.Cells[2].Value.ToString();
+                txt_klbr_stok.Text = row.Cells[3].Value.ToString();
+                cmb_admin_kondisi.Text = row.Cells[4].Value.ToString();
             }
         }
         private void btn_klbr_ubah_Click(object sender, EventArgs e)
