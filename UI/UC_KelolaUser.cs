@@ -17,7 +17,7 @@ namespace Ucp_pabd_lab.UI
     public partial class UC_KelolaUser : Form
     {
         Koneksi db = new Koneksi();
-
+        private string idUserTerpilih = "";
         public UC_KelolaUser()
         {
             InitializeComponent();
@@ -92,7 +92,7 @@ namespace Ucp_pabd_lab.UI
         private void btn_klusr_ubah_Click(object sender, EventArgs e)
         {
             // Validasi apakah user sudah memilih data di grid terlebih dahulu
-            if (string.IsNullOrEmpty(IDUserTerpilih))
+            if (string.IsNullOrEmpty(idUserTerpilih))
             {
                 MessageBox.Show("Silakan pilih data pengguna pada tabel terlebih dahulu yang ingin diubah!", "Aksi Ditolak", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -171,7 +171,19 @@ namespace Ucp_pabd_lab.UI
             }
             this.Close();
         }
+        private void dgv_kelolauser_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgv_kelolauser.Rows[e.RowIndex];
+                // Menyimpan IDUser yang terpilih untuk operasi selanjutnya
+                idUserTerpilih = row.Cells[0].Value.ToString();
 
+                // Menyalurkan teks ke kotak input form
+                txt_klusr_nama.Text = row.Cells[1].Value.ToString();
+                cmb_klusr_peran.Text = row.Cells[2].Value.ToString();
+            }
+        }
 
         private void btn_klusr_refresh_Click(object sender, EventArgs e)
         {
