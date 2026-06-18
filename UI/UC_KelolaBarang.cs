@@ -240,25 +240,26 @@ namespace Ucp_pabd_lab.UI
 
             txt_klbr_nama.Focus(); 
         }
-            private void btn_cari_Click(object sender, EventArgs e)
+        private void btn_cari_Click(object sender, EventArgs e)
+        {
+            try
             {
-                try
-                {
-                    DataTable dt = (DataTable)dgv_kelolabarang.DataSource;
+                DataTable dt = (DataTable)dgv_kelolabarang.DataSource;
 
-                    if (dt != null)
-                    {
-                        dt.DefaultView.RowFilter = $"NamaBarang LIKE '%{txt_CariBarang.Text.Trim()}%'";
-                    }
-                }
-                catch (Exception ex)
+                if (dt != null)
                 {
-                    MessageBox.Show("Sistem mendeteksi kegagalan penyaringan data: " + ex.Message, "Search Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // Telah diselaraskan menggunakan standar nama txt_cari_barang
+                    dt.DefaultView.RowFilter = $"NamaBarang LIKE '%{txt_caribarang.Text.Trim()}%'";
                 }
             }
-            private void txtCariBarang_TextChanged(object sender, EventArgs e)
+            catch (Exception ex)
             {
-
+                MessageBox.Show("Sistem mendeteksi kegagalan penyaringan data: " + ex.Message, "Search Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+        private void txt_cari_barang_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

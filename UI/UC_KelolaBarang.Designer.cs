@@ -43,7 +43,6 @@
             this.bindingNavigatorMoveLastItem1 = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtCariBarang = new System.Windows.Forms.TextBox();
             this.btnTestInjection = new System.Windows.Forms.Button();
             this.cmb_admin_kondisi = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -61,6 +60,7 @@
             this.btn_klbr_simpan = new System.Windows.Forms.Button();
             this.btn_kembali = new System.Windows.Forms.Button();
             this.btn_cari = new System.Windows.Forms.Button();
+            this.txt_cari_barang = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator2)).BeginInit();
             this.bindingNavigator2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_kelolabarang)).BeginInit();
@@ -189,15 +189,6 @@
             this.label9.Size = new System.Drawing.Size(81, 16);
             this.label9.TabIndex = 40;
             this.label9.Text = "Cari Barang:";
-            // 
-            // txtCariBarang
-            // 
-            this.txtCariBarang.Location = new System.Drawing.Point(138, 211);
-            this.txtCariBarang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtCariBarang.Name = "txtCariBarang";
-            this.txtCariBarang.Size = new System.Drawing.Size(223, 22);
-            this.txtCariBarang.TabIndex = 39;
-            this.txtCariBarang.TextChanged += new System.EventHandler(this.txtCariBarang_TextChanged);
             // 
             // btnTestInjection
             // 
@@ -377,16 +368,24 @@
             this.btn_cari.UseVisualStyleBackColor = true;
             this.btn_cari.Click += new System.EventHandler(this.btn_cari_Click);
             // 
+            // txt_cari_barang
+            // 
+            this.txt_cari_barang.Location = new System.Drawing.Point(151, 204);
+            this.txt_cari_barang.Name = "txt_cari_barang";
+            this.txt_cari_barang.Size = new System.Drawing.Size(210, 22);
+            this.txt_cari_barang.TabIndex = 44;
+            this.txt_cari_barang.TextChanged += new System.EventHandler(this.txt_cari_barang_TextChanged);
+            // 
             // UC_KelolaBarang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(782, 403);
+            this.Controls.Add(this.txt_cari_barang);
             this.Controls.Add(this.btn_cari);
             this.Controls.Add(this.btn_kembali);
             this.Controls.Add(this.bindingNavigator2);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.txtCariBarang);
             this.Controls.Add(this.btnTestInjection);
             this.Controls.Add(this.cmb_admin_kondisi);
             this.Controls.Add(this.label6);
@@ -428,7 +427,6 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem1;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator5;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtCariBarang;
         private System.Windows.Forms.Button btnTestInjection;
         private System.Windows.Forms.ComboBox cmb_admin_kondisi;
         private System.Windows.Forms.Label label6;
@@ -446,5 +444,6 @@
         private System.Windows.Forms.Button btn_klbr_simpan;
         private System.Windows.Forms.Button btn_kembali;
         private System.Windows.Forms.Button btn_cari;
+        private System.Windows.Forms.TextBox txt_cari_barang;
     }
 }
