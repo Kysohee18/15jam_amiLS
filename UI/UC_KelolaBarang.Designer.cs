@@ -60,6 +60,7 @@
             this.txt_klbr_nama = new System.Windows.Forms.TextBox();
             this.btn_klbr_simpan = new System.Windows.Forms.Button();
             this.btn_kembali = new System.Windows.Forms.Button();
+            this.btn_cari = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator2)).BeginInit();
             this.bindingNavigator2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_kelolabarang)).BeginInit();
@@ -196,6 +197,7 @@
             this.txtCariBarang.Name = "txtCariBarang";
             this.txtCariBarang.Size = new System.Drawing.Size(223, 22);
             this.txtCariBarang.TabIndex = 39;
+            this.txtCariBarang.TextChanged += new System.EventHandler(this.txtCariBarang_TextChanged);
             // 
             // btnTestInjection
             // 
@@ -365,11 +367,22 @@
             this.btn_kembali.UseVisualStyleBackColor = true;
             this.btn_kembali.Click += new System.EventHandler(this.btn_kembali_Click);
             // 
+            // btn_cari
+            // 
+            this.btn_cari.Location = new System.Drawing.Point(367, 210);
+            this.btn_cari.Name = "btn_cari";
+            this.btn_cari.Size = new System.Drawing.Size(75, 23);
+            this.btn_cari.TabIndex = 43;
+            this.btn_cari.Text = "Cari";
+            this.btn_cari.UseVisualStyleBackColor = true;
+            this.btn_cari.Click += new System.EventHandler(this.btn_cari_Click);
+            // 
             // UC_KelolaBarang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(782, 403);
+            this.Controls.Add(this.btn_cari);
             this.Controls.Add(this.btn_kembali);
             this.Controls.Add(this.bindingNavigator2);
             this.Controls.Add(this.label9);
@@ -432,5 +445,6 @@
         private System.Windows.Forms.TextBox txt_klbr_nama;
         private System.Windows.Forms.Button btn_klbr_simpan;
         private System.Windows.Forms.Button btn_kembali;
+        private System.Windows.Forms.Button btn_cari;
     }
 }

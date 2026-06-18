@@ -240,5 +240,25 @@ namespace Ucp_pabd_lab.UI
 
             txt_klbr_nama.Focus(); 
         }
+            private void btn_cari_Click(object sender, EventArgs e)
+            {
+                try
+                {
+                    DataTable dt = (DataTable)dgv_kelolabarang.DataSource;
+
+                    if (dt != null)
+                    {
+                        dt.DefaultView.RowFilter = $"NamaBarang LIKE '%{txt_CariBarang.Text.Trim()}%'";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Sistem mendeteksi kegagalan penyaringan data: " + ex.Message, "Search Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            private void txtCariBarang_TextChanged(object sender, EventArgs e)
+            {
+
+            }
     }
 }
