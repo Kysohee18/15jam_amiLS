@@ -92,7 +92,7 @@ namespace Ucp_pabd_lab.UI
         private void btn_klusr_ubah_Click(object sender, EventArgs e)
         {
             // Validasi apakah user sudah memilih data di grid terlebih dahulu
-            if (string.IsNullOrEmpty(idUserTerpilih))
+            if (string.IsNullOrEmpty(IDUserTerpilih))
             {
                 MessageBox.Show("Silakan pilih data pengguna pada tabel terlebih dahulu yang ingin diubah!", "Aksi Ditolak", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
