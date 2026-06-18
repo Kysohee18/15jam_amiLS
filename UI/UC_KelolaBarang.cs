@@ -15,6 +15,7 @@ namespace Ucp_pabd_lab.UI
     {
         Koneksi db = new Koneksi();
 
+        private string idBarangTerpilih = "";
         public UC_KelolaBarang()
         {
             InitializeComponent();
@@ -119,6 +120,20 @@ namespace Ucp_pabd_lab.UI
                 }
             }
         }
+        private void dgv_kelolabarang_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgv_kelolabarang.Rows[e.RowIndex];
+
+                idBarangTerpilih = row.Cells[0].Value.ToString();
+
+                txt_klbr_nama.Text = row.Cells[1].Value.ToString();
+                cmb_klbr_kategori.Text = row.Cells[2].Value.ToString();
+                txt_klbr_stok.Text = row.Cells[3].Value.ToString();
+                cmb_admin_kondisi.Text = row.Cells[4].Value.ToString();
+            }
+        }
         private void btn_klbr_ubah_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(idBarangTerpilih))
@@ -145,7 +160,7 @@ namespace Ucp_pabd_lab.UI
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     // Mengirimkan parameter lengkap ke sp_UpdateBarang
-                    cmd.Parameters.AddWithValue("@IDBarang", idBarangTerpilih);
+                    cmd.Parameters.AddWithValue("@IDBarang", id: iBarangTerpilih);
                     cmd.Parameters.AddWithValue("@NamaBarang", txt_klbr_nama.Text.Trim());
                     cmd.Parameters.AddWithValue("@IDKategori", cmb_klbr_kategori.SelectedValue);
                     cmd.Parameters.AddWithValue("@Stok", int.Parse(txt_klbr_stok.Text.Trim()));

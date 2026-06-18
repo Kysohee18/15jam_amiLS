@@ -51,7 +51,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txt_klusr_nama = new System.Windows.Forms.TextBox();
             this.btn_klusr_simpan = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_kembali = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_kelolauser)).BeginInit();
@@ -186,10 +186,10 @@
             // 
             // btn_klusr_refresh
             // 
-            this.btn_klusr_refresh.Location = new System.Drawing.Point(578, 142);
+            this.btn_klusr_refresh.Location = new System.Drawing.Point(588, 182);
             this.btn_klusr_refresh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_klusr_refresh.Name = "btn_klusr_refresh";
-            this.btn_klusr_refresh.Size = new System.Drawing.Size(165, 22);
+            this.btn_klusr_refresh.Size = new System.Drawing.Size(165, 32);
             this.btn_klusr_refresh.TabIndex = 38;
             this.btn_klusr_refresh.Text = "Refresh";
             this.btn_klusr_refresh.UseVisualStyleBackColor = true;
@@ -197,10 +197,10 @@
             // 
             // btn_klusr_hapus
             // 
-            this.btn_klusr_hapus.Location = new System.Drawing.Point(578, 113);
+            this.btn_klusr_hapus.Location = new System.Drawing.Point(588, 146);
             this.btn_klusr_hapus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_klusr_hapus.Name = "btn_klusr_hapus";
-            this.btn_klusr_hapus.Size = new System.Drawing.Size(165, 22);
+            this.btn_klusr_hapus.Size = new System.Drawing.Size(165, 32);
             this.btn_klusr_hapus.TabIndex = 37;
             this.btn_klusr_hapus.Text = "Hapus";
             this.btn_klusr_hapus.UseVisualStyleBackColor = true;
@@ -208,10 +208,10 @@
             // 
             // btn_klusr_ubah
             // 
-            this.btn_klusr_ubah.Location = new System.Drawing.Point(578, 85);
+            this.btn_klusr_ubah.Location = new System.Drawing.Point(588, 110);
             this.btn_klusr_ubah.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_klusr_ubah.Name = "btn_klusr_ubah";
-            this.btn_klusr_ubah.Size = new System.Drawing.Size(165, 22);
+            this.btn_klusr_ubah.Size = new System.Drawing.Size(165, 32);
             this.btn_klusr_ubah.TabIndex = 36;
             this.btn_klusr_ubah.Text = "Ubah";
             this.btn_klusr_ubah.UseVisualStyleBackColor = true;
@@ -256,7 +256,7 @@
             // 
             // btn_klusr_simpan
             // 
-            this.btn_klusr_simpan.Location = new System.Drawing.Point(578, 52);
+            this.btn_klusr_simpan.Location = new System.Drawing.Point(588, 74);
             this.btn_klusr_simpan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_klusr_simpan.Name = "btn_klusr_simpan";
             this.btn_klusr_simpan.Size = new System.Drawing.Size(165, 32);
@@ -265,21 +265,22 @@
             this.btn_klusr_simpan.UseVisualStyleBackColor = true;
             this.btn_klusr_simpan.Click += new System.EventHandler(this.btn_klusr_simpan_Click);
             // 
-            // button1
+            // btn_kembali
             // 
-            this.button1.Location = new System.Drawing.Point(578, 169);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(164, 32);
-            this.button1.TabIndex = 43;
-            this.button1.Text = "Menu utama";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_kembali.Location = new System.Drawing.Point(588, 37);
+            this.btn_kembali.Name = "btn_kembali";
+            this.btn_kembali.Size = new System.Drawing.Size(164, 32);
+            this.btn_kembali.TabIndex = 43;
+            this.btn_kembali.Text = "Menu utama";
+            this.btn_kembali.UseVisualStyleBackColor = true;
+            this.btn_kembali.Click += new System.EventHandler(this.btn_kembali_Click);
             // 
             // UC_KelolaUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_kembali);
             this.Controls.Add(this.bindingNavigator1);
             this.Controls.Add(this.cmb_klusr_peran);
             this.Controls.Add(this.btn_klusr_refresh);
@@ -325,6 +326,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txt_klusr_nama;
         private System.Windows.Forms.Button btn_klusr_simpan;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_kembali;
     }
 }

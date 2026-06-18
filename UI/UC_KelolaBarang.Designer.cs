@@ -59,7 +59,7 @@
             this.txt_klbr_stok = new System.Windows.Forms.TextBox();
             this.txt_klbr_nama = new System.Windows.Forms.TextBox();
             this.btn_klbr_simpan = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_kembali = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator2)).BeginInit();
             this.bindingNavigator2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_kelolabarang)).BeginInit();
@@ -267,6 +267,7 @@
             this.btn_klbr_hapus.TabIndex = 33;
             this.btn_klbr_hapus.Text = "Hapus";
             this.btn_klbr_hapus.UseVisualStyleBackColor = true;
+            this.btn_klbr_hapus.Click += new System.EventHandler(this.btn_klbr_hapus_Click);
             // 
             // btn_klbr_ubah
             // 
@@ -289,6 +290,7 @@
             this.dgv_kelolabarang.RowTemplate.Height = 24;
             this.dgv_kelolabarang.Size = new System.Drawing.Size(717, 156);
             this.dgv_kelolabarang.TabIndex = 31;
+            this.dgv_kelolabarang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_kelolabarang_CellClick);
             // 
             // label4
             // 
@@ -353,22 +355,22 @@
             this.btn_klbr_simpan.UseVisualStyleBackColor = true;
             this.btn_klbr_simpan.Click += new System.EventHandler(this.btn_klbr_simpan_Click);
             // 
-            // button1
+            // btn_kembali
             // 
-            this.button1.Location = new System.Drawing.Point(606, 35);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(164, 32);
-            this.button1.TabIndex = 42;
-            this.button1.Text = "Menu utama";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btn_kembali_Click);
+            this.btn_kembali.Location = new System.Drawing.Point(606, 35);
+            this.btn_kembali.Name = "btn_kembali";
+            this.btn_kembali.Size = new System.Drawing.Size(164, 32);
+            this.btn_kembali.TabIndex = 42;
+            this.btn_kembali.Text = "Menu utama";
+            this.btn_kembali.UseVisualStyleBackColor = true;
+            this.btn_kembali.Click += new System.EventHandler(this.btn_kembali_Click);
             // 
             // UC_KelolaBarang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(782, 403);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_kembali);
             this.Controls.Add(this.bindingNavigator2);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtCariBarang);
@@ -429,6 +431,6 @@
         private System.Windows.Forms.TextBox txt_klbr_stok;
         private System.Windows.Forms.TextBox txt_klbr_nama;
         private System.Windows.Forms.Button btn_klbr_simpan;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_kembali;
     }
 }
