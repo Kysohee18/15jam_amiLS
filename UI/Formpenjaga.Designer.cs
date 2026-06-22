@@ -51,6 +51,7 @@
             this.btnMenuPeminjaman.TabIndex = 3;
             this.btnMenuPeminjaman.Text = "Peminjaman";
             this.btnMenuPeminjaman.UseVisualStyleBackColor = true;
+            this.btnMenuPeminjaman.Click += new System.EventHandler(this.btnMenuPeminjaman_Click);
             // 
             // btnMenuPengembalian
             // 
@@ -60,6 +61,7 @@
             this.btnMenuPengembalian.TabIndex = 4;
             this.btnMenuPengembalian.Text = "Pengembalian";
             this.btnMenuPengembalian.UseVisualStyleBackColor = true;
+            this.btnMenuPengembalian.Click += new System.EventHandler(this.btnMenuPengembalian_Click);
             // 
             // btnMenuLog
             // 
@@ -69,6 +71,7 @@
             this.btnMenuLog.TabIndex = 5;
             this.btnMenuLog.Text = "Log Peminjam";
             this.btnMenuLog.UseVisualStyleBackColor = true;
+            this.btnMenuLog.Click += new System.EventHandler(this.btnMenuLog_Click);
             // 
             // btn_logout
             // 

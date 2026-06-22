@@ -97,6 +97,7 @@
             this.btn_kembali.TabIndex = 25;
             this.btn_kembali.Text = "menu utama";
             this.btn_kembali.UseVisualStyleBackColor = true;
+            this.btn_kembali.Click += new System.EventHandler(this.btn_kembali_Click);
             // 
             // cmb_pinjam_user
             // 
