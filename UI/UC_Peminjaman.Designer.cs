@@ -59,6 +59,7 @@
             this.btn_peminjam_tampil.TabIndex = 23;
             this.btn_peminjam_tampil.Text = "Tampilkan Barang";
             this.btn_peminjam_tampil.UseVisualStyleBackColor = true;
+            this.btn_peminjam_tampil.Click += new System.EventHandler(this.UC_Peminjaman_Load);
             // 
             // btn_proses_pinjam
             // 
