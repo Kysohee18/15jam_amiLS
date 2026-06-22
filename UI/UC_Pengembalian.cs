@@ -60,7 +60,7 @@ namespace Ucp_pabd_lab.UI
         {
             cmb_pinjam_user.SelectedIndex = -1;
             cmb_pinjam_user.Text = "";
-            txt_pengembalian_peran.Clear();
+            
 
             idTransaksiTerpilih = "";
             idBarangTerpilih = "";
@@ -76,7 +76,7 @@ namespace Ucp_pabd_lab.UI
 
                 cmb_pinjam_user.Text = row.Cells["NamaUser"].Value.ToString();
 
-                txt_pengembalian_peran.Text = row.Cells["NamaBarang"].Value.ToString();
+                cmb_pinjam_barang.Text = row.Cells["NamaBarang"].Value.ToString();
 
                 idTransaksiTerpilih = row.Cells["IDTransaksi"].Value.ToString();
 
@@ -115,7 +115,7 @@ namespace Ucp_pabd_lab.UI
                 return;
             }
 
-            DialogResult dialog = MessageBox.Show($"Konfirmasi pengembalian barang '{txt_pengembalian_peran.Text}' oleh peminjam '{cmb_pinjam_user.Text}'?", "Verifikasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dialog = MessageBox.Show($"Konfirmasi pengembalian barang '{cmb_pinjam_barang.Text}' oleh peminjam '{cmb_pinjam_user.Text}'?", "Verifikasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (dialog == DialogResult.Yes)
             {
@@ -143,7 +143,7 @@ namespace Ucp_pabd_lab.UI
                             cmdLog.Parameters.AddWithValue("@Aksi", "KEMBALI");
                             cmdLog.Parameters.AddWithValue("@IDBarang", idBarangTerpilih);
                             cmdLog.Parameters.AddWithValue("@IDUser", idUserTerpilih);
-                            cmdLog.Parameters.AddWithValue("@Keterangan", "Restorasi stok: " + txt_pengembalian_peran.Text);
+                            cmdLog.Parameters.AddWithValue("@Keterangan", "Restorasi stok: " + cmb_pinjam_barang.Text);
                             cmdLog.ExecuteNonQuery();
                         }
 

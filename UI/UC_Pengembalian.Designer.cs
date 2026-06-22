@@ -59,6 +59,7 @@
             this.dgv_pengembalian.RowTemplate.Height = 24;
             this.dgv_pengembalian.Size = new System.Drawing.Size(717, 156);
             this.dgv_pengembalian.TabIndex = 36;
+            this.dgv_pengembalian.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_pengembalian_CellClick);
             // 
             // label6
             // 
