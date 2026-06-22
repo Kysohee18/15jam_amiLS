@@ -15,6 +15,7 @@ namespace Ucp_pabd_lab.UI
     public partial class UC_KelolaBarang : Form
     {
         Koneksi db = new Koneksi();
+
         private string idBarangTerpilih = "";
         
         public UC_KelolaBarang()

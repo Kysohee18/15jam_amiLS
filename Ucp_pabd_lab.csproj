@@ -105,6 +105,24 @@
     <Compile Include="UI\Formpenjaga.Designer.cs">
       <DependentUpon>Formpenjaga.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\UC_LogPenjaga.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\UC_LogPenjaga.Designer.cs">
+      <DependentUpon>UC_LogPenjaga.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UC_Peminjaman.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\UC_Peminjaman.Designer.cs">
+      <DependentUpon>UC_Peminjaman.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\UC_Pengembalian.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\UC_Pengembalian.Designer.cs">
+      <DependentUpon>UC_Pengembalian.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -131,6 +149,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\UC_LogAdmin.resx">
       <DependentUpon>UC_LogAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\UC_LogPenjaga.resx">
+      <DependentUpon>UC_LogPenjaga.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\UC_Peminjaman.resx">
+      <DependentUpon>UC_Peminjaman.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\UC_Pengembalian.resx">
+      <DependentUpon>UC_Pengembalian.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Database.md" />
     <None Include="DBLabSekolahDataSet.xsc">

@@ -84,8 +84,19 @@ namespace Ucp_pabd_lab.UI
           
             this.Hide();
         }
+        private void btn_logout_Click(object sender, EventArgs e)
+        {
+            DialogResult dialog = MessageBox.Show("Apakah Anda yakin ingin mengakhiri sesi dan keluar dari sistem?", "Konfirmasi Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-      
+            if (dialog == DialogResult.Yes)
+            {
+                Formlogin login = new Formlogin();
+                login.Show();
+                this.Hide();
+            }
+        }
+
+
         private void Formadmin_FormClosed(object sender, FormClosedEventArgs e)
         {
             
