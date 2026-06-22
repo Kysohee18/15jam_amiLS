@@ -150,6 +150,9 @@
     <EmbeddedResource Include="UI\UC_LogAdmin.resx">
       <DependentUpon>UC_LogAdmin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\UC_LogPenjaga.resx">
+      <DependentUpon>UC_LogPenjaga.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\UC_Peminjaman.resx">
       <DependentUpon>UC_Peminjaman.cs</DependentUpon>
     </EmbeddedResource>
