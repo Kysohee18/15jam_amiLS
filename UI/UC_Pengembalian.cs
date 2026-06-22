@@ -58,8 +58,10 @@ namespace Ucp_pabd_lab.UI
 
         private void KosongkanValidasi()
         {
-            txt_pengembalian_nama.Clear();
+            cmb_pinjam_user.SelectedIndex = -1;
+            cmb_pinjam_user.Text = "";
             txt_pengembalian_peran.Clear();
+
             idTransaksiTerpilih = "";
             idBarangTerpilih = "";
             idUserTerpilih = "";
@@ -72,7 +74,7 @@ namespace Ucp_pabd_lab.UI
             {
                 DataGridViewRow row = dgv_pengembalian.Rows[e.RowIndex];
 
-                txt_pengembalian_nama.Text = row.Cells["NamaUser"].Value.ToString();
+                cmb_pinjam_user.Text = row.Cells["NamaUser"].Value.ToString();
 
                 txt_pengembalian_peran.Text = row.Cells["NamaBarang"].Value.ToString();
 
@@ -113,7 +115,7 @@ namespace Ucp_pabd_lab.UI
                 return;
             }
 
-            DialogResult dialog = MessageBox.Show($"Konfirmasi pengembalian barang '{txt_pengembalian_peran.Text}' oleh peminjam '{txt_pengembalian_nama.Text}'?", "Verifikasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dialog = MessageBox.Show($"Konfirmasi pengembalian barang '{txt_pengembalian_peran.Text}' oleh peminjam '{cmb_pinjam_user.Text}'?", "Verifikasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (dialog == DialogResult.Yes)
             {
