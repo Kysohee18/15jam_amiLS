@@ -30,6 +30,7 @@
         {
             this.refresh_log_admin = new System.Windows.Forms.LinkLabel();
             this.dgv_log_admin = new System.Windows.Forms.DataGridView();
+            this.btn_kembali = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_log_admin)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,11 +56,22 @@
             this.dgv_log_admin.Size = new System.Drawing.Size(715, 302);
             this.dgv_log_admin.TabIndex = 2;
             // 
+            // btn_kembali
+            // 
+            this.btn_kembali.Location = new System.Drawing.Point(43, 43);
+            this.btn_kembali.Name = "btn_kembali";
+            this.btn_kembali.Size = new System.Drawing.Size(113, 23);
+            this.btn_kembali.TabIndex = 4;
+            this.btn_kembali.Text = "Menu Utama";
+            this.btn_kembali.UseVisualStyleBackColor = true;
+            this.btn_kembali.Click += new System.EventHandler(this.btn_kembali_Click);
+            // 
             // UC_LogAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_kembali);
             this.Controls.Add(this.refresh_log_admin);
             this.Controls.Add(this.dgv_log_admin);
             this.Name = "UC_LogAdmin";
@@ -75,5 +87,6 @@
 
         private System.Windows.Forms.LinkLabel refresh_log_admin;
         private System.Windows.Forms.DataGridView dgv_log_admin;
+        private System.Windows.Forms.Button btn_kembali;
     }
 }

@@ -249,7 +249,7 @@ namespace Ucp_pabd_lab.UI
                 if (dt != null)
                 {
                     // Telah diselaraskan menggunakan standar nama txt_cari_barang
-                    dt.DefaultView.RowFilter = $"NamaBarang LIKE '%{txt_caribarang.Text.Trim()}%'";
+                    dt.DefaultView.RowFilter = $"NamaBarang LIKE '%{txt_cari_barang.Text.Trim()}%'";
                 }
             }
             catch (Exception ex)
