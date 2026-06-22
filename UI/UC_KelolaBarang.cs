@@ -7,13 +7,15 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms; 
+using System.Windows.Forms;
+using Ucp_pabd_lab.DAL;
 
 namespace Ucp_pabd_lab.UI
 {
     public partial class UC_KelolaBarang : Form
     {
         Koneksi db = new Koneksi();
+
         private string idBarangTerpilih = "";
         public UC_KelolaBarang()
         {
