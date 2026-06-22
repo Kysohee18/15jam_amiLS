@@ -33,8 +33,6 @@
             this.btn_proses_pinjam = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.txt_pinjaman_barang = new System.Windows.Forms.TextBox();
-            this.txt_pinjaman_nama = new System.Windows.Forms.TextBox();
             this.btn_kembali = new System.Windows.Forms.Button();
             this.cmb_pinjam_user = new System.Windows.Forms.ComboBox();
             this.cmb_pinjam_barang = new System.Windows.Forms.ComboBox();
@@ -91,35 +89,19 @@
             this.label5.TabIndex = 20;
             this.label5.Text = "Nama Peminjam:";
             // 
-            // txt_pinjaman_barang
-            // 
-            this.txt_pinjaman_barang.Location = new System.Drawing.Point(183, 101);
-            this.txt_pinjaman_barang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt_pinjaman_barang.Name = "txt_pinjaman_barang";
-            this.txt_pinjaman_barang.Size = new System.Drawing.Size(264, 22);
-            this.txt_pinjaman_barang.TabIndex = 19;
-            // 
-            // txt_pinjaman_nama
-            // 
-            this.txt_pinjaman_nama.Location = new System.Drawing.Point(183, 73);
-            this.txt_pinjaman_nama.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txt_pinjaman_nama.Name = "txt_pinjaman_nama";
-            this.txt_pinjaman_nama.Size = new System.Drawing.Size(264, 22);
-            this.txt_pinjaman_nama.TabIndex = 18;
-            // 
             // btn_kembali
             // 
             this.btn_kembali.Location = new System.Drawing.Point(558, 145);
             this.btn_kembali.Name = "btn_kembali";
             this.btn_kembali.Size = new System.Drawing.Size(165, 69);
             this.btn_kembali.TabIndex = 25;
-            this.btn_kembali.Text = "button1";
+            this.btn_kembali.Text = "menu utama";
             this.btn_kembali.UseVisualStyleBackColor = true;
             // 
             // cmb_pinjam_user
             // 
             this.cmb_pinjam_user.FormattingEnabled = true;
-            this.cmb_pinjam_user.Location = new System.Drawing.Point(183, 129);
+            this.cmb_pinjam_user.Location = new System.Drawing.Point(163, 76);
             this.cmb_pinjam_user.Name = "cmb_pinjam_user";
             this.cmb_pinjam_user.Size = new System.Drawing.Size(227, 24);
             this.cmb_pinjam_user.TabIndex = 26;
@@ -127,7 +109,7 @@
             // cmb_pinjam_barang
             // 
             this.cmb_pinjam_barang.FormattingEnabled = true;
-            this.cmb_pinjam_barang.Location = new System.Drawing.Point(183, 160);
+            this.cmb_pinjam_barang.Location = new System.Drawing.Point(163, 106);
             this.cmb_pinjam_barang.Name = "cmb_pinjam_barang";
             this.cmb_pinjam_barang.Size = new System.Drawing.Size(227, 24);
             this.cmb_pinjam_barang.TabIndex = 28;
@@ -145,8 +127,6 @@
             this.Controls.Add(this.btn_proses_pinjam);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txt_pinjaman_barang);
-            this.Controls.Add(this.txt_pinjaman_nama);
             this.Name = "UC_Peminjaman";
             this.Text = "UC_Peminjaman";
             this.Load += new System.EventHandler(this.UC_Peminjaman_Load);
@@ -163,8 +143,6 @@
         private System.Windows.Forms.Button btn_proses_pinjam;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txt_pinjaman_barang;
-        private System.Windows.Forms.TextBox txt_pinjaman_nama;
         private System.Windows.Forms.Button btn_kembali;
         private System.Windows.Forms.ComboBox cmb_pinjam_user;
         private System.Windows.Forms.ComboBox cmb_pinjam_barang;
