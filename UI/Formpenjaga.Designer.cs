@@ -29,321 +29,70 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.tab_penjagaLab = new System.Windows.Forms.TabControl();
-            this.tab_peminjaman = new System.Windows.Forms.TabPage();
-            this.dgv_Peminjaman = new System.Windows.Forms.DataGridView();
-            this.btn_peminjam_tampil = new System.Windows.Forms.Button();
-            this.btn_pinjamkan = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txt_pinjaman_barang = new System.Windows.Forms.TextBox();
-            this.txt_pinjaman_nama = new System.Windows.Forms.TextBox();
-            this.tab_pengembalian = new System.Windows.Forms.TabPage();
-            this.txt_pengembalian_peran = new System.Windows.Forms.TextBox();
-            this.btn_pengembalian_tampil = new System.Windows.Forms.Button();
-            this.dgv_pengembalian = new System.Windows.Forms.DataGridView();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txt_pengembalian_nama = new System.Windows.Forms.TextBox();
-            this.btn_kembalikan = new System.Windows.Forms.Button();
-            this.tab_log_penjaga = new System.Windows.Forms.TabPage();
-            this.linklable_log_refresh = new System.Windows.Forms.LinkLabel();
-            this.dgv_log_trs = new System.Windows.Forms.DataGridView();
-            this.linkLabel_penjaga_Logout = new System.Windows.Forms.LinkLabel();
-            this.tab_penjagaLab.SuspendLayout();
-            this.tab_peminjaman.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Peminjaman)).BeginInit();
-            this.tab_pengembalian.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_pengembalian)).BeginInit();
-            this.tab_log_penjaga.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_log_trs)).BeginInit();
+            this.btnMenuPeminjaman = new System.Windows.Forms.Button();
+            this.btnMenuPengembalian = new System.Windows.Forms.Button();
+            this.btnMenuLog = new System.Windows.Forms.Button();
+            this.btn_logout = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(220, 58);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(293, 71);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.Size = new System.Drawing.Size(0, 16);
             this.label1.TabIndex = 0;
             // 
-            // tab_penjagaLab
+            // btnMenuPeminjaman
             // 
-            this.tab_penjagaLab.Controls.Add(this.tab_peminjaman);
-            this.tab_penjagaLab.Controls.Add(this.tab_pengembalian);
-            this.tab_penjagaLab.Controls.Add(this.tab_log_penjaga);
-            this.tab_penjagaLab.Location = new System.Drawing.Point(22, 23);
-            this.tab_penjagaLab.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tab_penjagaLab.Name = "tab_penjagaLab";
-            this.tab_penjagaLab.SelectedIndex = 0;
-            this.tab_penjagaLab.Size = new System.Drawing.Size(555, 320);
-            this.tab_penjagaLab.TabIndex = 1;
+            this.btnMenuPeminjaman.Location = new System.Drawing.Point(142, 131);
+            this.btnMenuPeminjaman.Name = "btnMenuPeminjaman";
+            this.btnMenuPeminjaman.Size = new System.Drawing.Size(118, 92);
+            this.btnMenuPeminjaman.TabIndex = 3;
+            this.btnMenuPeminjaman.Text = "Peminjaman";
+            this.btnMenuPeminjaman.UseVisualStyleBackColor = true;
             // 
-            // tab_peminjaman
+            // btnMenuPengembalian
             // 
-            this.tab_peminjaman.Controls.Add(this.dgv_Peminjaman);
-            this.tab_peminjaman.Controls.Add(this.btn_peminjam_tampil);
-            this.tab_peminjaman.Controls.Add(this.btn_pinjamkan);
-            this.tab_peminjaman.Controls.Add(this.label4);
-            this.tab_peminjaman.Controls.Add(this.label2);
-            this.tab_peminjaman.Controls.Add(this.label5);
-            this.tab_peminjaman.Controls.Add(this.txt_pinjaman_barang);
-            this.tab_peminjaman.Controls.Add(this.txt_pinjaman_nama);
-            this.tab_peminjaman.Location = new System.Drawing.Point(4, 22);
-            this.tab_peminjaman.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tab_peminjaman.Name = "tab_peminjaman";
-            this.tab_peminjaman.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tab_peminjaman.Size = new System.Drawing.Size(547, 294);
-            this.tab_peminjaman.TabIndex = 0;
-            this.tab_peminjaman.Text = "Peminjaman";
-            this.tab_peminjaman.UseVisualStyleBackColor = true;
-            this.tab_peminjaman.Click += new System.EventHandler(this.tab_peminjaman_Click);
+            this.btnMenuPengembalian.Location = new System.Drawing.Point(305, 131);
+            this.btnMenuPengembalian.Name = "btnMenuPengembalian";
+            this.btnMenuPengembalian.Size = new System.Drawing.Size(118, 92);
+            this.btnMenuPengembalian.TabIndex = 4;
+            this.btnMenuPengembalian.Text = "Pengembalian";
+            this.btnMenuPengembalian.UseVisualStyleBackColor = true;
             // 
-            // dgv_Peminjaman
+            // btnMenuLog
             // 
-            this.dgv_Peminjaman.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_Peminjaman.Location = new System.Drawing.Point(4, 167);
-            this.dgv_Peminjaman.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dgv_Peminjaman.Name = "dgv_Peminjaman";
-            this.dgv_Peminjaman.RowHeadersWidth = 51;
-            this.dgv_Peminjaman.RowTemplate.Height = 24;
-            this.dgv_Peminjaman.Size = new System.Drawing.Size(541, 124);
-            this.dgv_Peminjaman.TabIndex = 17;
+            this.btnMenuLog.Location = new System.Drawing.Point(464, 131);
+            this.btnMenuLog.Name = "btnMenuLog";
+            this.btnMenuLog.Size = new System.Drawing.Size(118, 92);
+            this.btnMenuLog.TabIndex = 5;
+            this.btnMenuLog.Text = "Log Peminjam";
+            this.btnMenuLog.UseVisualStyleBackColor = true;
             // 
-            // btn_peminjam_tampil
+            // btn_logout
             // 
-            this.btn_peminjam_tampil.Location = new System.Drawing.Point(7, 145);
-            this.btn_peminjam_tampil.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btn_peminjam_tampil.Name = "btn_peminjam_tampil";
-            this.btn_peminjam_tampil.Size = new System.Drawing.Size(124, 18);
-            this.btn_peminjam_tampil.TabIndex = 16;
-            this.btn_peminjam_tampil.Text = "Tampilkan Barang";
-            this.btn_peminjam_tampil.UseVisualStyleBackColor = true;
-            // 
-            // btn_pinjamkan
-            // 
-            this.btn_pinjamkan.Location = new System.Drawing.Point(398, 34);
-            this.btn_pinjamkan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btn_pinjamkan.Name = "btn_pinjamkan";
-            this.btn_pinjamkan.Size = new System.Drawing.Size(124, 76);
-            this.btn_pinjamkan.TabIndex = 15;
-            this.btn_pinjamkan.Text = "Pinjamkan";
-            this.btn_pinjamkan.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 82);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 13);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Nama Barang:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 62);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(10, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = " ";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 59);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 13);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Nama Peminjam:";
-            // 
-            // txt_pinjaman_barang
-            // 
-            this.txt_pinjaman_barang.Location = new System.Drawing.Point(117, 80);
-            this.txt_pinjaman_barang.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txt_pinjaman_barang.Name = "txt_pinjaman_barang";
-            this.txt_pinjaman_barang.Size = new System.Drawing.Size(199, 20);
-            this.txt_pinjaman_barang.TabIndex = 7;
-            // 
-            // txt_pinjaman_nama
-            // 
-            this.txt_pinjaman_nama.Location = new System.Drawing.Point(117, 57);
-            this.txt_pinjaman_nama.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txt_pinjaman_nama.Name = "txt_pinjaman_nama";
-            this.txt_pinjaman_nama.Size = new System.Drawing.Size(199, 20);
-            this.txt_pinjaman_nama.TabIndex = 6;
-            // 
-            // tab_pengembalian
-            // 
-            this.tab_pengembalian.Controls.Add(this.txt_pengembalian_peran);
-            this.tab_pengembalian.Controls.Add(this.btn_pengembalian_tampil);
-            this.tab_pengembalian.Controls.Add(this.dgv_pengembalian);
-            this.tab_pengembalian.Controls.Add(this.label6);
-            this.tab_pengembalian.Controls.Add(this.label7);
-            this.tab_pengembalian.Controls.Add(this.label8);
-            this.tab_pengembalian.Controls.Add(this.txt_pengembalian_nama);
-            this.tab_pengembalian.Controls.Add(this.btn_kembalikan);
-            this.tab_pengembalian.Location = new System.Drawing.Point(4, 22);
-            this.tab_pengembalian.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tab_pengembalian.Name = "tab_pengembalian";
-            this.tab_pengembalian.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tab_pengembalian.Size = new System.Drawing.Size(547, 294);
-            this.tab_pengembalian.TabIndex = 1;
-            this.tab_pengembalian.Text = "Pengembalian";
-            this.tab_pengembalian.UseVisualStyleBackColor = true;
-            // 
-            // txt_pengembalian_peran
-            // 
-            this.txt_pengembalian_peran.Location = new System.Drawing.Point(120, 69);
-            this.txt_pengembalian_peran.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txt_pengembalian_peran.Name = "txt_pengembalian_peran";
-            this.txt_pengembalian_peran.Size = new System.Drawing.Size(199, 20);
-            this.txt_pengembalian_peran.TabIndex = 31;
-            // 
-            // btn_pengembalian_tampil
-            // 
-            this.btn_pengembalian_tampil.Location = new System.Drawing.Point(7, 128);
-            this.btn_pengembalian_tampil.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btn_pengembalian_tampil.Name = "btn_pengembalian_tampil";
-            this.btn_pengembalian_tampil.Size = new System.Drawing.Size(124, 18);
-            this.btn_pengembalian_tampil.TabIndex = 28;
-            this.btn_pengembalian_tampil.Text = "Tampilkan Barang";
-            this.btn_pengembalian_tampil.UseVisualStyleBackColor = true;
-            // 
-            // dgv_pengembalian
-            // 
-            this.dgv_pengembalian.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_pengembalian.Location = new System.Drawing.Point(7, 150);
-            this.dgv_pengembalian.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dgv_pengembalian.Name = "dgv_pengembalian";
-            this.dgv_pengembalian.RowHeadersWidth = 51;
-            this.dgv_pengembalian.RowTemplate.Height = 24;
-            this.dgv_pengembalian.Size = new System.Drawing.Size(538, 127);
-            this.dgv_pengembalian.TabIndex = 25;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(10, 74);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(41, 13);
-            this.label6.TabIndex = 24;
-            this.label6.Text = "Peran :";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(4, 47);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(10, 13);
-            this.label7.TabIndex = 22;
-            this.label7.Text = " ";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(10, 42);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(41, 13);
-            this.label8.TabIndex = 21;
-            this.label8.Text = "Nama :";
-            // 
-            // txt_pengembalian_nama
-            // 
-            this.txt_pengembalian_nama.Location = new System.Drawing.Point(120, 40);
-            this.txt_pengembalian_nama.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txt_pengembalian_nama.Name = "txt_pengembalian_nama";
-            this.txt_pengembalian_nama.Size = new System.Drawing.Size(199, 20);
-            this.txt_pengembalian_nama.TabIndex = 18;
-            // 
-            // btn_kembalikan
-            // 
-            this.btn_kembalikan.Location = new System.Drawing.Point(406, 40);
-            this.btn_kembalikan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btn_kembalikan.Name = "btn_kembalikan";
-            this.btn_kembalikan.Size = new System.Drawing.Size(124, 47);
-            this.btn_kembalikan.TabIndex = 17;
-            this.btn_kembalikan.Text = "Kembalikan";
-            this.btn_kembalikan.UseVisualStyleBackColor = true;
-            // 
-            // tab_log_penjaga
-            // 
-            this.tab_log_penjaga.Controls.Add(this.linklable_log_refresh);
-            this.tab_log_penjaga.Controls.Add(this.dgv_log_trs);
-            this.tab_log_penjaga.Location = new System.Drawing.Point(4, 22);
-            this.tab_log_penjaga.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tab_log_penjaga.Name = "tab_log_penjaga";
-            this.tab_log_penjaga.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tab_log_penjaga.Size = new System.Drawing.Size(547, 294);
-            this.tab_log_penjaga.TabIndex = 2;
-            this.tab_log_penjaga.Text = "Log Transaksi";
-            this.tab_log_penjaga.UseVisualStyleBackColor = true;
-            // 
-            // linklable_log_refresh
-            // 
-            this.linklable_log_refresh.AutoSize = true;
-            this.linklable_log_refresh.Location = new System.Drawing.Point(490, 26);
-            this.linklable_log_refresh.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.linklable_log_refresh.Name = "linklable_log_refresh";
-            this.linklable_log_refresh.Size = new System.Drawing.Size(44, 13);
-            this.linklable_log_refresh.TabIndex = 1;
-            this.linklable_log_refresh.TabStop = true;
-            this.linklable_log_refresh.Text = "Refresh";
-            // 
-            // dgv_log_trs
-            // 
-            this.dgv_log_trs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_log_trs.Location = new System.Drawing.Point(4, 41);
-            this.dgv_log_trs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.dgv_log_trs.Name = "dgv_log_trs";
-            this.dgv_log_trs.RowHeadersWidth = 51;
-            this.dgv_log_trs.RowTemplate.Height = 24;
-            this.dgv_log_trs.Size = new System.Drawing.Size(536, 245);
-            this.dgv_log_trs.TabIndex = 0;
-            // 
-            // linkLabel_penjaga_Logout
-            // 
-            this.linkLabel_penjaga_Logout.AutoSize = true;
-            this.linkLabel_penjaga_Logout.Location = new System.Drawing.Point(23, 345);
-            this.linkLabel_penjaga_Logout.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.linkLabel_penjaga_Logout.Name = "linkLabel_penjaga_Logout";
-            this.linkLabel_penjaga_Logout.Size = new System.Drawing.Size(45, 13);
-            this.linkLabel_penjaga_Logout.TabIndex = 2;
-            this.linkLabel_penjaga_Logout.TabStop = true;
-            this.linkLabel_penjaga_Logout.Text = "Log Out";
-            this.linkLabel_penjaga_Logout.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel_penjaga_Logout_LinkClicked);
+            this.btn_logout.Location = new System.Drawing.Point(305, 245);
+            this.btn_logout.Name = "btn_logout";
+            this.btn_logout.Size = new System.Drawing.Size(118, 92);
+            this.btn_logout.TabIndex = 6;
+            this.btn_logout.Text = "Log out";
+            this.btn_logout.UseVisualStyleBackColor = true;
+            this.btn_logout.Click += new System.EventHandler(this.btn_logout_Click);
             // 
             // Formpenjaga
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 366);
-            this.Controls.Add(this.linkLabel_penjaga_Logout);
-            this.Controls.Add(this.tab_penjagaLab);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_logout);
+            this.Controls.Add(this.btnMenuLog);
+            this.Controls.Add(this.btnMenuPengembalian);
+            this.Controls.Add(this.btnMenuPeminjaman);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Formpenjaga";
             this.Text = "Formpenjaga";
-            this.Load += new System.EventHandler(this.Formpenjaga_Load);
-            this.tab_penjagaLab.ResumeLayout(false);
-            this.tab_peminjaman.ResumeLayout(false);
-            this.tab_peminjaman.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_Peminjaman)).EndInit();
-            this.tab_pengembalian.ResumeLayout(false);
-            this.tab_pengembalian.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_pengembalian)).EndInit();
-            this.tab_log_penjaga.ResumeLayout(false);
-            this.tab_log_penjaga.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_log_trs)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -352,28 +101,9 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TabControl tab_penjagaLab;
-        private System.Windows.Forms.TabPage tab_peminjaman;
-        private System.Windows.Forms.Button btn_peminjam_tampil;
-        private System.Windows.Forms.Button btn_pinjamkan;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txt_pinjaman_barang;
-        private System.Windows.Forms.TextBox txt_pinjaman_nama;
-        private System.Windows.Forms.TabPage tab_pengembalian;
-        private System.Windows.Forms.Button btn_pengembalian_tampil;
-        private System.Windows.Forms.DataGridView dgv_pengembalian;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txt_pengembalian_nama;
-        private System.Windows.Forms.Button btn_kembalikan;
-        private System.Windows.Forms.TabPage tab_log_penjaga;
-        private System.Windows.Forms.LinkLabel linklable_log_refresh;
-        private System.Windows.Forms.DataGridView dgv_log_trs;
-        private System.Windows.Forms.DataGridView dgv_Peminjaman;
-        private System.Windows.Forms.TextBox txt_pengembalian_peran;
-        private System.Windows.Forms.LinkLabel linkLabel_penjaga_Logout;
+        private System.Windows.Forms.Button btnMenuPeminjaman;
+        private System.Windows.Forms.Button btnMenuPengembalian;
+        private System.Windows.Forms.Button btnMenuLog;
+        private System.Windows.Forms.Button btn_logout;
     }
 }
