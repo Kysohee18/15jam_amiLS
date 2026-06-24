@@ -1,4 +1,4 @@
-﻿namespace Ucp_pabd_lab.UI
+namespace Ucp_pabd_lab.UI
 {
     partial class UC_Peminjaman
     {
@@ -41,6 +41,9 @@
             // 
             // dgv_Peminjaman
             // 
+            this.dgv_Peminjaman.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_Peminjaman.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Peminjaman.Location = new System.Drawing.Point(40, 231);
             this.dgv_Peminjaman.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -63,6 +66,7 @@
             // 
             // btn_proses_pinjam
             // 
+            this.btn_proses_pinjam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_proses_pinjam.Location = new System.Drawing.Point(558, 30);
             this.btn_proses_pinjam.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_proses_pinjam.Name = "btn_proses_pinjam";
@@ -92,6 +96,7 @@
             // 
             // btn_kembali
             // 
+            this.btn_kembali.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_kembali.Location = new System.Drawing.Point(558, 145);
             this.btn_kembali.Name = "btn_kembali";
             this.btn_kembali.Size = new System.Drawing.Size(165, 69);

@@ -1,4 +1,4 @@
-﻿namespace Ucp_pabd_lab.UI
+namespace Ucp_pabd_lab.UI
 {
     partial class UC_LogPenjaga
     {
@@ -38,6 +38,7 @@
             // 
             // linklable_log_refresh
             // 
+            this.linklable_log_refresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.linklable_log_refresh.AutoSize = true;
             this.linklable_log_refresh.Location = new System.Drawing.Point(691, 65);
             this.linklable_log_refresh.Name = "linklable_log_refresh";
@@ -49,6 +50,9 @@
             // 
             // dgv_log_trs
             // 
+            this.dgv_log_trs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_log_trs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_log_trs.Location = new System.Drawing.Point(43, 83);
             this.dgv_log_trs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
