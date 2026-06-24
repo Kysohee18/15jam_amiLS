@@ -47,7 +47,7 @@ namespace Ucp_pabd_lab
                         ReportDocument rpt = new ReportDocument();
                         rpt.Load(Application.StartupPath + "\\Rpt_LogPenjaga.rpt");
                         rpt.SetDataSource(dt); // Crystal Reports otomatis memetakan dt ke Class1
-                        crv_log.ReportSource = rpt;
+                        crystalReportViewer1.ReportSource = rpt;
                     }
                     else
                     {
