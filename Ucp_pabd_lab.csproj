@@ -75,6 +75,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBLabSekolahDataSet2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DBLabSekolahDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBLabSekolahDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DBLabSekolahDataSetBaru.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBLabSekolahDataSetBaru.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DBLabSekolahData_pengembalian.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -218,6 +228,28 @@
     </None>
     <None Include="DBLabSekolahDataSet2.xss">
       <DependentUpon>DBLabSekolahDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="DBLabSekolahDataSet3.xsc">
+      <DependentUpon>DBLabSekolahDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="DBLabSekolahDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBLabSekolahDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DBLabSekolahDataSet3.xss">
+      <DependentUpon>DBLabSekolahDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="DBLabSekolahDataSetBaru.xsc">
+      <DependentUpon>DBLabSekolahDataSetBaru.xsd</DependentUpon>
+    </None>
+    <None Include="DBLabSekolahDataSetBaru.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DBLabSekolahDataSetBaru.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DBLabSekolahDataSetBaru.xss">
+      <DependentUpon>DBLabSekolahDataSetBaru.xsd</DependentUpon>
     </None>
     <None Include="DBLabSekolahData_pengembalian.xsc">
       <DependentUpon>DBLabSekolahData_pengembalian.xsd</DependentUpon>

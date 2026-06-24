@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,9 +21,6 @@ using Ucp_pabd_lab.DAL;
             InitializeComponent();
         }
 
-        // =========================================================================
-        // ENGINE AWAL: Menarik data master ke dalam memori aplikasi
-        // =========================================================================
         private void UC_Peminjaman_Load(object sender, EventArgs e)
         {
             RefreshSemuaData();
@@ -36,9 +33,6 @@ using Ucp_pabd_lab.DAL;
             LoadDataTransaksiAktif();
         }
 
-        // =========================================================================
-        // PIPELINE 1: Mengisi ComboBox Peminjam dari Data User
-        // =========================================================================
         private void LoadComboBoxUser()
         {
             using (SqlConnection conn = db.GetConn())
@@ -55,16 +49,13 @@ using Ucp_pabd_lab.DAL;
 
                     cmb_pinjam_user.DataSource = dt;
                     cmb_pinjam_user.DisplayMember = "NamaUser"; // Teks yang diketik/dilihat penjaga
-                    cmb_pinjam_user.ValueMember = "IDUser";     // Kunci rahasia yang dikirim ke database
+                    cmb_pinjam_user.ValueMember = "IDUser";    
                     cmb_pinjam_user.SelectedIndex = -1;         // Kosongkan pilihan saat awal
                 }
                 catch (Exception ex) { MessageBox.Show("Gagal memuat data pengguna: " + ex.Message); }
             }
         }
 
-        // =========================================================================
-        // PIPELINE 2: Mengisi ComboBox Barang (Hanya yang stoknya > 0)
-        // =========================================================================
         private void LoadComboBoxBarang()
         {
             using (SqlConnection conn = db.GetConn())
@@ -88,9 +79,6 @@ using Ucp_pabd_lab.DAL;
             }
         }
 
-        // =========================================================================
-        // PIPELINE 3: Memuat Riwayat Transaksi yang Sedang Aktif
-        // =========================================================================
         private void LoadDataTransaksiAktif()
         {
             using (SqlConnection conn = db.GetConn())
@@ -116,9 +104,6 @@ using Ucp_pabd_lab.DAL;
             }
         }
 
-        // =========================================================================
-        // CORE TRANSACTION: Validasi, Potong Stok, dan Pencatatan Log Operasional
-        // =========================================================================
         private void btn_proses_pinjam_Click(object sender, EventArgs e)
         {
             // Validasi mutlak agar penjaga tidak bisa melanjutkan transaksi jika data kosong
@@ -143,28 +128,13 @@ using Ucp_pabd_lab.DAL;
                         cmd.ExecuteNonQuery();
                     }
 
-                    // 2. Mengambil ID Transaksi yang baru saja dibuat
-                    int lastTransID = 0;
-                    using (SqlCommand cmdId = new SqlCommand("SELECT MAX(IDTransaksi) FROM Transaksi", conn))
-                    {
-                        lastTransID = Convert.ToInt32(cmdId.ExecuteScalar());
-                    }
-
-                    // 3. Pencatatan Audit ke Log Transaksi
-                    using (SqlCommand cmdLog = new SqlCommand("sp_InsertLogTransaksi", conn))
-                    {
-                        cmdLog.CommandType = CommandType.StoredProcedure;
-                        cmdLog.Parameters.AddWithValue("@IDTransaksi", lastTransID);
-                        cmdLog.Parameters.AddWithValue("@Aksi", "PINJAM");
-                        cmdLog.Parameters.AddWithValue("@IDBarang", cmb_pinjam_barang.SelectedValue);
-                        cmdLog.Parameters.AddWithValue("@IDUser", cmb_pinjam_user.SelectedValue);
-                        cmdLog.Parameters.AddWithValue("@Keterangan", "Meminjam barang: " + cmb_pinjam_barang.Text);
-                        cmdLog.ExecuteNonQuery();
-                    }
+                    // NOTE: Pencatatan Log PINJAM sebelumnya diproses manual di sini, 
+                    // sekarang di pindah ke databaase 
+                    // menggunakan trigger 'trg_Transaksi_InsertLog' pada tabel 'Transaksi'.
 
                     MessageBox.Show($"Barang {cmb_pinjam_barang.Text} berhasil dipinjamkan kepada {cmb_pinjam_user.Text}.", "Transaksi Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     
-                    // Segarkan seluruh tampilan agar stok terbaru dan tabel terbarui
+                    // refresh seluruh tampilan agar stok terbaru dan tabel terbarui
                     RefreshSemuaData();
                 }
                 catch (Exception ex)
@@ -174,9 +144,6 @@ using Ucp_pabd_lab.DAL;
             }
         }
 
-        // =========================================================================
-        // KENDALI NAVIGASI: Kembali ke antarmuka utama penjaga
-        // =========================================================================
         private void btn_kembali_Click(object sender, EventArgs e)
         {
             Formpenjaga penjaga = (Formpenjaga)Application.OpenForms["Formpenjaga"];

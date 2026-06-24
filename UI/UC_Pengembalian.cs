@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -103,9 +103,6 @@ namespace Ucp_pabd_lab.UI
             }
         }
 
-        // =========================================================================
-        // CORE TRANSACTION: Eksekusi Pengembalian Stok
-        // =========================================================================
         private void btn_kembalikan_Click(object sender, EventArgs e)
         {
             // Validasi menggunakan memori siluman
@@ -135,17 +132,9 @@ namespace Ucp_pabd_lab.UI
                             cmd.ExecuteNonQuery();
                         }
 
-                        // 2. Pencatatan Audit ke Log Transaksi
-                        using (SqlCommand cmdLog = new SqlCommand("sp_InsertLogTransaksi", conn))
-                        {
-                            cmdLog.CommandType = CommandType.StoredProcedure;
-                            cmdLog.Parameters.AddWithValue("@IDTransaksi", idTransaksiTerpilih);
-                            cmdLog.Parameters.AddWithValue("@Aksi", "KEMBALI");
-                            cmdLog.Parameters.AddWithValue("@IDBarang", idBarangTerpilih);
-                            cmdLog.Parameters.AddWithValue("@IDUser", idUserTerpilih);
-                            cmdLog.Parameters.AddWithValue("@Keterangan", "Restorasi stok: " + cmb_pinjam_barang.Text);
-                            cmdLog.ExecuteNonQuery();
-                        }
+                        // NOTE: Pencatatan Log PINJAM sebelumnya diproses manual di sini, 
+                        // sekarang di pindah ke databaase 
+                        // menggunakan trigger 'trg_Transaksi_InsertLog' pada tabel 'Transaksi'.
 
                         MessageBox.Show("Barang berhasil dikembalikan dan stok telah ditambahkan.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -158,10 +147,6 @@ namespace Ucp_pabd_lab.UI
                 }
             }
         }
-
-        // =========================================================================
-        // NAVIGASI KEMBALI
-        // =========================================================================
         private void btn_kembali_Click(object sender, EventArgs e)
         {
             Formpenjaga penjaga = (Formpenjaga)Application.OpenForms["Formpenjaga"];

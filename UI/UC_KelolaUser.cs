@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,12 +26,24 @@ namespace Ucp_pabd_lab.UI
         
         private void UC_KelolaUser_Load(object sender, EventArgs e)
         {
+            // ini untuk mengisi data ke dalam tabel Barang saat form dimuat
+            this.userLabTableAdapter.Fill(this.dBLabSekolahDataSetBaru.UserLab);
             LoadDataUser(); 
         }
 
         
         private void LoadDataUser()
         {
+           // ini tadi di ganti biar bisa sinkron antara binding navigator sama dgv
+            try
+            {
+                this.userLabTableAdapter.Fill(this.dBLabSekolahDataSetBaru.UserLab);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Sistem gagal menyinkronkan Binding Navigator: " + ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
             using (SqlConnection conn = db.GetConn())
             {
                 try
@@ -91,8 +103,17 @@ namespace Ucp_pabd_lab.UI
         }
         private void btn_klusr_ubah_Click(object sender, EventArgs e)
         {
-            // Validasi apakah user sudah memilih data di grid terlebih dahulu
-            if (string.IsNullOrEmpty(idUserTerpilih))
+            string idUser = "";
+            if (userLabBindingSource.Current != null)
+            {
+                idUser = ((System.Data.DataRowView)userLabBindingSource.Current)["IDUser"].ToString();
+            }
+            if (string.IsNullOrWhiteSpace(idUser))
+            {
+                idUser = idUserTerpilih;
+            }
+
+            if (string.IsNullOrEmpty(idUser))
             {
                 MessageBox.Show("Silakan pilih data pengguna pada tabel terlebih dahulu yang ingin diubah!", "Aksi Ditolak", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -112,10 +133,10 @@ namespace Ucp_pabd_lab.UI
                     SqlCommand cmd = new SqlCommand("sp_UpdateUser", conn);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    
-                    cmd.Parameters.AddWithValue("@IDUser", idUserTerpilih);
+                    cmd.Parameters.AddWithValue("@IDUser", idUser);
                     cmd.Parameters.AddWithValue("@NamaUser", txt_klusr_nama.Text.Trim());
                     cmd.Parameters.AddWithValue("@RoleUser", cmb_klusr_peran.Text);
+                    cmd.Parameters.AddWithValue("@Password", "12345");
 
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Data akun pengguna berhasil diperbarui.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -129,7 +150,17 @@ namespace Ucp_pabd_lab.UI
         }
         private void btn_klusr_hapus_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(idUserTerpilih))
+            string idUser = "";
+            if (userLabBindingSource.Current != null)
+            {
+                idUser = ((System.Data.DataRowView)userLabBindingSource.Current)["IDUser"].ToString();
+            }
+            if (string.IsNullOrWhiteSpace(idUser))
+            {
+                idUser = idUserTerpilih;
+            }
+
+            if (string.IsNullOrEmpty(idUser))
             {
                 MessageBox.Show("Silakan pilih data pengguna pada tabel terlebih dahulu yang ingin dihapus!", "Aksi Ditolak", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -148,8 +179,7 @@ namespace Ucp_pabd_lab.UI
                         SqlCommand cmd = new SqlCommand("sp_DeleteUser", conn);
                         cmd.CommandType = CommandType.StoredProcedure;
 
-                        // Mengirimkan parameter sesuai spesifikasi sp_DeleteUser
-                        cmd.Parameters.AddWithValue("@IDUser", idUserTerpilih);
+                        cmd.Parameters.AddWithValue("@IDUser", idUser);
 
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Akun pengguna telah berhasil dihapus dari sistem.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -171,15 +201,35 @@ namespace Ucp_pabd_lab.UI
             }
             this.Close();
         }
+        private void dgv_kelolauser_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = dgv_kelolauser.Rows[e.RowIndex];
+                // Menyimpan IDUser yang terpilih untuk operasi selanjutnya
+                idUserTerpilih = row.Cells[0].Value.ToString();
 
+                // ini tadi biar sinkron antara binding nav sama dgv
+                int index = userLabBindingSource.Find("IDUser", idUserTerpilih);
+                if (index >= 0)
+                {
+                    userLabBindingSource.Position = index;
+                }
+                else
+                {
+                    // Fallback jika item tidak ada dalam BindingSource
+                    txt_klusr_nama.Text = row.Cells[1].Value.ToString();
+                    cmb_klusr_peran.Text = row.Cells[2].Value.ToString();
+                }
+            }
+        }
 
         private void btn_klusr_refresh_Click(object sender, EventArgs e)
         {
             LoadDataUser();
 
-            
-            txt_klusr_nama.Clear();
-            cmb_klusr_peran.SelectedIndex = -1;
+           
+            userLabBindingSource.CancelEdit();
 
             txt_klusr_nama.Focus(); 
         }
