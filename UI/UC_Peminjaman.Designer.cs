@@ -107,6 +107,7 @@
             this.cmb_pinjam_user.Name = "cmb_pinjam_user";
             this.cmb_pinjam_user.Size = new System.Drawing.Size(227, 24);
             this.cmb_pinjam_user.TabIndex = 26;
+            this.cmb_pinjam_user.SelectedIndexChanged += new System.EventHandler(this.cmb_pinjam_user_SelectedIndexChanged);
             // 
             // cmb_pinjam_barang
             // 

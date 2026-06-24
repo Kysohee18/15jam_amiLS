@@ -186,5 +186,10 @@ using Ucp_pabd_lab.DAL;
             }
             this.Close();
         }
+
+        private void cmb_pinjam_user_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
