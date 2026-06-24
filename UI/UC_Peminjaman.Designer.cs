@@ -102,6 +102,9 @@
             // 
             // cmb_pinjam_user
             // 
+            this.cmb_pinjam_user.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmb_pinjam_user.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmb_pinjam_user.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_pinjam_user.FormattingEnabled = true;
             this.cmb_pinjam_user.Location = new System.Drawing.Point(163, 76);
             this.cmb_pinjam_user.Name = "cmb_pinjam_user";
@@ -111,6 +114,9 @@
             // 
             // cmb_pinjam_barang
             // 
+            this.cmb_pinjam_barang.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.cmb_pinjam_barang.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmb_pinjam_barang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_pinjam_barang.FormattingEnabled = true;
             this.cmb_pinjam_barang.Location = new System.Drawing.Point(163, 106);
             this.cmb_pinjam_barang.Name = "cmb_pinjam_barang";

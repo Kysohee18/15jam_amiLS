@@ -148,6 +148,7 @@
             this.btn_logout.TabIndex = 6;
             this.btn_logout.Text = "Log out";
             this.btn_logout.UseVisualStyleBackColor = true;
+            this.btn_logout.Click += new System.EventHandler(this.btn_logout_Click);
             // 
             // Formadmin
             // 

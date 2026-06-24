@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -67,6 +67,28 @@ namespace Ucp_pabd_lab.UI
                 penjaga.Show();
             }
             this.Close();
+        }
+
+        private void btn_CetakSemua_Click(object sender, EventArgs e)
+        {
+            FormCetakLog frm = new FormCetakLog();
+            frm.ShowDialog();
+        }
+
+        private void btn_CetakTerpilih_Click(object sender, EventArgs e)
+        {
+            if (dgv_log_trs.CurrentRow != null)
+            {
+                string id = dgv_log_trs.CurrentRow.Cells["IDLog"].Value.ToString();
+
+                FormCetakLog frm = new FormCetakLog(id);
+                frm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Pilih baris transaksi terlebih dahulu pada tabel.",
+                                "Peringatan", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

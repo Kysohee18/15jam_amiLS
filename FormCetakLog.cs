@@ -10,19 +10,22 @@ namespace Ucp_pabd_lab
     public partial class FormCetakLog : Form
     {
         Koneksi db = new Koneksi();
-        private int? idTransaksi = null; // Nullable untuk menampung parameter
+        private string idTargetCetak = "";
+        private bool isModeRekap = false;
 
-        // Constructor untuk Cetak Rekap (Semua)
+        // Constructor 1: Mode Rekap (Semua Data)
         public FormCetakLog()
         {
             InitializeComponent();
+            isModeRekap = true;
         }
 
-        // Constructor untuk Cetak Spesifik (Satu Baris)
-        public FormCetakLog(int id)
+        // Constructor 2: Mode Spesifik (Satu Transaksi)
+        public FormCetakLog(string idTransaksi)
         {
             InitializeComponent();
-            idTransaksi = id;
+            idTargetCetak = idTransaksi;
+            isModeRekap = false;
         }
 
         private void FormCetakLog_Load(object sender, EventArgs e)
@@ -32,11 +35,12 @@ namespace Ucp_pabd_lab
                 using (SqlConnection conn = db.GetConn())
                 {
                     conn.Open();
+                    // Menggunakan SP khusus laporan
                     SqlCommand cmd = new SqlCommand("sp_ReportLogTransaksi", conn);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    
-                    // Injeksi Parameter ke SQL
-                    cmd.Parameters.AddWithValue("@IDTransaksi", (object)idTransaksi ?? DBNull.Value);
+
+                    // Mengirim parameter dinamis (NULL untuk rekap, ID untuk spesifik)
+                    cmd.Parameters.AddWithValue("@IDTransaksi", isModeRekap ? DBNull.Value : (object)Convert.ToInt32(idTargetCetak));
 
                     SqlDataAdapter sda = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
@@ -45,19 +49,25 @@ namespace Ucp_pabd_lab
                     if (dt.Rows.Count > 0)
                     {
                         ReportDocument rpt = new ReportDocument();
+                        // Memuat file desain laporan Anda
                         rpt.Load(Application.StartupPath + "\\Rpt_LogPenjaga.rpt");
-                        rpt.SetDataSource(dt); // Crystal Reports otomatis memetakan dt ke Class1
-                        crystalReportViewer1.ReportSource = rpt;
+                        
+                        // Menyuntikkan data ke Class1
+                        rpt.SetDataSource(dt);
+
+                        crv_log.ReportSource = rpt;
+                        crv_log.Refresh();
                     }
                     else
                     {
-                        MessageBox.Show("Data tidak ditemukan.");
+                        MessageBox.Show("Data log tidak ditemukan.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
                     }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Fatal Error pada modul pelaporan: " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

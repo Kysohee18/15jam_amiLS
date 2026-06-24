@@ -30,7 +30,7 @@ namespace Ucp_pabd_lab
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCetakLog));
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.crv_log = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.SuspendLayout();
             // 
             // printPreviewDialog1
@@ -43,23 +43,23 @@ namespace Ucp_pabd_lab
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
-            // crystalReportViewer1
+            // crv_log
             // 
-            this.crystalReportViewer1.ActiveViewIndex = -1;
-            this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.crystalReportViewer1.Location = new System.Drawing.Point(0, 0);
-            this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.Size = new System.Drawing.Size(800, 450);
-            this.crystalReportViewer1.TabIndex = 0;
+            this.crv_log.ActiveViewIndex = -1;
+            this.crv_log.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crv_log.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crv_log.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.crv_log.Location = new System.Drawing.Point(0, 0);
+            this.crv_log.Name = "crv_log";
+            this.crv_log.Size = new System.Drawing.Size(800, 450);
+            this.crv_log.TabIndex = 0;
             // 
             // FormCetakLog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.crystalReportViewer1);
+            this.Controls.Add(this.crv_log);
             this.Name = "FormCetakLog";
             this.Text = "FormCetakLog";
             this.Load += new System.EventHandler(this.FormCetakLog_Load);
@@ -70,6 +70,6 @@ namespace Ucp_pabd_lab
         #endregion
 
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
-        private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer crv_log;
     }
 }
