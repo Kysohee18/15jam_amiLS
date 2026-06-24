@@ -1,3 +1,9 @@
 <Solution>
-  <Project Path="Ucp_pabd_lab.csproj" Id="c8167754-1874-4230-840e-da763c589478" />
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+  </Configurations>
+  <Project Path="Ucp_pabd_lab.csproj" Id="c8167754-1874-4230-840e-da763c589478">
+    <Platform Solution="*|x64" Project="x64" />
+  </Project>
 </Solution>

@@ -1,4 +1,4 @@
-﻿namespace Ucp_pabd_lab.UI
+namespace Ucp_pabd_lab.UI
 {
     partial class UC_LogPenjaga
     {
@@ -31,11 +31,14 @@
             this.linklable_log_refresh = new System.Windows.Forms.LinkLabel();
             this.dgv_log_trs = new System.Windows.Forms.DataGridView();
             this.btn_kembali = new System.Windows.Forms.Button();
+            this.btn_CetakSemua = new System.Windows.Forms.Button();
+            this.btn_CetakTerpilih = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_log_trs)).BeginInit();
             this.SuspendLayout();
             // 
             // linklable_log_refresh
             // 
+            this.linklable_log_refresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.linklable_log_refresh.AutoSize = true;
             this.linklable_log_refresh.Location = new System.Drawing.Point(691, 65);
             this.linklable_log_refresh.Name = "linklable_log_refresh";
@@ -47,6 +50,9 @@
             // 
             // dgv_log_trs
             // 
+            this.dgv_log_trs.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_log_trs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_log_trs.Location = new System.Drawing.Point(43, 83);
             this.dgv_log_trs.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -58,7 +64,7 @@
             // 
             // btn_kembali
             // 
-            this.btn_kembali.Location = new System.Drawing.Point(42, 35);
+            this.btn_kembali.Location = new System.Drawing.Point(42, 37);
             this.btn_kembali.Name = "btn_kembali";
             this.btn_kembali.Size = new System.Drawing.Size(140, 30);
             this.btn_kembali.TabIndex = 4;
@@ -66,11 +72,33 @@
             this.btn_kembali.UseVisualStyleBackColor = true;
             this.btn_kembali.Click += new System.EventHandler(this.btn_kembali_Click);
             // 
+            // btn_CetakSemua
+            // 
+            this.btn_CetakSemua.Location = new System.Drawing.Point(188, 35);
+            this.btn_CetakSemua.Name = "btn_CetakSemua";
+            this.btn_CetakSemua.Size = new System.Drawing.Size(119, 32);
+            this.btn_CetakSemua.TabIndex = 5;
+            this.btn_CetakSemua.Text = "Cetak Semua";
+            this.btn_CetakSemua.UseVisualStyleBackColor = true;
+            this.btn_CetakSemua.Click += new System.EventHandler(this.btn_CetakSemua_Click);
+            // 
+            // btn_CetakTerpilih
+            // 
+            this.btn_CetakTerpilih.Location = new System.Drawing.Point(313, 35);
+            this.btn_CetakTerpilih.Name = "btn_CetakTerpilih";
+            this.btn_CetakTerpilih.Size = new System.Drawing.Size(132, 32);
+            this.btn_CetakTerpilih.TabIndex = 6;
+            this.btn_CetakTerpilih.Text = "Cetak yang dipilih";
+            this.btn_CetakTerpilih.UseVisualStyleBackColor = true;
+            this.btn_CetakTerpilih.Click += new System.EventHandler(this.btn_CetakTerpilih_Click);
+            // 
             // UC_LogPenjaga
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_CetakTerpilih);
+            this.Controls.Add(this.btn_CetakSemua);
             this.Controls.Add(this.btn_kembali);
             this.Controls.Add(this.linklable_log_refresh);
             this.Controls.Add(this.dgv_log_trs);
@@ -88,5 +116,7 @@
         private System.Windows.Forms.LinkLabel linklable_log_refresh;
         private System.Windows.Forms.DataGridView dgv_log_trs;
         private System.Windows.Forms.Button btn_kembali;
+        private System.Windows.Forms.Button btn_CetakSemua;
+        private System.Windows.Forms.Button btn_CetakTerpilih;
     }
 }

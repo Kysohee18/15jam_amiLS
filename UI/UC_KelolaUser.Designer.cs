@@ -236,6 +236,9 @@ namespace Ucp_pabd_lab.UI
             // 
             // dgv_kelolauser
             // 
+            this.dgv_kelolauser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_kelolauser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_kelolauser.Location = new System.Drawing.Point(53, 233);
             this.dgv_kelolauser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -286,6 +289,7 @@ namespace Ucp_pabd_lab.UI
             // 
             // btn_kembali
             // 
+            this.btn_kembali.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_kembali.Location = new System.Drawing.Point(588, 37);
             this.btn_kembali.Name = "btn_kembali";
             this.btn_kembali.Size = new System.Drawing.Size(164, 32);
