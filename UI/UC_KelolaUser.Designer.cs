@@ -1,4 +1,4 @@
-﻿namespace Ucp_pabd_lab.UI
+namespace Ucp_pabd_lab.UI
 {
     partial class UC_KelolaUser
     {
@@ -52,14 +52,20 @@
             this.txt_klusr_nama = new System.Windows.Forms.TextBox();
             this.btn_klusr_simpan = new System.Windows.Forms.Button();
             this.btn_kembali = new System.Windows.Forms.Button();
+            this.dBLabSekolahDataSetBaru = new Ucp_pabd_lab.DBLabSekolahDataSetBaru();
+            this.userLabBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.userLabTableAdapter = new Ucp_pabd_lab.DBLabSekolahDataSetBaruTableAdapters.UserLabTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_kelolauser)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dBLabSekolahDataSetBaru)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userLabBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // bindingNavigator1
             // 
             this.bindingNavigator1.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.bindingNavigator1.BindingSource = this.userLabBindingSource;
             this.bindingNavigator1.CountItem = this.bindingNavigatorCountItem;
             this.bindingNavigator1.DeleteItem = this.bindingNavigatorDeleteItem;
             this.bindingNavigator1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -82,7 +88,7 @@
             this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator1.Size = new System.Drawing.Size(800, 31);
+            this.bindingNavigator1.Size = new System.Drawing.Size(800, 27);
             this.bindingNavigator1.TabIndex = 40;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -92,13 +98,13 @@
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorAddNewItem.Text = "Add new";
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 28);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 24);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
@@ -108,7 +114,7 @@
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
@@ -117,7 +123,7 @@
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveFirstItem.Text = "Move first";
             // 
             // bindingNavigatorMovePreviousItem
@@ -126,13 +132,13 @@
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMovePreviousItem.Text = "Move previous";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorPositionItem
             // 
@@ -147,7 +153,7 @@
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -155,7 +161,7 @@
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
             // 
             // bindingNavigatorMoveLastItem
@@ -164,21 +170,22 @@
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
             // cmb_klusr_peran
             // 
+            this.cmb_klusr_peran.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.userLabBindingSource, "RoleUser", true));
             this.cmb_klusr_peran.FormattingEnabled = true;
             this.cmb_klusr_peran.Items.AddRange(new object[] {
             "Siswa",
             "Guru"});
-            this.cmb_klusr_peran.Location = new System.Drawing.Point(197, 91);
+            this.cmb_klusr_peran.Location = new System.Drawing.Point(197, 110);
             this.cmb_klusr_peran.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmb_klusr_peran.Name = "cmb_klusr_peran";
             this.cmb_klusr_peran.Size = new System.Drawing.Size(264, 24);
@@ -232,7 +239,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(50, 100);
+            this.label5.Location = new System.Drawing.Point(50, 118);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(49, 16);
             this.label5.TabIndex = 34;
@@ -241,7 +248,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(50, 60);
+            this.label8.Location = new System.Drawing.Point(49, 82);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(50, 16);
             this.label8.TabIndex = 33;
@@ -249,7 +256,8 @@
             // 
             // txt_klusr_nama
             // 
-            this.txt_klusr_nama.Location = new System.Drawing.Point(197, 58);
+            this.txt_klusr_nama.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.userLabBindingSource, "NamaUser", true));
+            this.txt_klusr_nama.Location = new System.Drawing.Point(197, 79);
             this.txt_klusr_nama.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txt_klusr_nama.Name = "txt_klusr_nama";
             this.txt_klusr_nama.Size = new System.Drawing.Size(264, 22);
@@ -276,6 +284,22 @@
             this.btn_kembali.UseVisualStyleBackColor = true;
             this.btn_kembali.Click += new System.EventHandler(this.btn_kembali_Click);
             // 
+
+            // 
+            // dBLabSekolahDataSetBaru
+            // 
+            this.dBLabSekolahDataSetBaru.DataSetName = "DBLabSekolahDataSetBaru";
+            this.dBLabSekolahDataSetBaru.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // userLabBindingSource
+            // 
+            this.userLabBindingSource.DataMember = "UserLab";
+            this.userLabBindingSource.DataSource = this.dBLabSekolahDataSetBaru;
+            // 
+            // userLabTableAdapter
+            // 
+            this.userLabTableAdapter.ClearBeforeFill = true;
+            // 
             // UC_KelolaUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -299,6 +323,8 @@
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_kelolauser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dBLabSekolahDataSetBaru)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userLabBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -328,5 +354,8 @@
         private System.Windows.Forms.TextBox txt_klusr_nama;
         private System.Windows.Forms.Button btn_klusr_simpan;
         private System.Windows.Forms.Button btn_kembali;
+        private DBLabSekolahDataSetBaru dBLabSekolahDataSetBaru;
+        private System.Windows.Forms.BindingSource userLabBindingSource;
+        private DBLabSekolahDataSetBaruTableAdapters.UserLabTableAdapter userLabTableAdapter;
     }
 }

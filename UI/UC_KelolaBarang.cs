@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,6 +25,8 @@ namespace Ucp_pabd_lab.UI
 
         private void UC_KelolaBarang_Load(object sender, EventArgs e)
         {
+            // ini untuk mengisi data ke dalam tabel Barang saat form dimuat
+            this.barangTableAdapter.Fill(this.dBLabSekolahDataSet.Barang);
             LoadKategori();   
             LoadDataBarang(); 
         }
@@ -59,6 +61,17 @@ namespace Ucp_pabd_lab.UI
        
         private void LoadDataBarang()
         {
+            // changes: agar binding navigator bisa sinkron
+
+            try
+            {
+                this.barangTableAdapter.Fill(this.dBLabSekolahDataSet.Barang);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Sistem gagal menyinkronkan Binding Navigator: " + ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
             using (SqlConnection conn = db.GetConn())
             {
                 try
@@ -130,17 +143,37 @@ namespace Ucp_pabd_lab.UI
 
                 idBarangTerpilih = row.Cells[0].Value.ToString();
 
-                txt_klbr_nama.Text = row.Cells[1].Value.ToString();
-                cmb_klbr_kategori.Text = row.Cells[2].Value.ToString();
-                txt_klbr_stok.Text = row.Cells[3].Value.ToString();
-                cmb_admin_kondisi.Text = row.Cells[4].Value.ToString();
+                // agar binding navigator bisa sinkron sama data yg di pilih di dgv
+                int index = barangBindingSource.Find("IDBarang", idBarangTerpilih);
+                if (index >= 0)
+                {
+                     barangBindingSource.Position = index;
+                }
+                else
+                {
+                    // Fallback jika tidak ditemukan di BindingSource
+                    txt_klbr_nama.Text = row.Cells[1].Value.ToString();
+                    cmb_klbr_kategori.Text = row.Cells[2].Value.ToString();
+                    txt_klbr_stok.Text = row.Cells[3].Value.ToString();
+                    cmb_admin_kondisi.Text = row.Cells[4].Value.ToString();
+                }
             }
         }
         private void btn_klbr_ubah_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(idBarangTerpilih))
+            string idBarang = "";
+            if (barangBindingSource.Current != null)
             {
-                MessageBox.Show("Silakan tentukan data barang pada tabel yang ingin diubah!", "Aksi Ditolak", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                idBarang = ((System.Data.DataRowView)barangBindingSource.Current)["IDBarang"].ToString();
+            }
+            if (string.IsNullOrWhiteSpace(idBarang))
+            {
+                idBarang = idBarangTerpilih;
+            }
+
+            if (string.IsNullOrEmpty(idBarang))
+            {
+                MessageBox.Show("Silakan tentukan barang pada tabel atau masukkan ID secara manual.", "Aksi Ditolak", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -161,8 +194,8 @@ namespace Ucp_pabd_lab.UI
                     SqlCommand cmd = new SqlCommand("sp_UpdateBarang", conn);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    // Mengirimkan parameter lengkap ke sp_UpdateBarang
-                    cmd.Parameters.AddWithValue("@IDBarang", idBarangTerpilih);
+                    
+                    cmd.Parameters.AddWithValue("@IDBarang", idBarang);
                     cmd.Parameters.AddWithValue("@NamaBarang", txt_klbr_nama.Text.Trim());
                     cmd.Parameters.AddWithValue("@IDKategori", cmb_klbr_kategori.SelectedValue);
                     cmd.Parameters.AddWithValue("@Stok", int.Parse(txt_klbr_stok.Text.Trim()));
@@ -184,9 +217,19 @@ namespace Ucp_pabd_lab.UI
         }
         private void btn_klbr_hapus_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(idBarangTerpilih))
+            string idBarang = "";
+            if (barangBindingSource.Current != null)
             {
-                MessageBox.Show("Silakan tentukan data barang pada tabel yang ingin dihapus!", "Aksi Ditolak", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                idBarang = ((System.Data.DataRowView)barangBindingSource.Current)["IDBarang"].ToString();
+            }
+            if (string.IsNullOrWhiteSpace(idBarang))
+            {
+                idBarang = idBarangTerpilih;
+            }
+
+            if (string.IsNullOrEmpty(idBarang))
+            {
+                MessageBox.Show("Silakan tentukan barang pada tabel atau masukkan ID secara manual.", "Aksi Ditolak", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -202,7 +245,8 @@ namespace Ucp_pabd_lab.UI
                         SqlCommand cmd = new SqlCommand("sp_DeleteBarang", conn);
                         cmd.CommandType = CommandType.StoredProcedure;
 
-                        cmd.Parameters.AddWithValue("@IDBarang", idBarangTerpilih);
+                        
+                        cmd.Parameters.AddWithValue("@IDBarang", idBarang);
 
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Barang telah berhasil dihapus dari sistem logistik.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -233,11 +277,7 @@ namespace Ucp_pabd_lab.UI
         {
             LoadDataBarang();
 
-            
-            txt_klbr_nama.Clear();
-            txt_klbr_stok.Clear();
-            cmb_klbr_kategori.SelectedIndex = -1;
-            cmb_admin_kondisi.SelectedIndex = -1;
+            barangBindingSource.CancelEdit();
 
             txt_klbr_nama.Focus(); 
         }
@@ -261,6 +301,11 @@ namespace Ucp_pabd_lab.UI
         private void txt_cari_barang_TextChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void cmb_admin_kondisi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
