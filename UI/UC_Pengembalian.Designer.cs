@@ -28,26 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_pengembalian_tampil = new System.Windows.Forms.Button();
             this.dgv_pengembalian = new System.Windows.Forms.DataGridView();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.btn_kembalikan = new System.Windows.Forms.Button();
             this.btn_kembali = new System.Windows.Forms.Button();
-            this.cmb_pinjam_user = new System.Windows.Forms.ComboBox();
-            this.cmb_pinjam_barang = new System.Windows.Forms.ComboBox();
+            this.txt_nama_ucp = new System.Windows.Forms.TextBox();
+            this.txt_NamaBarang_ucp = new System.Windows.Forms.TextBox();
+            this.txt_cari_ucp = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btn_search_ucp = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_pengembalian)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btn_pengembalian_tampil
-            // 
-            this.btn_pengembalian_tampil.Location = new System.Drawing.Point(42, 188);
-            this.btn_pengembalian_tampil.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_pengembalian_tampil.Name = "btn_pengembalian_tampil";
-            this.btn_pengembalian_tampil.Size = new System.Drawing.Size(165, 22);
-            this.btn_pengembalian_tampil.TabIndex = 37;
-            this.btn_pengembalian_tampil.Text = "Tampilkan Barang";
-            this.btn_pengembalian_tampil.UseVisualStyleBackColor = true;
             // 
             // dgv_pengembalian
             // 
@@ -66,9 +58,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(46, 121);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(49, 16);
+            this.label6.Size = new System.Drawing.Size(97, 16);
             this.label6.TabIndex = 35;
-            this.label6.Text = "Peran :";
+            this.label6.Text = "Nama Barang :";
             // 
             // label8
             // 
@@ -100,35 +92,56 @@
             this.btn_kembali.UseVisualStyleBackColor = true;
             this.btn_kembali.Click += new System.EventHandler(this.btn_kembali_Click);
             // 
-            // cmb_pinjam_user
+            // txt_nama_ucp
             // 
-            this.cmb_pinjam_user.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cmb_pinjam_user.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmb_pinjam_user.FormattingEnabled = true;
-            this.cmb_pinjam_user.Location = new System.Drawing.Point(185, 82);
-            this.cmb_pinjam_user.Name = "cmb_pinjam_user";
-            this.cmb_pinjam_user.Size = new System.Drawing.Size(225, 24);
-            this.cmb_pinjam_user.TabIndex = 40;
+            this.txt_nama_ucp.Location = new System.Drawing.Point(185, 76);
+            this.txt_nama_ucp.Name = "txt_nama_ucp";
+            this.txt_nama_ucp.Size = new System.Drawing.Size(225, 22);
+            this.txt_nama_ucp.TabIndex = 42;
             // 
-            // cmb_pinjam_barang
+            // txt_NamaBarang_ucp
             // 
-            this.cmb_pinjam_barang.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cmb_pinjam_barang.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmb_pinjam_barang.FormattingEnabled = true;
-            this.cmb_pinjam_barang.Location = new System.Drawing.Point(185, 121);
-            this.cmb_pinjam_barang.Name = "cmb_pinjam_barang";
-            this.cmb_pinjam_barang.Size = new System.Drawing.Size(225, 24);
-            this.cmb_pinjam_barang.TabIndex = 41;
+            this.txt_NamaBarang_ucp.Location = new System.Drawing.Point(185, 115);
+            this.txt_NamaBarang_ucp.Name = "txt_NamaBarang_ucp";
+            this.txt_NamaBarang_ucp.Size = new System.Drawing.Size(225, 22);
+            this.txt_NamaBarang_ucp.TabIndex = 43;
+            // 
+            // txt_cari_ucp
+            // 
+            this.txt_cari_ucp.Location = new System.Drawing.Point(103, 188);
+            this.txt_cari_ucp.Name = "txt_cari_ucp";
+            this.txt_cari_ucp.Size = new System.Drawing.Size(225, 22);
+            this.txt_cari_ucp.TabIndex = 44;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(39, 191);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(37, 16);
+            this.label1.TabIndex = 45;
+            this.label1.Text = "Cari :";
+            // 
+            // btn_search_ucp
+            // 
+            this.btn_search_ucp.Location = new System.Drawing.Point(335, 188);
+            this.btn_search_ucp.Name = "btn_search_ucp";
+            this.btn_search_ucp.Size = new System.Drawing.Size(75, 23);
+            this.btn_search_ucp.TabIndex = 46;
+            this.btn_search_ucp.Text = "Cari";
+            this.btn_search_ucp.UseVisualStyleBackColor = true;
             // 
             // UC_Pengembalian
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.cmb_pinjam_barang);
-            this.Controls.Add(this.cmb_pinjam_user);
+            this.Controls.Add(this.btn_search_ucp);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txt_cari_ucp);
+            this.Controls.Add(this.txt_NamaBarang_ucp);
+            this.Controls.Add(this.txt_nama_ucp);
             this.Controls.Add(this.btn_kembali);
-            this.Controls.Add(this.btn_pengembalian_tampil);
             this.Controls.Add(this.dgv_pengembalian);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label8);
@@ -143,13 +156,15 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btn_pengembalian_tampil;
         private System.Windows.Forms.DataGridView dgv_pengembalian;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btn_kembalikan;
         private System.Windows.Forms.Button btn_kembali;
-        private System.Windows.Forms.ComboBox cmb_pinjam_user;
-        private System.Windows.Forms.ComboBox cmb_pinjam_barang;
+        private System.Windows.Forms.TextBox txt_nama_ucp;
+        private System.Windows.Forms.TextBox txt_NamaBarang_ucp;
+        private System.Windows.Forms.TextBox txt_cari_ucp;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btn_search_ucp;
     }
 }
