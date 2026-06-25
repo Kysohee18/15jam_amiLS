@@ -130,10 +130,18 @@ namespace Ucp_pabd_lab
                                     using (SqlCommand cmd = new SqlCommand("sp_InsertBarang", conn))
                                     {
                                         cmd.CommandType = CommandType.StoredProcedure;
-                                        cmd.Parameters.AddWithValue("@IDBarang", row["IDBarang"].ToString().Trim());
+                                        
+                                        // Parameter sp_InsertBarang: @NamaBarang, @IDKategori, @Stok, @Kondisi
                                         cmd.Parameters.AddWithValue("@NamaBarang", row["NamaBarang"].ToString().Trim());
-                                        cmd.Parameters.AddWithValue("@IDKategori", row["IDKategori"].ToString().Trim());
-                                        cmd.Parameters.AddWithValue("@Stok", Convert.ToInt32(row["Stok"]));
+                                        cmd.Parameters.AddWithValue("@IDKategori", GetOrCreateKategoriId(conn, row));
+                                        cmd.Parameters.AddWithValue("@Stok", SafeToInt(row["Stok"]));
+                                        
+                                        string kondisi = "Baik";
+                                        if (dtSource.Columns.Contains("Kondisi") && row["Kondisi"] != DBNull.Value)
+                                        {
+                                            kondisi = row["Kondisi"].ToString().Trim();
+                                        }
+                                        cmd.Parameters.AddWithValue("@Kondisi", kondisi);
                                         
                                         cmd.ExecuteNonQuery();
                                         suksesCount++;
@@ -150,11 +158,27 @@ namespace Ucp_pabd_lab
                                     using (SqlCommand cmd = new SqlCommand("sp_InsertUser", conn))
                                     {
                                         cmd.CommandType = CommandType.StoredProcedure;
-                                        cmd.Parameters.AddWithValue("@IDUser", row["IDUser"].ToString().Trim());
+                                        
+                                        // Parameter sp_InsertUser: @NamaUser, @RoleUser, @Password
                                         cmd.Parameters.AddWithValue("@NamaUser", row["NamaUser"].ToString().Trim());
-                                        cmd.Parameters.AddWithValue("@Password", row["Password"].ToString());
-                                        cmd.Parameters.AddWithValue("@Role", row["Role"].ToString().Trim());
-                                        cmd.Parameters.AddWithValue("@TanggunganPinjam", Convert.ToInt32(row["TanggunganPinjam"]));
+                                        
+                                        string roleVal = "";
+                                        if (dtSource.Columns.Contains("RoleUser"))
+                                        {
+                                            roleVal = row["RoleUser"].ToString().Trim();
+                                        }
+                                        else if (dtSource.Columns.Contains("Role"))
+                                        {
+                                            roleVal = row["Role"].ToString().Trim();
+                                        }
+                                        cmd.Parameters.AddWithValue("@RoleUser", roleVal);
+                                        
+                                        string passwordVal = "12345";
+                                        if (dtSource.Columns.Contains("Password") && row["Password"] != DBNull.Value)
+                                        {
+                                            passwordVal = row["Password"].ToString();
+                                        }
+                                        cmd.Parameters.AddWithValue("@Password", passwordVal);
                                         
                                         cmd.ExecuteNonQuery();
                                         suksesCount++;
@@ -174,13 +198,13 @@ namespace Ucp_pabd_lab
                                         cmd.CommandType = CommandType.StoredProcedure;
                                         
                                         // Parameter Entitas Tabel Kategori
-                                        cmd.Parameters.AddWithValue("@IDKategori", row["IDKategori"].ToString().Trim());
+                                        cmd.Parameters.AddWithValue("@IDKategori", GetOrCreateKategoriId(conn, row));
                                         cmd.Parameters.AddWithValue("@NamaKategori", row["NamaKategori"].ToString().Trim());
                                         
                                         // Parameter Entitas Tabel Barang
                                         cmd.Parameters.AddWithValue("@IDBarang", row["IDBarang"].ToString().Trim());
                                         cmd.Parameters.AddWithValue("@NamaBarang", row["NamaBarang"].ToString().Trim());
-                                        cmd.Parameters.AddWithValue("@Stok", Convert.ToInt32(row["Stok"]));
+                                        cmd.Parameters.AddWithValue("@Stok", SafeToInt(row["Stok"]));
                                         
                                         cmd.ExecuteNonQuery();
                                         suksesCount++;
@@ -204,6 +228,91 @@ namespace Ucp_pabd_lab
                 MessageBox.Show("Gagal mengeksekusi migrasi data ke database.\nDetail Masalah: " + ex.Message, 
                                 "Database Transaksi Batal", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        /// <summary>
+        /// Mengonversi nilai objek dari Excel ke tipe data int secara aman.
+        /// </summary>
+        private int SafeToInt(object value, int defaultValue = 0)
+        {
+            if (value == null || value == DBNull.Value)
+                return defaultValue;
+            
+            string valStr = value.ToString().Trim();
+            if (string.IsNullOrEmpty(valStr))
+                return defaultValue;
+                
+            if (double.TryParse(valStr, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out double dbVal))
+            {
+                return Convert.ToInt32(dbVal);
+            }
+            
+            if (int.TryParse(valStr, out int intVal))
+            {
+                return intVal;
+            }
+            
+            return defaultValue;
+        }
+
+        /// <summary>
+        /// Mengambil ID Kategori berdasarkan ID murni (jika valid) atau nama kategori.
+        /// Jika nama kategori belum ada di database, kategori baru akan dibuat secara otomatis.
+        /// </summary>
+        private int GetOrCreateKategoriId(SqlConnection conn, DataRow row)
+        {
+            string inputID = "";
+            string inputNama = "";
+
+            if (row.Table.Columns.Contains("IDKategori") && row["IDKategori"] != DBNull.Value)
+            {
+                inputID = row["IDKategori"].ToString().Trim();
+            }
+            if (row.Table.Columns.Contains("NamaKategori") && row["NamaKategori"] != DBNull.Value)
+            {
+                inputNama = row["NamaKategori"].ToString().Trim();
+            }
+
+            // 1. Coba cari berdasarkan ID Kategori (jika berupa angka)
+            if (!string.IsNullOrEmpty(inputID) && int.TryParse(inputID, out int idKategori))
+            {
+                using (SqlCommand cmdCheck = new SqlCommand("SELECT COUNT(*) FROM Kategori WHERE IDKategori = @IDKategori", conn))
+                {
+                    cmdCheck.Parameters.AddWithValue("@IDKategori", idKategori);
+                    int count = Convert.ToInt32(cmdCheck.ExecuteScalar());
+                    if (count > 0)
+                    {
+                        return idKategori;
+                    }
+                }
+            }
+
+            // 2. Jika ID tidak ditemukan/tidak valid, coba cari berdasarkan Nama Kategori
+            string searchNama = !string.IsNullOrEmpty(inputNama) ? inputNama : inputID;
+            if (!string.IsNullOrEmpty(searchNama))
+            {
+                using (SqlCommand cmdFind = new SqlCommand("SELECT IDKategori FROM Kategori WHERE NamaKategori = @NamaKategori", conn))
+                {
+                    cmdFind.Parameters.AddWithValue("@NamaKategori", searchNama);
+                    object result = cmdFind.ExecuteScalar();
+                    if (result != null && result != DBNull.Value)
+                    {
+                        return Convert.ToInt32(result);
+                    }
+                }
+
+                // 3. Jika tidak ditemukan, buat Kategori baru (hindari murni angka untuk nama kategori baru)
+                if (!int.TryParse(searchNama, out _))
+                {
+                    using (SqlCommand cmdInsert = new SqlCommand("INSERT INTO Kategori (NamaKategori) OUTPUT INSERTED.IDKategori VALUES (@NamaKategori)", conn))
+                    {
+                        cmdInsert.Parameters.AddWithValue("@NamaKategori", searchNama);
+                        return Convert.ToInt32(cmdInsert.ExecuteScalar());
+                    }
+                }
+            }
+
+            throw new Exception($"ID Kategori '{inputID}' atau Nama Kategori '{inputNama}' tidak valid/tidak ditemukan di database.");
         }
 
         /// <summary>
