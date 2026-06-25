@@ -267,3 +267,33 @@ BEGIN
     VALUES (@IDTransaksi, @Aksi, @IDBarang, @IDUser, GETDATE(), @Keterangan);
 END
 GO
+-- perubahan yang dilakukan
+USE DBLabSekolah;
+
+WITH CTE AS (
+  SELECT 
+      IDUser, 
+      NamaUser,
+      ROW_NUMBER() OVER(PARTITION BY NamaUser ORDER BY IDUser ASC) as RowNum
+  FROM dbo.UserLab
+)
+-- Menghapus data yang RowNum-nya > 1 (Data duplikat ke-2, ke-3, dst)
+DELETE FROM CTE WHERE RowNum > 1;
+
+USE DBLabSekolah;
+
+ALTER TABLE dbo.UserLab 
+ADD CONSTRAINT UQ_NamaUser UNIQUE (NamaUser);
+
+
+
+USE DBLabSekolah;
+
+SELECT * 
+FROM dbo.UserLab 
+WHERE NamaUser IN (
+    SELECT NamaUser 
+    FROM dbo.UserLab 
+    GROUP BY NamaUser 
+    HAVING COUNT(*) > 1
+);

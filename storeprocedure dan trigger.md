@@ -364,4 +364,62 @@ BEGIN
     END
 END
 GO
+--sp_ReportLogTransaksi
+CREATE PROCEDURE sp_ReportLogTransaksi  
+    @IDTransaksi INT = NULL -- Kita tetap memakai nama parameter ini agar tidak perlu mengubah code C#  
+AS  
+BEGIN  
+    SET NOCOUNT ON;  
+    SELECT   
+        l.IDLog, l.Aksi, b.NamaBarang, u.NamaUser AS 'Aktor', l.WaktuKejadian  
+    FROM LogTransaksi l  
+    JOIN Barang b ON l.IDBarang = b.IDBarang  
+    JOIN UserLab u ON l.IDUser = u.IDUser  
+    WHERE (@IDTransaksi IS NULL OR l.IDLog = @IDTransaksi) -- GANTI MENJADI l.IDLog  
+    ORDER BY l.WaktuKejadian DESC;  
+END
 
+--trigger 
+CREATE TRIGGER trg_Transaksi_InsertLog
+ON Transaksi
+AFTER INSERT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    INSERT INTO LogTransaksi (IDTransaksi, Aksi, IDBarang, IDUser, WaktuKejadian, Keterangan)
+    SELECT 
+        i.IDTransaksi,
+        'PINJAM',
+        i.IDBarang,
+        i.IDUser,
+        GETDATE(),
+        'Meminjam barang: ' + b.NamaBarang
+    FROM inserted i
+    JOIN Barang b ON i.IDBarang = b.IDBarang;
+END
+GO
+
+-- TRIGGER KEMBALIKAN BARANG
+
+CREATE TRIGGER trg_Transaksi_UpdateLog
+ON Transaksi
+AFTER UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+    IF UPDATE(StatusTrans)
+    BEGIN
+        INSERT INTO LogTransaksi (IDTransaksi, Aksi, IDBarang, IDUser, WaktuKejadian, Keterangan)
+        SELECT 
+            i.IDTransaksi,
+            'KEMBALI',
+            i.IDBarang,
+            i.IDUser,
+            GETDATE(),
+            'Barang dikembalikan'
+        FROM inserted i
+        JOIN deleted d ON i.IDTransaksi = d.IDTransaksi
+        WHERE i.StatusTrans = 'Kembali' AND d.StatusTrans = 'Dipinjam';
+    END
+END
+GO
