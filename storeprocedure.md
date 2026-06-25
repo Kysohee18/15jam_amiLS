@@ -311,3 +311,57 @@ BEGIN
     VALUES (@IDTransaksi, @Aksi, @IDBarang, @IDUser, GETDATE(), @Keterangan);
 END
 GO
+
+---
+
+## 4. Triggers (Otomasi Logging Transaksi)
+
+### -- trg_Transaksi_InsertLog (AFTER INSERT)
+-- Otomatis mencatat aktivitas log PINJAM ke tabel LogTransaksi setelah peminjaman berhasil dimasukkan.
+CREATE TRIGGER trg_Transaksi_InsertLog
+ON Transaksi
+AFTER INSERT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    -- Mengambil data transaksi baru dan mengambil NamaBarang dari tabel Barang
+    INSERT INTO LogTransaksi (IDTransaksi, Aksi, IDBarang, IDUser, WaktuKejadian, Keterangan)
+    SELECT 
+        i.IDTransaksi,
+        'PINJAM',
+        i.IDBarang,
+        i.IDUser,
+        GETDATE(),
+        'Meminjam barang: ' + b.NamaBarang
+    FROM inserted i
+    JOIN Barang b ON i.IDBarang = b.IDBarang;
+END
+GO
+
+### -- trg_Transaksi_UpdateLog (AFTER UPDATE)
+-- Otomatis mencatat aktivitas log KEMBALI ke tabel LogTransaksi setelah status transaksi diubah menjadi 'Kembali'.
+CREATE TRIGGER trg_Transaksi_UpdateLog
+ON Transaksi
+AFTER UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+    -- Memeriksa apakah ada perubahan pada kolom StatusTrans
+    IF UPDATE(StatusTrans)
+    BEGIN
+        -- Hanya mencatat log jika status berubah dari 'Dipinjam' menjadi 'Kembali'
+        INSERT INTO LogTransaksi (IDTransaksi, Aksi, IDBarang, IDUser, WaktuKejadian, Keterangan)
+        SELECT 
+            i.IDTransaksi,
+            'KEMBALI',
+            i.IDBarang,
+            i.IDUser,
+            GETDATE(),
+            'Barang dikembalikan'
+        FROM inserted i
+        JOIN deleted d ON i.IDTransaksi = d.IDTransaksi
+        WHERE i.StatusTrans = 'Kembali' AND d.StatusTrans = 'Dipinjam';
+    END
+END
+GO
+
