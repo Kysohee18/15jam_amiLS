@@ -4,22 +4,22 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Windows.Forms;
 using ExcelDataReader;
-using Ucp_pabd_lab.DAL;
+using Ucp_pabd_lab.DAL; // Pastikan namespace ini sesuai dengan lokasi kelas Koneksi Anda
 
 namespace Ucp_pabd_lab
 {
     public partial class FormImportExcel : Form
     {
-        // Inisialisasi kelas koneksi database
+        // Inisialisasi kelas koneksi database terpusat
         private Koneksi db = new Koneksi();
         
-        // Variabel penanda untuk membedakan mode import
+        // Variabel penanda untuk mengunci mode operasi form
         private string modeImport = ""; 
 
         /// <summary>
-        /// Constructor Form yang mewajibkan penentuan mode saat dipanggil
+        /// Constructor utama Form yang mewajibkan penentuan mode operasi
         /// </summary>
-        /// <param name="mode">Kirim "BARANG" atau "USER"</param>
+        /// <param name="mode">Masukkan "BARANG", "USER", atau "BARANG_BARU"</param>
         public FormImportExcel(string mode)
         {
             InitializeComponent();
@@ -27,34 +27,44 @@ namespace Ucp_pabd_lab
         }
 
         /// <summary>
-        /// Mengatur elemen antarmuka secara dinamis saat form pertama kali dimuat
+        /// Mengatur elemen antarmuka secara dinamis saat jendela dimuat ke memori
         /// </summary>
         private void FormImportExcel_Load(object sender, EventArgs e)
         {
-            // Set posisi form agar muncul di tengah layar monitor
+            // Konfigurasi standar jendela dialog profesional
             this.StartPosition = FormStartPosition.CenterScreen;
+            // Menjaga tampilan form tetap seperti form biasa (resizable) sesuai request sebelumnya
+            this.MaximizeBox = true;
+            this.MinimizeBox = true;
 
+            // Percabangan pengaturan UI berdasarkan parameter inisialisasi
             if (modeImport == "BARANG")
             {
                 this.Text = "Utilitas Sistem - Migrasi Data Inventaris";
-                lbl_Judul.Text = "IMPORT DATA BARANG BARU VIA EXCEL";
+                lbl_Judul.Text = "IMPORT DATA BARANG VIA EXCEL";
                 lbl_Petunjuk.Text = "Struktur Kolom Excel: [IDBarang] | [NamaBarang] | [IDKategori] | [Stok]";
             }
             else if (modeImport == "USER")
             {
                 this.Text = "Utilitas Sistem - Migrasi Data Pengguna";
-                lbl_Judul.Text = "IMPORT DATA USER BARU VIA EXCEL";
+                lbl_Judul.Text = "IMPORT DATA USER VIA EXCEL";
                 lbl_Petunjuk.Text = "Struktur Kolom Excel: [IDUser] | [NamaUser] | [Password] | [Role] | [TanggunganPinjam]";
+            }
+            else if (modeImport == "BARANG_BARU")
+            {
+                this.Text = "Utilitas Sistem - Migrasi Transaksi Bersama";
+                lbl_Judul.Text = "IMPORT BARANG SEKALIGUS KATEGORI BARU";
+                lbl_Petunjuk.Text = "Struktur Kolom Excel: [IDKategori] | [NamaKategori] | [IDBarang] | [NamaBarang] | [Stok]";
             }
             else
             {
-                MessageBox.Show("Parameter arsitektur form tidak dikenali sistem.", "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Parameter arsitektur form tidak valid atau tidak dikenali sistem.", "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
             }
         }
 
         /// <summary>
-        /// Membuka jendela pencarian berkas Excel
+        /// Membuka berkas penjelajah untuk mencari file Excel workspace
         /// </summary>
         private void btn_Browse_Click(object sender, EventArgs e)
         {
@@ -71,46 +81,48 @@ namespace Ucp_pabd_lab
         }
 
         /// <summary>
-        /// Memproses pembacaan berkas Excel dan menyimpannya ke SQL Server
+        /// Mengeksekusi pembacaan data memori lokal Excel ke database SQL Server
         /// </summary>
         private void btn_Proses_Click(object sender, EventArgs e)
         {
-            // Validasi input awal
+            // Proteksi awal: Validasi keberadaan file fisik
             if (string.IsNullOrEmpty(txt_FilePath.Text) || !File.Exists(txt_FilePath.Text))
             {
-                MessageBox.Show("Silakan pilih file Excel yang valid terlebih dahulu.", "Verifikasi Gagal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Silakan pilih berkas Excel yang valid terlebih dahulu.", "Verifikasi Gagal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             try
             {
-                // Membuka stream berkas Excel secara aman
+                // Membuka aliran data (FileStream) berkas secara aman
                 using (var stream = File.Open(txt_FilePath.Text, FileMode.Open, FileAccess.Read))
                 {
                     using (var reader = ExcelReaderFactory.CreateReader(stream))
                     {
-                        // Konfigurasi pembacaan agar baris pertama dijadikan nama kolom DataTable
+                        // Konfigurasi engine agar baris pertama dijadikan nama kolom DataTable di memori
                         var result = reader.AsDataSet(new ExcelDataSetConfiguration()
                         {
                             ConfigureDataTable = (_) => new ExcelDataTableConfiguration() { UseHeaderRow = true }
                         });
 
-                        // Ambil sheet pertama dari dokumen Excel
+                        // Mengambil lembar kerja (sheet) pertama dari file Excel
                         DataTable dtSource = result.Tables[0];
                         int suksesCount = 0;
 
                         if (dtSource.Rows.Count == 0)
                         {
-                            MessageBox.Show("Berkas Excel tidak memiliki data untuk diproses.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Berkas Excel tidak memiliki baris data untuk diproses.", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             return;
                         }
 
-                        // Membuka koneksi terpusat ke database
+                        // Membuka pipa koneksi ke server database
                         using (SqlConnection conn = db.GetConn())
                         {
                             conn.Open();
 
-                            // Percabangan Eksekusi Berdasarkan Mode Operasi
+                            // =========================================================================
+                            // MODE 1: IMPORT BARANG (Hanya data barang dengan Kategori yang sudah eksis)
+                            // =========================================================================
                             if (modeImport == "BARANG")
                             {
                                 foreach (DataRow row in dtSource.Rows)
@@ -118,18 +130,19 @@ namespace Ucp_pabd_lab
                                     using (SqlCommand cmd = new SqlCommand("sp_InsertBarang", conn))
                                     {
                                         cmd.CommandType = CommandType.StoredProcedure;
-                                        
-                                        // Mapping sesuai SP sp_InsertBarang (@NamaBarang, @IDKategori, @Stok, @Kondisi)
+                                        cmd.Parameters.AddWithValue("@IDBarang", row["IDBarang"].ToString().Trim());
                                         cmd.Parameters.AddWithValue("@NamaBarang", row["NamaBarang"].ToString().Trim());
-                                        cmd.Parameters.AddWithValue("@IDKategori", Convert.ToInt32(row["IDKategori"]));
+                                        cmd.Parameters.AddWithValue("@IDKategori", row["IDKategori"].ToString().Trim());
                                         cmd.Parameters.AddWithValue("@Stok", Convert.ToInt32(row["Stok"]));
-                                        cmd.Parameters.AddWithValue("@Kondisi", "Baik"); // Default kondisi barang baru
                                         
                                         cmd.ExecuteNonQuery();
                                         suksesCount++;
                                     }
                                 }
                             }
+                            // =========================================================================
+                            // MODE 2: IMPORT USER (Data pengguna massal awal semester)
+                            // =========================================================================
                             else if (modeImport == "USER")
                             {
                                 foreach (DataRow row in dtSource.Rows)
@@ -137,11 +150,37 @@ namespace Ucp_pabd_lab
                                     using (SqlCommand cmd = new SqlCommand("sp_InsertUser", conn))
                                     {
                                         cmd.CommandType = CommandType.StoredProcedure;
-                                        
-                                        // Mapping sesuai SP sp_InsertUser (@NamaUser, @RoleUser, @Password)
+                                        cmd.Parameters.AddWithValue("@IDUser", row["IDUser"].ToString().Trim());
                                         cmd.Parameters.AddWithValue("@NamaUser", row["NamaUser"].ToString().Trim());
-                                        cmd.Parameters.AddWithValue("@RoleUser", row["Role"].ToString().Trim());
                                         cmd.Parameters.AddWithValue("@Password", row["Password"].ToString());
+                                        cmd.Parameters.AddWithValue("@Role", row["Role"].ToString().Trim());
+                                        cmd.Parameters.AddWithValue("@TanggunganPinjam", Convert.ToInt32(row["TanggunganPinjam"]));
+                                        
+                                        cmd.ExecuteNonQuery();
+                                        suksesCount++;
+                                    }
+                                }
+                            }
+                            // =========================================================================
+                            // MODE 3: IMPORT BARANG BARU (Eksekusi bersamaan dengan Kategori baru)
+                            // =========================================================================
+                            else if (modeImport == "BARANG_BARU")
+                            {
+                                foreach (DataRow row in dtSource.Rows)
+                                {
+                                    // Memanggil Stored Procedure Transaksi Bersama
+                                    using (SqlCommand cmd = new SqlCommand("sp_InsertKategoriDanBarang", conn))
+                                    {
+                                        cmd.CommandType = CommandType.StoredProcedure;
+                                        
+                                        // Parameter Entitas Tabel Kategori
+                                        cmd.Parameters.AddWithValue("@IDKategori", row["IDKategori"].ToString().Trim());
+                                        cmd.Parameters.AddWithValue("@NamaKategori", row["NamaKategori"].ToString().Trim());
+                                        
+                                        // Parameter Entitas Tabel Barang
+                                        cmd.Parameters.AddWithValue("@IDBarang", row["IDBarang"].ToString().Trim());
+                                        cmd.Parameters.AddWithValue("@NamaBarang", row["NamaBarang"].ToString().Trim());
+                                        cmd.Parameters.AddWithValue("@Stok", Convert.ToInt32(row["Stok"]));
                                         
                                         cmd.ExecuteNonQuery();
                                         suksesCount++;
@@ -150,29 +189,29 @@ namespace Ucp_pabd_lab
                             }
                         }
 
-                        // Notifikasi sukses eksekusi massal
-                        MessageBox.Show($"Proses migrasi selesai. {suksesCount} data {modeImport.ToLower()} berhasil diunggah ke sistem.", 
+                        // Mengirimkan sinyal keberhasilan operasional massal
+                        MessageBox.Show($"Proses migrasi selesai. Total {suksesCount} baris data {modeImport.ToLower().Replace("_", " ")} berhasil diunggah ke sistem.", 
                                         "Operasi Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         
-                        this.DialogResult = DialogResult.OK; // Memberi sinyal sukses ke halaman utama
+                        this.DialogResult = DialogResult.OK; // Memberi tahu parent form untuk me-refresh grid tampilan
                         this.Close();
                     }
                 }
             }
             catch (Exception ex)
             {
-                // Menangkap kegagalan jika file sedang dibuka oleh program lain atau tipe data tidak cocok
-                MessageBox.Show("Gagal mengeksekusi migrasi data.\nDetail Error: " + ex.Message, 
+                // Menangkap kegagalan aliran file atau pembatalan transaksi SQL Server (Rollback)
+                MessageBox.Show("Gagal mengeksekusi migrasi data ke database.\nDetail Masalah: " + ex.Message, 
                                 "Database Transaksi Batal", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         /// <summary>
-        /// Membatalkan proses dan menutup jendela utilitas secara aman
+        /// Menutup form secara aman tanpa melakukan modifikasi data apa pun
         /// </summary>
         private void btn_Batal_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.Cancel; // Memberi sinyal pembatalan
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
     }

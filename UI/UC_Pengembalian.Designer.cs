@@ -139,7 +139,7 @@ namespace Ucp_pabd_lab.UI
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btn_kembalikan);
             this.Name = "UC_Pengembalian";
-            this.Text = "UC_Pengembalian";
+            this.Text = "9";
             this.Load += new System.EventHandler(this.UC_Pengembalian_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_pengembalian)).EndInit();
             this.ResumeLayout(false);
