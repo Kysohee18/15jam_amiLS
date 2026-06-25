@@ -123,7 +123,7 @@ namespace Ucp_pabd_lab.UI
             this.cmb_pinjam_barang.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmb_pinjam_barang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_pinjam_barang.FormattingEnabled = true;
-            this.cmb_pinjam_barang.Location = new System.Drawing.Point(163, 106);
+            this.cmb_pinjam_barang.Location = new System.Drawing.Point(162, 106);
             this.cmb_pinjam_barang.Name = "cmb_pinjam_barang";
             this.cmb_pinjam_barang.Size = new System.Drawing.Size(227, 24);
             this.cmb_pinjam_barang.TabIndex = 28;
