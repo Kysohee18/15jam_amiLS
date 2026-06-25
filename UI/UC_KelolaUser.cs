@@ -192,6 +192,16 @@ namespace Ucp_pabd_lab.UI
                 }
             }
         }
+        private void btn_ImportUser_Click(object sender, EventArgs e)
+        {
+            FormImportExcel frm = new FormImportExcel("USER");
+
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                // Panggil fungsi lokal Anda yang bertugas me-refresh DataGridView User
+                LoadDataUser();
+            }
+        }
         private void btn_kembali_Click(object sender, EventArgs e)
         {
             Formadmin admin = (Formadmin)Application.OpenForms["Formadmin"];

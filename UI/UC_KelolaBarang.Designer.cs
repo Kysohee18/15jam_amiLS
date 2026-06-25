@@ -416,6 +416,7 @@ namespace Ucp_pabd_lab.UI
             this.btn_ImportBarang.TabIndex = 48;
             this.btn_ImportBarang.Text = "Import barang Excel";
             this.btn_ImportBarang.UseVisualStyleBackColor = true;
+            this.btn_ImportBarang.Click += new System.EventHandler(this.btn_ImportBarang_Click);
             // 
             // UC_KelolaBarang
             // 
