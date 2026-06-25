@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,6 +19,32 @@ namespace Ucp_pabd_lab.UI
         public Formadmin()
         {
             InitializeComponent();
+            this.Resize += Formadmin_Resize;
+        }
+
+        private void Formadmin_Resize(object sender, EventArgs e)
+        {
+            int centerX = this.ClientSize.Width / 2;
+            int centerY = this.ClientSize.Height / 2;
+
+            // Box ukuran virtual group menu: Lebar 508, Tinggi 317
+            int startX = centerX - 254;
+            int startY = centerY - 158;
+
+            label1.Left = startX + 181;
+            label1.Top = startY + 0;
+
+            btnMenuBarang.Left = startX + 0;
+            btnMenuBarang.Top = startY + 121;
+
+            btnMenuUser.Left = startX + 198;
+            btnMenuUser.Top = startY + 121;
+
+            btnMenuLog.Left = startX + 382;
+            btnMenuLog.Top = startY + 121;
+
+            btn_logout.Left = startX + 198;
+            btn_logout.Top = startY + 231;
         }
 
        
@@ -101,6 +127,11 @@ namespace Ucp_pabd_lab.UI
         {
             
             Application.Exit();
+        }
+
+        private void btn_ImportExcel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

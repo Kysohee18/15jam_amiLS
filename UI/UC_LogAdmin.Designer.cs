@@ -1,4 +1,4 @@
-﻿namespace Ucp_pabd_lab.UI
+namespace Ucp_pabd_lab.UI
 {
     partial class UC_LogAdmin
     {
@@ -36,6 +36,7 @@
             // 
             // refresh_log_admin
             // 
+            this.refresh_log_admin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.refresh_log_admin.AutoSize = true;
             this.refresh_log_admin.Location = new System.Drawing.Point(688, 50);
             this.refresh_log_admin.Name = "refresh_log_admin";
@@ -47,6 +48,9 @@
             // 
             // dgv_log_admin
             // 
+            this.dgv_log_admin.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_log_admin.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_log_admin.Location = new System.Drawing.Point(43, 83);
             this.dgv_log_admin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Formadmin));
             this.barangBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dBLabSekolahDataSet = new Ucp_pabd_lab.DBLabSekolahDataSet();
             this.spGetKategoriBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -44,6 +45,8 @@
             this.btnMenuLog = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_logout = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btn_formexc = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.barangBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBLabSekolahDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spGetKategoriBindingSource)).BeginInit();
@@ -51,6 +54,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.userLabBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBLabSekolahDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barangBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // barangBindingSource
@@ -148,6 +152,27 @@
             this.btn_logout.TabIndex = 6;
             this.btn_logout.Text = "Log out";
             this.btn_logout.UseVisualStyleBackColor = true;
+            this.btn_logout.Click += new System.EventHandler(this.btn_logout_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(125, 115);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btn_formexc
+            // 
+            this.btn_formexc.Location = new System.Drawing.Point(507, 265);
+            this.btn_formexc.Name = "btn_formexc";
+            this.btn_formexc.Size = new System.Drawing.Size(126, 86);
+            this.btn_formexc.TabIndex = 8;
+            this.btn_formexc.Text = "Import Data";
+            this.btn_formexc.UseVisualStyleBackColor = true;
+            this.btn_formexc.Click += new System.EventHandler(this.btn_ImportExcel_Click);
             // 
             // Formadmin
             // 
@@ -155,6 +180,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaShell;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_formexc);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btn_logout);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnMenuLog);
@@ -171,6 +198,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.userLabBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBLabSekolahDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barangBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -192,5 +220,7 @@
         private System.Windows.Forms.Button btnMenuLog;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_logout;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btn_formexc;
     }
 }

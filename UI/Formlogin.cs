@@ -21,6 +21,48 @@ namespace Ucp_pabd_lab
         public Formlogin()
         {
             InitializeComponent();
+            this.Resize += Formlogin_Resize;
+        }
+
+        private void Formlogin_Resize(object sender, EventArgs e)
+        {
+            int centerX = this.ClientSize.Width / 2;
+            int centerY = this.ClientSize.Height / 2;
+
+            // Box ukuran virtual login group: Lebar 460, Tinggi 340
+            int startX = centerX - 230;
+            int startY = centerY - 170;
+
+            // Reposisi kontrol secara presisi di tengah layar
+            pictureBox1.Left = startX + 6;
+            pictureBox1.Top = startY + 3;
+
+            label.Left = startX + 112;
+            label.Top = startY + 3;
+
+            label3.Left = startX + 118;
+            label3.Top = startY + 38;
+
+            label1.Left = startX + 3;
+            label1.Top = startY + 127;
+
+            label2.Left = startX + 5;
+            label2.Top = startY + 164;
+
+            txtUsername.Left = startX + 107;
+            txtUsername.Top = startY + 126;
+
+            txtPass.Left = startX + 107;
+            txtPass.Top = startY + 160;
+
+            cb_showpw.Left = startX + 325;
+            cb_showpw.Top = startY + 162;
+
+            btnLogin.Left = startX + 135;
+            btnLogin.Top = startY + 215;
+
+            lblStatus.Left = startX + 82;
+            lblStatus.Top = startY + 308;
         }
 
         private void Form1_Load(object sender, EventArgs e)

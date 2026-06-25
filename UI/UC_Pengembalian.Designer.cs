@@ -1,4 +1,4 @@
-﻿namespace Ucp_pabd_lab.UI
+namespace Ucp_pabd_lab.UI
 {
     partial class UC_Pengembalian
     {
@@ -43,6 +43,9 @@
             // 
             // dgv_pengembalian
             // 
+            this.dgv_pengembalian.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgv_pengembalian.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_pengembalian.Location = new System.Drawing.Point(42, 215);
             this.dgv_pengembalian.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -73,6 +76,7 @@
             // 
             // btn_kembalikan
             // 
+            this.btn_kembalikan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_kembalikan.Location = new System.Drawing.Point(574, 79);
             this.btn_kembalikan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_kembalikan.Name = "btn_kembalikan";
@@ -84,6 +88,7 @@
             // 
             // btn_kembali
             // 
+            this.btn_kembali.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_kembali.Location = new System.Drawing.Point(574, 143);
             this.btn_kembali.Name = "btn_kembali";
             this.btn_kembali.Size = new System.Drawing.Size(165, 55);
