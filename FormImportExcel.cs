@@ -127,12 +127,26 @@ namespace Ucp_pabd_lab
                             {
                                 foreach (DataRow row in dtSource.Rows)
                                 {
+                                    string namaBarang = row["NamaBarang"].ToString().Trim();
+
+                                    // Proteksi: Cek apakah barang sudah ada di database untuk mencegah duplikasi (karena NamaBarang bersifat UNIQUE)
+                                    // Gunakan UPPER dan TRIM agar tahan terhadap perbedaan huruf besar/kecil dan spasi tambahan
+                                    using (SqlCommand cmdCheck = new SqlCommand("SELECT COUNT(*) FROM Barang WHERE UPPER(TRIM(NamaBarang)) = UPPER(TRIM(@NamaBarang))", conn))
+                                    {
+                                        cmdCheck.Parameters.AddWithValue("@NamaBarang", namaBarang);
+                                        int exists = Convert.ToInt32(cmdCheck.ExecuteScalar());
+                                        if (exists > 0)
+                                        {
+                                            continue; // Lewati jika sudah ada
+                                        }
+                                    }
+
                                     using (SqlCommand cmd = new SqlCommand("sp_InsertBarang", conn))
                                     {
                                         cmd.CommandType = CommandType.StoredProcedure;
                                         
                                         // Parameter sp_InsertBarang: @NamaBarang, @IDKategori, @Stok, @Kondisi
-                                        cmd.Parameters.AddWithValue("@NamaBarang", row["NamaBarang"].ToString().Trim());
+                                        cmd.Parameters.AddWithValue("@NamaBarang", namaBarang);
                                         cmd.Parameters.AddWithValue("@IDKategori", GetOrCreateKategoriId(conn, row));
                                         cmd.Parameters.AddWithValue("@Stok", SafeToInt(row["Stok"]));
                                         
@@ -155,12 +169,26 @@ namespace Ucp_pabd_lab
                             {
                                 foreach (DataRow row in dtSource.Rows)
                                 {
+                                    string namaUser = row["NamaUser"].ToString().Trim();
+
+                                    // Proteksi: Cek apakah user sudah terdaftar di database untuk mencegah duplikasi
+                                    // Gunakan UPPER dan TRIM agar tahan terhadap perbedaan huruf besar/kecil dan spasi tambahan
+                                    using (SqlCommand cmdCheck = new SqlCommand("SELECT COUNT(*) FROM UserLab WHERE UPPER(TRIM(NamaUser)) = UPPER(TRIM(@NamaUser))", conn))
+                                    {
+                                        cmdCheck.Parameters.AddWithValue("@NamaUser", namaUser);
+                                        int exists = Convert.ToInt32(cmdCheck.ExecuteScalar());
+                                        if (exists > 0)
+                                        {
+                                            continue; // Lewati jika sudah ada
+                                        }
+                                    }
+
                                     using (SqlCommand cmd = new SqlCommand("sp_InsertUser", conn))
                                     {
                                         cmd.CommandType = CommandType.StoredProcedure;
                                         
                                         // Parameter sp_InsertUser: @NamaUser, @RoleUser, @Password
-                                        cmd.Parameters.AddWithValue("@NamaUser", row["NamaUser"].ToString().Trim());
+                                        cmd.Parameters.AddWithValue("@NamaUser", namaUser);
                                         
                                         string roleVal = "";
                                         if (dtSource.Columns.Contains("RoleUser"))
