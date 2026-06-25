@@ -302,7 +302,15 @@ namespace Ucp_pabd_lab.UI
         {
             
         }
-
+        private void btn_ImportBarang_Click(object sender, EventArgs e)
+        {
+            // Memanggil FormImportExcel dengan mode BARANG
+            FormImportExcel frm = new FormImportExcel("BARANG");
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                LoadDataBarang(); 
+            }
+        }
         private void cmb_admin_kondisi_SelectedIndexChanged(object sender, EventArgs e)
         {
 

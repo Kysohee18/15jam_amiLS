@@ -46,7 +46,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btn_logout = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btn_ImportExcel = new System.Windows.Forms.Button();
+            this.btn_formexc = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.barangBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBLabSekolahDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spGetKategoriBindingSource)).BeginInit();
@@ -164,15 +164,15 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
-            // btn_ImportExcel
+            // btn_formexc
             // 
-            this.btn_ImportExcel.Location = new System.Drawing.Point(507, 265);
-            this.btn_ImportExcel.Name = "btn_ImportExcel";
-            this.btn_ImportExcel.Size = new System.Drawing.Size(126, 86);
-            this.btn_ImportExcel.TabIndex = 8;
-            this.btn_ImportExcel.Text = "Import Data dari Excel";
-            this.btn_ImportExcel.UseVisualStyleBackColor = true;
-            this.btn_ImportExcel.Click += new System.EventHandler(this.btn_ImportExcel_Click);
+            this.btn_formexc.Location = new System.Drawing.Point(507, 265);
+            this.btn_formexc.Name = "btn_formexc";
+            this.btn_formexc.Size = new System.Drawing.Size(126, 86);
+            this.btn_formexc.TabIndex = 8;
+            this.btn_formexc.Text = "Import Data";
+            this.btn_formexc.UseVisualStyleBackColor = true;
+            this.btn_formexc.Click += new System.EventHandler(this.btn_ImportExcel_Click);
             // 
             // Formadmin
             // 
@@ -180,7 +180,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SeaShell;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btn_ImportExcel);
+            this.Controls.Add(this.btn_formexc);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btn_logout);
             this.Controls.Add(this.label1);
@@ -221,6 +221,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_logout;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btn_ImportExcel;
+        private System.Windows.Forms.Button btn_formexc;
     }
 }
