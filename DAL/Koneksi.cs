@@ -42,8 +42,8 @@ namespace Ucp_pabd_lab.DAL
             //string connectionString = $"Data Source={GetLocalIPAddress()};Initial Catalog=DBLabSekolah;User ID=sa;Password=PasswordSA;";
             
             // UNTUK LOCAL DEVELOPMENT
-            string connectionString = @"Data Source=DESKTOP-6V58GOQ\PUTRASQL;Initial Catalog=DBLabSekolahv1;Integrated Security=True";
-             // string connectionString = @"Data Source=DESKTOP-SCRRHRM;Initial Catalog=DBLabSekolah;Integrated Security=True";
+           // string connectionString = @"Data Source=DESKTOP-6V58GOQ\PUTRASQL;Initial Catalog=DBLabSekolahv1;Integrated Security=True";
+             string connectionString = @"Data Source=DESKTOP-SCRRHRM;Initial Catalog=DBLabSekolah;Integrated Security=True";
             
             return connectionString;
         }
@@ -133,7 +133,7 @@ namespace Ucp_pabd_lab.DAL
                     cmd.Parameters.AddWithValue("@IDUser", idUser);
                     conn.Open();
                     cmd.ExecuteNonQuery();
-                }
+                } 
             }
         }
 
