@@ -123,23 +123,14 @@
   <metadata name="dBLabSekolahDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>202, 17</value>
   </metadata>
-  <metadata name="dBLabSekolahDataSet.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>202, 17</value>
-  </metadata>
   <metadata name="spGetKategoriBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>191, 95</value>
   </metadata>
   <metadata name="dBLabSekolahDataSet2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 95</value>
   </metadata>
-  <metadata name="dBLabSekolahDataSet2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 95</value>
-  </metadata>
   <metadata name="userLabBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>867, 58</value>
-  </metadata>
-  <metadata name="dBLabSekolahDataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>693, 58</value>
   </metadata>
   <metadata name="dBLabSekolahDataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>693, 58</value>
@@ -160,7 +151,7 @@
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAUEAAAEkCAYAAACxN4PYAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAPlhJREFUeF7tnQd4VUX6xgPqWnZRV8TurmtdFbC7vfxdd9fdVSl2BQ1BBcSGhQ4q
+        wQAADsEBuJFr7QAAPlhJREFUeF7tnQd4VUX6xgPqWnZRV8TurmtdFbC7vfxdd9fdVSl2BQ1BBcSGhQ4q
         TUSKCiooRVCkiLQklCQQIBCkJfSQQAIBQk3ooYQy/+edy1zOnbnlnDNzb2753uf5PSube+ece86c98w3
         5ZukiS80YwRBOGPyiy+z+X37sR0rV7KTJ06wcGn/lq1sxjvvKsePBWa/9wErXZDLqo4cYezUKfmn+ejU
         yZPsRFUV5+TJk/KfbQn34ejBg+zgjp1sQ0Ymm/JSC+WcrAglyX8gCMI+k1JeZKvGjWfHKit9HkhTikUT

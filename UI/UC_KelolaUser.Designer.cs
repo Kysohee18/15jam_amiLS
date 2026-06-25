@@ -55,6 +55,7 @@ namespace Ucp_pabd_lab.UI
             this.btn_klusr_simpan = new System.Windows.Forms.Button();
             this.btn_kembali = new System.Windows.Forms.Button();
             this.userLabTableAdapter = new Ucp_pabd_lab.DBLabSekolahDataSetBaruTableAdapters.UserLabTableAdapter();
+            this.btn_ImportUser = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.userLabBindingSource)).BeginInit();
@@ -88,7 +89,7 @@ namespace Ucp_pabd_lab.UI
             this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bindingNavigator1.Name = "bindingNavigator1";
             this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
-            this.bindingNavigator1.Size = new System.Drawing.Size(800, 31);
+            this.bindingNavigator1.Size = new System.Drawing.Size(800, 27);
             this.bindingNavigator1.TabIndex = 40;
             this.bindingNavigator1.Text = "bindingNavigator1";
             // 
@@ -98,7 +99,7 @@ namespace Ucp_pabd_lab.UI
             this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorAddNewItem.Text = "Add new";
             // 
             // userLabBindingSource
@@ -114,7 +115,7 @@ namespace Ucp_pabd_lab.UI
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 28);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 24);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
@@ -124,7 +125,7 @@ namespace Ucp_pabd_lab.UI
             this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
@@ -133,7 +134,7 @@ namespace Ucp_pabd_lab.UI
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveFirstItem.Text = "Move first";
             // 
             // bindingNavigatorMovePreviousItem
@@ -142,13 +143,13 @@ namespace Ucp_pabd_lab.UI
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMovePreviousItem.Text = "Move previous";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorPositionItem
             // 
@@ -163,7 +164,7 @@ namespace Ucp_pabd_lab.UI
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -171,7 +172,7 @@ namespace Ucp_pabd_lab.UI
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
             // 
             // bindingNavigatorMoveLastItem
@@ -180,13 +181,13 @@ namespace Ucp_pabd_lab.UI
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 28);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 24);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 31);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
             // cmb_klusr_peran
             // 
@@ -203,7 +204,7 @@ namespace Ucp_pabd_lab.UI
             // 
             // btn_klusr_refresh
             // 
-            this.btn_klusr_refresh.Location = new System.Drawing.Point(588, 182);
+            this.btn_klusr_refresh.Location = new System.Drawing.Point(606, 175);
             this.btn_klusr_refresh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_klusr_refresh.Name = "btn_klusr_refresh";
             this.btn_klusr_refresh.Size = new System.Drawing.Size(165, 32);
@@ -214,7 +215,7 @@ namespace Ucp_pabd_lab.UI
             // 
             // btn_klusr_hapus
             // 
-            this.btn_klusr_hapus.Location = new System.Drawing.Point(588, 146);
+            this.btn_klusr_hapus.Location = new System.Drawing.Point(606, 139);
             this.btn_klusr_hapus.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_klusr_hapus.Name = "btn_klusr_hapus";
             this.btn_klusr_hapus.Size = new System.Drawing.Size(165, 32);
@@ -225,7 +226,7 @@ namespace Ucp_pabd_lab.UI
             // 
             // btn_klusr_ubah
             // 
-            this.btn_klusr_ubah.Location = new System.Drawing.Point(588, 110);
+            this.btn_klusr_ubah.Location = new System.Drawing.Point(606, 103);
             this.btn_klusr_ubah.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_klusr_ubah.Name = "btn_klusr_ubah";
             this.btn_klusr_ubah.Size = new System.Drawing.Size(165, 32);
@@ -278,7 +279,7 @@ namespace Ucp_pabd_lab.UI
             // 
             // btn_klusr_simpan
             // 
-            this.btn_klusr_simpan.Location = new System.Drawing.Point(588, 74);
+            this.btn_klusr_simpan.Location = new System.Drawing.Point(606, 67);
             this.btn_klusr_simpan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_klusr_simpan.Name = "btn_klusr_simpan";
             this.btn_klusr_simpan.Size = new System.Drawing.Size(165, 32);
@@ -290,7 +291,7 @@ namespace Ucp_pabd_lab.UI
             // btn_kembali
             // 
             this.btn_kembali.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_kembali.Location = new System.Drawing.Point(588, 37);
+            this.btn_kembali.Location = new System.Drawing.Point(606, 30);
             this.btn_kembali.Name = "btn_kembali";
             this.btn_kembali.Size = new System.Drawing.Size(164, 32);
             this.btn_kembali.TabIndex = 43;
@@ -302,11 +303,23 @@ namespace Ucp_pabd_lab.UI
             // 
             this.userLabTableAdapter.ClearBeforeFill = true;
             // 
+            // btn_ImportUser
+            // 
+            this.btn_ImportUser.Location = new System.Drawing.Point(435, 175);
+            this.btn_ImportUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_ImportUser.Name = "btn_ImportUser";
+            this.btn_ImportUser.Size = new System.Drawing.Size(165, 32);
+            this.btn_ImportUser.TabIndex = 44;
+            this.btn_ImportUser.Text = "Import dari Excel";
+            this.btn_ImportUser.UseVisualStyleBackColor = true;
+            this.btn_ImportUser.Click += new System.EventHandler(this.btn_ImportUser_Click);
+            // 
             // UC_KelolaUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btn_ImportUser);
             this.Controls.Add(this.btn_kembali);
             this.Controls.Add(this.bindingNavigator1);
             this.Controls.Add(this.cmb_klusr_peran);
@@ -359,5 +372,6 @@ namespace Ucp_pabd_lab.UI
         private DBLabSekolahDataSetBaru dBLabSekolahDataSetBaru;
         private System.Windows.Forms.BindingSource userLabBindingSource;
         private DBLabSekolahDataSetBaruTableAdapters.UserLabTableAdapter userLabTableAdapter;
+        private System.Windows.Forms.Button btn_ImportUser;
     }
 }
