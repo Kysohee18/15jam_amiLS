@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -39,26 +39,13 @@ namespace Ucp_pabd_lab.UI
 
         private void LoadLogTransaksi()
         {
-            using (SqlConnection conn = db.GetConn())
+            try
             {
-                try
-                {
-                    conn.Open();
-
-                   
-                    SqlCommand cmd = new SqlCommand("sp_GetDataGridViewLog", conn);
-                    cmd.CommandType = CommandType.StoredProcedure;
-
-                    SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    sda.Fill(dt);
-
-                    dgv_log_admin.DataSource = dt;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Sistem gagal memuat catatan riwayat log audit: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                dgv_log_admin.DataSource = db.GetDataGridViewLog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Sistem gagal memuat catatan riwayat log audit: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

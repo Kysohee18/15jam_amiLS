@@ -26,7 +26,15 @@ namespace Ucp_pabd_lab.UI
         private void UC_KelolaBarang_Load(object sender, EventArgs e)
         {
             // ini untuk mengisi data ke dalam tabel Barang saat form dimuat
-            this.barangTableAdapter.Fill(this.dBLabSekolahDataSet.Barang);
+            try
+            {
+                this.barangTableAdapter.Connection.ConnectionString = Koneksi.GetConnectionString();
+                this.barangTableAdapter.Fill(this.dBLabSekolahDataSet.Barang);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Gagal menginisialisasi koneksi tabel barang: " + ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             LoadKategori();   
             LoadDataBarang(); 
         }
@@ -34,27 +42,17 @@ namespace Ucp_pabd_lab.UI
         
         private void LoadKategori()
         {
-            using (SqlConnection conn = db.GetConn())
+            try
             {
-                try
-                {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand("sp_GetKategori", conn);
-                    cmd.CommandType = CommandType.StoredProcedure;
-
-                    SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    sda.Fill(dt);
-
-                    cmb_klbr_kategori.DataSource = dt;
-                    cmb_klbr_kategori.DisplayMember = "NamaKategori"; 
-                    cmb_klbr_kategori.ValueMember = "IDKategori";     
-                    cmb_klbr_kategori.SelectedIndex = -1;             
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Gagal mengambil data kategori: " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                DataTable dt = db.GetKategori();
+                cmb_klbr_kategori.DataSource = dt;
+                cmb_klbr_kategori.DisplayMember = "NamaKategori"; 
+                cmb_klbr_kategori.ValueMember = "IDKategori";     
+                cmb_klbr_kategori.SelectedIndex = -1;             
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Gagal mengambil data kategori: " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -65,6 +63,7 @@ namespace Ucp_pabd_lab.UI
 
             try
             {
+                this.barangTableAdapter.Connection.ConnectionString = Koneksi.GetConnectionString();
                 this.barangTableAdapter.Fill(this.dBLabSekolahDataSet.Barang);
             }
             catch (Exception ex)
@@ -72,23 +71,13 @@ namespace Ucp_pabd_lab.UI
                 MessageBox.Show("Sistem gagal menyinkronkan Binding Navigator: " + ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-            using (SqlConnection conn = db.GetConn())
+            try
             {
-                try
-                {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand("sp_GetDataGridViewBarang", conn);
-                    cmd.CommandType = CommandType.StoredProcedure;
-
-                    SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    sda.Fill(dt);
-                    dgv_kelolabarang.DataSource = dt;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Gagal merender tabel barang: " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                dgv_kelolabarang.DataSource = db.GetBarang();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Gagal merender tabel barang: " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -105,34 +94,23 @@ namespace Ucp_pabd_lab.UI
                 return;
             }
 
-            using (SqlConnection conn = db.GetConn())
+            try
             {
-                try
-                {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand("sp_InsertBarang", conn);
-                    cmd.CommandType = CommandType.StoredProcedure;
+                int stok = int.Parse(txt_klbr_stok.Text.Trim());
+                int idKategori = Convert.ToInt32(cmb_klbr_kategori.SelectedValue);
+                
+                db.InsertBarang(txt_klbr_nama.Text.Trim(), idKategori, stok, cmb_admin_kondisi.Text);
+                MessageBox.Show("Injeksi data barang baru berhasil diproses oleh DAL.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // Mengirimkan parameter ke Stored Procedure secara aman
-                    cmd.Parameters.AddWithValue("@NamaBarang", txt_klbr_nama.Text.Trim());
-                    cmd.Parameters.AddWithValue("@IDKategori", cmb_klbr_kategori.SelectedValue);
-                    cmd.Parameters.AddWithValue("@Stok", int.Parse(txt_klbr_stok.Text.Trim()));
-                    cmd.Parameters.AddWithValue("@Kondisi", cmb_admin_kondisi.Text);
-
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Injeksi data barang baru berhasil diproses oleh Stored Procedure.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                   
-                    btn_klbr_refresh_Click(sender, e);
-                }
-                catch (FormatException)
-                {
-                    MessageBox.Show("Kolom input Stok hanya menerima tipe data angka integer bulat!", "Tipe Data Salah", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Terjadi masalah pada transaksi database: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                btn_klbr_refresh_Click(sender, e);
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Kolom input Stok hanya menerima tipe data angka integer bulat!", "Tipe Data Salah", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi masalah pada transaksi database: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void dgv_kelolabarang_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -186,33 +164,22 @@ namespace Ucp_pabd_lab.UI
                 return;
             }
 
-            using (SqlConnection conn = db.GetConn())
+            try
             {
-                try
-                {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand("sp_UpdateBarang", conn);
-                    cmd.CommandType = CommandType.StoredProcedure;
-
-                    
-                    cmd.Parameters.AddWithValue("@IDBarang", idBarang);
-                    cmd.Parameters.AddWithValue("@NamaBarang", txt_klbr_nama.Text.Trim());
-                    cmd.Parameters.AddWithValue("@IDKategori", cmb_klbr_kategori.SelectedValue);
-                    cmd.Parameters.AddWithValue("@Stok", int.Parse(txt_klbr_stok.Text.Trim()));
-                    cmd.Parameters.AddWithValue("@Kondisi", cmb_admin_kondisi.Text);
-
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Spesifikasi data barang berhasil diperbarui.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    btn_klbr_refresh_Click(sender, e);
-                }
-                catch (FormatException)
-                {
-                    MessageBox.Show("Input Stok harus berupa angka integer!", "Validasi Gagal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Gagal memperbarui database barang: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                int stok = int.Parse(txt_klbr_stok.Text.Trim());
+                int idKategori = Convert.ToInt32(cmb_klbr_kategori.SelectedValue);
+                
+                db.UpdateBarang(idBarang, txt_klbr_nama.Text.Trim(), idKategori, stok, cmb_admin_kondisi.Text);
+                MessageBox.Show("Spesifikasi data barang berhasil diperbarui.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btn_klbr_refresh_Click(sender, e);
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Input Stok harus berupa angka integer!", "Validasi Gagal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Gagal memperbarui database barang: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void btn_klbr_hapus_Click(object sender, EventArgs e)
@@ -237,25 +204,15 @@ namespace Ucp_pabd_lab.UI
 
             if (konfirmasi == DialogResult.Yes)
             {
-                using (SqlConnection conn = db.GetConn())
+                try
                 {
-                    try
-                    {
-                        conn.Open();
-                        SqlCommand cmd = new SqlCommand("sp_DeleteBarang", conn);
-                        cmd.CommandType = CommandType.StoredProcedure;
-
-                        
-                        cmd.Parameters.AddWithValue("@IDBarang", idBarang);
-
-                        cmd.ExecuteNonQuery();
-                        MessageBox.Show("Barang telah berhasil dihapus dari sistem logistik.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        btn_klbr_refresh_Click(sender, e);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Gagal menghapus data barang: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    db.DeleteBarang(idBarang);
+                    MessageBox.Show("Barang telah berhasil dihapus dari sistem logistik.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btn_klbr_refresh_Click(sender, e);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Gagal menghapus data barang: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

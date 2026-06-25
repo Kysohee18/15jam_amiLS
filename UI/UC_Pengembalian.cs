@@ -39,30 +39,20 @@ namespace Ucp_pabd_lab.UI
 
         private void RefreshTabelPengembalian()
         {
-            using (SqlConnection conn = db.GetConn())
+            try
             {
-                try
-                {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand("sp_GetDataGridViewPinjam", conn);
-                    cmd.CommandType = CommandType.StoredProcedure;
+                DataTable dt = db.GetPeminjamanAktif();
+                DataView dv = new DataView(dt);
+                dv.RowFilter = "StatusTrans = 'Dipinjam'";
 
-                    SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    sda.Fill(dt);
+                dgv_pengembalian.DataSource = dv;
+                dgv_pengembalian.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-                    DataView dv = new DataView(dt);
-                    dv.RowFilter = "StatusTrans = 'Dipinjam'";
-
-                    dgv_pengembalian.DataSource = dv;
-                    dgv_pengembalian.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-                    KosongkanValidasi();
-                }
-                catch (Exception ex) 
-                { 
-                    MessageBox.Show("Gagal memuat tabel pengembalian: " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
-                }
+                KosongkanValidasi();
+            }
+            catch (Exception ex) 
+            { 
+                MessageBox.Show("Gagal memuat tabel pengembalian: " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
             }
         }
 
@@ -86,28 +76,19 @@ namespace Ucp_pabd_lab.UI
                 txt_NamaBarang_ucp.Text = row.Cells["NamaBarang"].Value.ToString();
                 idTransaksiTerpilih = row.Cells["IDTransaksi"].Value.ToString();
 
-                // Melacak ID Asli untuk Barang dan User
-                using (SqlConnection conn = db.GetConn())
+                // Melacak ID Asli untuk Barang dan User via DAL
+                try
                 {
-                    try
+                    DataTable dtDetails = db.GetTransaksiDetails(idTransaksiTerpilih);
+                    if (dtDetails.Rows.Count > 0)
                     {
-                        conn.Open();
-                        string queryLacak = "SELECT IDBarang, IDUser FROM Transaksi WHERE IDTransaksi = @ID";
-                        using (SqlCommand cmd = new SqlCommand(queryLacak, conn))
-                        {
-                            cmd.Parameters.AddWithValue("@ID", idTransaksiTerpilih);
-                            SqlDataReader dr = cmd.ExecuteReader();
-                            if (dr.Read())
-                            {
-                                idBarangTerpilih = dr["IDBarang"].ToString();
-                                idUserTerpilih = dr["IDUser"].ToString();
-                            }
-                        }
+                        idBarangTerpilih = dtDetails.Rows[0]["IDBarang"].ToString();
+                        idUserTerpilih = dtDetails.Rows[0]["IDUser"].ToString();
                     }
-                    catch (Exception ex) 
-                    { 
-                        MessageBox.Show("Gagal melacak entitas transaksi: " + ex.Message); 
-                    }
+                }
+                catch (Exception ex) 
+                { 
+                    MessageBox.Show("Gagal melacak entitas transaksi: " + ex.Message); 
                 }
             }
         }
@@ -128,32 +109,20 @@ namespace Ucp_pabd_lab.UI
 
             if (dialog == DialogResult.Yes)
             {
-                using (SqlConnection conn = db.GetConn())
+                try
                 {
-                    try
-                    {
-                        conn.Open();
+                    // 1. Eksekusi SP Pengembalian Utama via DAL
+                    db.UpdatePengembalian(Convert.ToInt32(idTransaksiTerpilih), idBarangTerpilih, idUserTerpilih);
 
-                        // 1. Eksekusi SP Pengembalian Utama
-                        using (SqlCommand cmd = new SqlCommand("sp_UpdatePengembalian", conn))
-                        {
-                            cmd.CommandType = CommandType.StoredProcedure;
-                            cmd.Parameters.AddWithValue("@IDTransaksi", idTransaksiTerpilih);
-                            cmd.Parameters.AddWithValue("@IDBarang", idBarangTerpilih);
-                            cmd.Parameters.AddWithValue("@IDUser", idUserTerpilih);
-                            cmd.ExecuteNonQuery();
-                        }
+                    // NOTE: Pencatatan Log KEMBALI sekarang diproses otomatis oleh SQL Trigger 'trg_Transaksi_UpdateLog'.
 
-                        // NOTE: Pencatatan Log KEMBALI sekarang diproses otomatis oleh SQL Trigger 'trg_Transaksi_UpdateLog'.
+                    MessageBox.Show("Barang berhasil dikembalikan dan stok telah ditambahkan.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                        MessageBox.Show("Barang berhasil dikembalikan dan stok telah ditambahkan.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        RefreshTabelPengembalian();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Kegagalan database: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    RefreshTabelPengembalian();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Kegagalan database: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

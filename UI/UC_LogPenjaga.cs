@@ -29,25 +29,14 @@ namespace Ucp_pabd_lab.UI
 
         private void LoadDataLog()
         {
-            using (SqlConnection conn = db.GetConn())
+            try
             {
-                try
-                {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand("sp_GetLogTransaksi", conn);
-                    cmd.CommandType = CommandType.StoredProcedure;
-
-                    SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    sda.Fill(dt);
-
-                    dgv_log_trs.DataSource = dt;
-                    dgv_log_trs.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Sistem gagal menarik data audit log dari database: " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                dgv_log_trs.DataSource = db.GetLogTransaksi();
+                dgv_log_trs.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Sistem gagal menarik data audit log dari database: " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

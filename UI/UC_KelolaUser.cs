@@ -27,7 +27,15 @@ namespace Ucp_pabd_lab.UI
         private void UC_KelolaUser_Load(object sender, EventArgs e)
         {
             // ini untuk mengisi data ke dalam tabel Barang saat form dimuat
-            this.userLabTableAdapter.Fill(this.dBLabSekolahDataSetBaru.UserLab);
+            try
+            {
+                this.userLabTableAdapter.Connection.ConnectionString = Koneksi.GetConnectionString();
+                this.userLabTableAdapter.Fill(this.dBLabSekolahDataSetBaru.UserLab);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Gagal menginisialisasi koneksi tabel pengguna: " + ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             LoadDataUser(); 
         }
 
@@ -37,6 +45,7 @@ namespace Ucp_pabd_lab.UI
            // ini tadi di ganti biar bisa sinkron antara binding navigator sama dgv
             try
             {
+                this.userLabTableAdapter.Connection.ConnectionString = Koneksi.GetConnectionString();
                 this.userLabTableAdapter.Fill(this.dBLabSekolahDataSetBaru.UserLab);
             }
             catch (Exception ex)
@@ -44,23 +53,13 @@ namespace Ucp_pabd_lab.UI
                 MessageBox.Show("Sistem gagal menyinkronkan Binding Navigator: " + ex.Message, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-            using (SqlConnection conn = db.GetConn())
+            try
             {
-                try
-                {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand("sp_GetDataGridViewUser", conn);
-                    cmd.CommandType = CommandType.StoredProcedure;
-
-                    SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    sda.Fill(dt);
-                    dgv_kelolauser.DataSource = dt;
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Sistem gagal mengambil data pengguna: " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                dgv_kelolauser.DataSource = db.GetUsers();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Sistem gagal mengambil data pengguna: " + ex.Message, "System Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -74,31 +73,16 @@ namespace Ucp_pabd_lab.UI
                 return;
             }
 
-            using (SqlConnection conn = db.GetConn())
+            try
             {
-                try
-                {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand("sp_InsertUser", conn);
-                    cmd.CommandType = CommandType.StoredProcedure;
+                db.InsertUser(txt_klusr_nama.Text.Trim(), cmb_klusr_peran.Text, "12345");
+                MessageBox.Show("Akun pengguna baru berhasil didaftarkan ke dalam database via DAL.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    
-                    cmd.Parameters.AddWithValue("@NamaUser", txt_klusr_nama.Text.Trim());
-                    cmd.Parameters.AddWithValue("@RoleUser", cmb_klusr_peran.Text);
-
-                    
-                    cmd.Parameters.AddWithValue("@Password", "12345");
-
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Akun pengguna baru berhasil didaftarkan ke dalam database via SP.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    
-                    btn_klusr_refresh_Click(sender, e);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Terjadi masalah saat menyimpan data akun: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                btn_klusr_refresh_Click(sender, e);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi masalah saat menyimpan data akun: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void btn_klusr_ubah_Click(object sender, EventArgs e)
@@ -125,27 +109,15 @@ namespace Ucp_pabd_lab.UI
                 return;
             }
 
-            using (SqlConnection conn = db.GetConn())
+            try
             {
-                try
-                {
-                    conn.Open();
-                    SqlCommand cmd = new SqlCommand("sp_UpdateUser", conn);
-                    cmd.CommandType = CommandType.StoredProcedure;
-
-                    cmd.Parameters.AddWithValue("@IDUser", idUser);
-                    cmd.Parameters.AddWithValue("@NamaUser", txt_klusr_nama.Text.Trim());
-                    cmd.Parameters.AddWithValue("@RoleUser", cmb_klusr_peran.Text);
-                    cmd.Parameters.AddWithValue("@Password", "12345");
-
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Data akun pengguna berhasil diperbarui.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    btn_klusr_refresh_Click(sender, e);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Gagal memperbarui data pengguna: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                db.UpdateUser(idUser, txt_klusr_nama.Text.Trim(), cmb_klusr_peran.Text, "12345");
+                MessageBox.Show("Data akun pengguna berhasil diperbarui.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                btn_klusr_refresh_Click(sender, e);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Gagal memperbarui data pengguna: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void btn_klusr_hapus_Click(object sender, EventArgs e)
@@ -171,24 +143,15 @@ namespace Ucp_pabd_lab.UI
 
             if (dialog == DialogResult.Yes)
             {
-                using (SqlConnection conn = db.GetConn())
+                try
                 {
-                    try
-                    {
-                        conn.Open();
-                        SqlCommand cmd = new SqlCommand("sp_DeleteUser", conn);
-                        cmd.CommandType = CommandType.StoredProcedure;
-
-                        cmd.Parameters.AddWithValue("@IDUser", idUser);
-
-                        cmd.ExecuteNonQuery();
-                        MessageBox.Show("Akun pengguna telah berhasil dihapus dari sistem.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        btn_klusr_refresh_Click(sender, e);
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show("Gagal menghapus data pengguna: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    db.DeleteUser(idUser);
+                    MessageBox.Show("Akun pengguna telah berhasil dihapus dari sistem.", "Sukses", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    btn_klusr_refresh_Click(sender, e);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Gagal menghapus data pengguna: " + ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

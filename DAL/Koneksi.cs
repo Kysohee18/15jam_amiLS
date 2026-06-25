@@ -38,14 +38,43 @@ namespace Ucp_pabd_lab.DAL
 
         public static string GetConnectionString()
         {
+            string ipFile = AppDomain.CurrentDomain.BaseDirectory + "db_server_ip.txt";
+            
+            // 1. Menggunakan konfigurasi eksternal jika file db_server_ip.txt ada
+            if (System.IO.File.Exists(ipFile))
+            {
+                try
+                {
+                    string content = System.IO.File.ReadAllText(ipFile).Trim();
+                    if (!string.IsNullOrEmpty(content))
+                    {
+                        // Jika berisi connection string lengkap, gunakan langsung
+                        if (content.Contains("Initial Catalog") || content.Contains("Database"))
+                        {
+                            return content;
+                        }
+                        // Jika hanya berisi IP/Host, susun dengan SQL Server Authentication default
+                        return $"Data Source={content};Initial Catalog=DBLabSekolah;User ID=sa;Password=PasswordSA;TrustServerCertificate=True";
+                    }
+                }
+                catch { }
+            }
 
-            //string connectionString = $"Data Source={GetLocalIPAddress()};Initial Catalog=DBLabSekolah;User ID=sa;Password=PasswordSA;";
-            
-            // UNTUK LOCAL DEVELOPMENT
-           // string connectionString = @"Data Source=DESKTOP-6V58GOQ\PUTRASQL;Initial Catalog=DBLabSekolahv1;Integrated Security=True";
-             string connectionString = @"Data Source=DESKTOP-SCRRHRM;Initial Catalog=DBLabSekolah;Integrated Security=True";
-            
-            return connectionString;
+            // 2. Deteksi otomatis untuk pengembangan lokal (VS Code)
+            string hostName = System.Net.Dns.GetHostName();
+            if (hostName.Equals("DESKTOP-6V58GOQ", StringComparison.OrdinalIgnoreCase))
+            {
+                // PC Utama (Putra)
+                return @"Data Source=DESKTOP-6V58GOQ\PUTRASQL;Initial Catalog=DBLabSekolahv1;Integrated Security=True;TrustServerCertificate=True";
+            }
+            else if (hostName.Equals("DESKTOP-SCRRHRM", StringComparison.OrdinalIgnoreCase))
+            {
+                // PC Cadangan (Rafie)
+                return @"Data Source=DESKTOP-SCRRHRM;Initial Catalog=DBLabSekolah;Integrated Security=True;TrustServerCertificate=True";
+            }
+
+            // Fallback default
+            return @"Data Source=DESKTOP-SCRRHRM;Initial Catalog=DBLabSekolah;Integrated Security=True;TrustServerCertificate=True";
         }
 
         public SqlConnection GetConn()

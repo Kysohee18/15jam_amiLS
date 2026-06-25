@@ -96,48 +96,37 @@ namespace Ucp_pabd_lab
                 return;
             }
 
-            using (SqlConnection conn = db.GetConn())
+            try
             {
-                try
+                string role = db.Login(txtUsername.Text, txtPass.Text);
+
+                if (role != null)
                 {
-                    conn.Open();
-                    string query = "SELECT RoleUser FROM UserLab WHERE NamaUser = @user AND Password = @pass";
-                    SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@user", txtUsername.Text);
-                    cmd.Parameters.AddWithValue("@pass", txtPass.Text);
-
-                    object result = cmd.ExecuteScalar();
-
-                    if (result != null)
+                    if (role == "Admin")
                     {
-                        string role = result.ToString();
-
-                        if (role == "Admin")
-                        {
-                            Formadmin adminForm = new Formadmin();
-                            adminForm.Show();
-                            this.Hide();
-                        }
-                        else if (role == "PenjagaLab")
-                        {
-                            Formpenjaga penjagaForm = new Formpenjaga();
-                            penjagaForm.Show();
-                            this.Hide();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Role Anda tidak memiliki akses ke sistem ini.");
-                        }
+                        Formadmin adminForm = new Formadmin();
+                        adminForm.Show();
+                        this.Hide();
+                    }
+                    else if (role == "PenjagaLab")
+                    {
+                        Formpenjaga penjagaForm = new Formpenjaga();
+                        penjagaForm.Show();
+                        this.Hide();
                     }
                     else
                     {
-                        MessageBox.Show("Username atau Password salah!");
+                        MessageBox.Show("Role Anda tidak memiliki akses ke sistem ini.");
                     }
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show("Database Error: " + ex.Message);
+                    MessageBox.Show("Username atau Password salah!");
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Database Error: " + ex.Message);
             }
         }
 
